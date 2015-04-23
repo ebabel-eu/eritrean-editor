@@ -1,0 +1,4001 @@
+From: <Saved by Microsoft Internet Explorer 5>
+Subject: UTR#17: Character Encoding Model
+Date: Sat, 18 Feb 2006 19:12:25 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_002F_01C634BF.40F51800"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.2180
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.unicode.org/unicode/reports/tr17/
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" =
+"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML><HEAD><TITLE>UTR#17: Character Encoding Model</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+<META http-equiv=3DContent-Language content=3Den-us><LINK=20
+href=3D"http://www.unicode.org/reports/reports.css" type=3Dtext/css =
+rel=3Dstylesheet>
+<META content=3D"MSHTML 6.00.2900.2802" name=3DGENERATOR></HEAD>
+<BODY bgColor=3D#ffffff>
+<TABLE class=3Dheader cellSpacing=3D0 cellPadding=3D0 width=3D"100%">
+  <TBODY>
+  <TR>
+    <TD class=3Dicon><A href=3D"http://www.unicode.org/"><IMG =
+height=3D33=20
+      alt=3D[Unicode] =
+src=3D"http://www.unicode.org/webscripts/logo60s2.gif"=20
+      width=3D34 align=3Dmiddle border=3D0></A>&nbsp;&nbsp;<A =
+class=3Dbar=20
+      href=3D"http://www.unicode.org/reports/">Technical =
+Reports</A></TD></TR>
+  <TR>
+    <TD class=3Dgray>&nbsp;</TD></TR></TBODY></TABLE>
+<DIV class=3Dbody><!-- TR TITLE: -->
+<H2 align=3Dcenter>Unicode Technical Report #17</H2>
+<H1 align=3Dcenter>Character Encoding Model</H1>
+<TABLE class=3Dwide cellSpacing=3D2 border=3D1>
+  <TBODY>
+  <TR>
+    <TD height=3D27>Authors</TD>
+    <TD height=3D27>Ken Whistler (<A=20
+      href=3D"mailto:ken@unicode.org">ken@unicode.org</A>), Mark Davis =
+(<A=20
+      href=3D"mailto:mark.davis@us.ibm.com">mark.davis@us.ibm.com</A>), =
+Asmus=20
+      Freytag (<A =
+href=3D"mailto:asmus@unicode.org">asmus@unicode.org</A>)</TD></TR>
+  <TR>
+    <TD>Date</TD>
+    <TD>2004-09-09</TD></TR>
+  <TR>
+    <TD>This Version</TD>
+    <TD><A=20
+      =
+href=3D"http://www.unicode.org/reports/tr17/tr17-5.html">http://www.unico=
+de.org/reports/tr17/tr17-5.html</A></TD></TR>
+  <TR>
+    <TD>Previous Version</TD>
+    <TD><A=20
+      =
+href=3D"http://www.unicode.org/reports/tr17/tr17-3.3.html">http://www.uni=
+code.org/reports/tr17/tr17-3.3.html</A></TD></TR>
+  <TR>
+    <TD>Latest Version</TD>
+    <TD><A=20
+      =
+href=3D"http://www.unicode.org/reports/tr17/">http://www.unicode.org/repo=
+rts/tr17/</A></TD></TR>
+  <TR>
+    <TD width=3D160>Revision</TD>
+    <TD><A=20
+    =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Revisions">5</A></TD=
+></TR></TBODY></TABLE><BR>
+<H3><I>Summary</I></H3>
+<P><I><EM>This document clarifies a number of the terms used to describe =
+
+character encodings, and where the different forms of Unicode fit in. It =
+
+elaborates the Internet Architecture Board (<A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#IAB">IAB</A>) =
+three-layer=20
+=E2=80=9Ctext stream=E2=80=9D definitions into a four-layer =
+structure.</EM></I></P>
+<H3><I>Status</I></H3><!-- APPROVED:-->
+<P><I>This document has been reviewed by Unicode members and other =
+interested=20
+parties, and has been approved by the Unicode Technical Committee as a=20
+<B>Unicode Technical Report</B>. This is a stable document and may be =
+used as=20
+reference material or cited as a normative reference by other=20
+specifications.</I></P><!--END APPROVED --><!-- NOT YET APPROVED: -=0A=
+  <p><i>This document is a<b><span style=3D"background-color:#FFFF00"> =
+proposed update of a =0A=
+  previously approved</span> </b></i><b><i><span =
+style=3D"background-color:#80FFFF">Unicode =0A=
+  Technical Report</span></i></b><i>. Publication does not imply =
+endorsement by =0A=
+  the Unicode Consortium. This is a draft document which may be updated, =0A=
+  replaced, or superseded by other documents at any time. This is not a =
+stable =0A=
+  document; it is inappropriate to cite this document as other than a =
+work in =0A=
+  progress.</i></p>=0A=
+  -END NOT YET APPOROVED-->
+<BLOCKQUOTE>
+  <P><I><B>A Unicode Technical Report (UTR) </B>contains informative =
+material.=20
+  Conformance to the Unicode Standard does not imply conformance to any =
+UTR.=20
+  Other specifications, however, are free to make normative references =
+to a=20
+  UTR.</I></P></BLOCKQUOTE>
+<P><I>Please submit corrigenda and other comments with the online =
+reporting form=20
+[<A =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Feedback">Feedback</=
+A>].=20
+Related information that is useful in understanding this document is =
+found in=20
+the <A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#References">Referenc=
+es</A>.=20
+For the latest version of the Unicode Standard see [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Unicode">Unicode</A>=
+]. For a=20
+list of current Unicode Technical Reports see [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Reports">Reports</A>=
+]. For=20
+more information about versions of the Unicode Standard, see [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Versions">Versions</=
+A>].</I></P>
+<H3><EM>Contents</EM></H3>
+<OL class=3Dtoc>
+  <LI><A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CharacterEncodingMod=
+el">The=20
+  Character Encoding Model</A>=20
+  <LI><A =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Repertoire">Abstract=
+=20
+  Character Repertoire</A>=20
+  <UL class=3Dtoc>
+    <LI>2.1 <A=20
+    =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Versioning">Versioni=
+ng</A>=20
+
+    <LI>2.2 <A=20
+    =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CharactersVsGlyphs">=
+Characters=20
+    vs. Glyphs</A>=20
+    <LI>2.3 <A=20
+    =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CompatibilityCharact=
+ers">Compatibility=20
+    Characters</A>=20
+    <LI>2.4 <A=20
+    =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Subsets">Subsets</A>=
+=20
+  </LI></UL>
+  <LI><A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CodedCharacterSet">C=
+oded=20
+  Character Set (CCS)</A>=20
+  <UL class=3Dtoc>
+    <LI>3.1 <A=20
+    =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CharacterNaming">Cha=
+racter=20
+    Naming</A>=20
+    <LI>3.2 <A=20
+    =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CodeSpaces">Code=20
+    Spaces</A> </LI></UL>
+  <LI><A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CharacterEncodingFor=
+m">Character=20
+  Encoding Form (CEF)</A>=20
+  <LI><A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CharacterEncodingSch=
+eme">Character=20
+  Encoding Scheme (CES)</A>=20
+  <UL class=3Dtoc>
+    <LI>5.1 <A=20
+    href=3D"http://www.unicode.org/unicode/reports/tr17/#ByteOrder">Byte =
+Order</A>=20
+    </LI></UL>
+  <LI><A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CharacterMaps">Chara=
+cter=20
+  Maps</A>=20
+  <LI><A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#TransferEncodingSynt=
+ax">Transfer=20
+  Encoding Syntax</A>=20
+  <LI><A =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#APIBinding">Data=20
+  Types and API Binding</A>=20
+  <UL class=3Dtoc>
+    <LI>8.1 <A =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Strings"=20
+    name=3D217>Strings</A> </LI></UL>
+  <LI><A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#DefinitionsAndAcrony=
+ms">Definitions=20
+  and Acronyms</A> </LI></OL>
+<UL class=3Dtoc>
+  <LI><A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#References">Referenc=
+es</A>=20
+  <LI><A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Acknowledgements">Ac=
+knowledgements</A>=20
+
+  <LI><A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Revisions">Modificat=
+ions</A>=20
+  </LI></UL>
+<HR align=3Dleft>
+
+<H2>1 <A name=3DCharacterEncodingModel>The Character Encoding =
+Model</A></H2>
+<P>This report describes a model for the structure of character =
+encodings. The=20
+Unicode Character Encoding Model places the Unicode Standard in the =
+context of=20
+other character encodings of all types, as well as existing models such =
+as the=20
+character architecture promoted by the Internet Architecture Board (<A=20
+class=3Dcharclass =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#IAB">IAB</A>)=20
+for use on the internet, or the Character Data Representation =
+Architecture [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CDRA-Ref">CDRA</A>] =
+defined=20
+by IBM for organizing and cataloging its own vendor-specific array of =
+character=20
+encodings. This document focuses on how these models should be extended =
+and=20
+clarified to cover all the aspects of the Unicode Standard and <A=20
+class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#ISO">ISO</A>/<A=20
+class=3Dcharclass =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#IEC">IEC</A>=20
+10646 [<A =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#10646">10646</A>].=20
+(For a list of common acronyms used in this text, see Section 9 <A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#DefinitionsAndAcrony=
+ms"><I>Definitions=20
+and Acronyms</I></A>).</P>
+<P>The four levels of the Unicode Character Encoding Model can be =
+summarized=20
+as:</P>
+<UL>
+  <LI><B><A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#ACR">ACR</A>:</B> =
+Abstract=20
+  Character Repertoire=20
+  <UL style=3D"LIST-STYLE-TYPE: none">
+    <LI><I>the set of characters to be encoded, for example, some =
+alphabet or=20
+    symbol set</I> </LI></UL>
+  <LI><B><A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#CCS">CCS</A>:</B> =
+Coded=20
+  Character Set=20
+  <UL style=3D"LIST-STYLE-TYPE: none">
+    <LI><I>a mapping from an abstract character repertoire to a set of=20
+    nonnegative integers</I> </LI></UL>
+  <LI><B><A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#CEF">CEF</A>:</B> =
+Character=20
+  Encoding Form=20
+  <UL style=3D"LIST-STYLE-TYPE: none">
+    <LI><I>a mapping from a set of nonnegative integers that are =
+elements of a=20
+    CCS to a set of sequences of particular code units of some specified =
+width,=20
+    such as 32-bit integers</I> </LI></UL>
+  <LI><B><A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#CES">CES</A>:</B> =
+Character=20
+  Encoding Scheme=20
+  <UL style=3D"LIST-STYLE-TYPE: none">
+    <LI><I>a reversible transformation from a set of sequences of code =
+units=20
+    (from one or more CEFs to a serialized sequence of bytes</I>=20
+</LI></UL></LI></UL>
+<P>In addition to the four individual levels, there are two other useful =
+
+concepts:</P>
+<UL>
+  <LI><B><A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#CM">CM</A>: =
+</B>Character=20
+  Map=20
+  <UL style=3D"LIST-STYLE-TYPE: none">
+    <LI><I>a mapping from sequences of members of an abstract character=20
+    repertoire to serialized sequences of bytes bridging all four levels =
+in a=20
+    single operation. </I></LI></UL>
+  <LI><B><A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#TES">TES</A>:</B> =
+Transfer=20
+  Encoding Syntax=20
+  <UL style=3D"LIST-STYLE-TYPE: none">
+    <LI><I>a reversible transform of encoded data. This data may or may =
+not=20
+    contain textual data</I> </LI></UL></LI></UL>
+<P>The IAB model, as defined in [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#RFC2130">RFC =
+2130</A>],=20
+distinguishes three levels: <I>Coded Character Set</I> (<A =
+class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CCS">CCS</A>), =
+<I>Character=20
+Encoding Scheme</I> (<A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CES">CES</A>), and=20
+<I>Transfer Encoding Syntax</I> (<A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#TES">TES</A>). =
+However, <SPAN=20
+style=3D"FONT-STYLE: italic">four </SPAN>levels need to be defined to =
+adequately=20
+cover the distinctions required for the Unicode character encoding =
+model. One of=20
+these, the <I>Abstract Character Repertoire</I>, is implicit in the IAB =
+model.=20
+The Unicode model also gives the TES a separate status outside the =
+model, while=20
+adding an additional level between the CCS and the CES.</P>
+<P>The following sections give sample definitions, explanations and =
+examples for=20
+each of the four levels, as well as the Character Map, and the Transfer =
+Encoding=20
+Syntax. These are followed by a discussion of <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#API">API</A> =
+Binding issues=20
+and a complete list of acronyms used in this document.</P>
+<H2>2 Abstract Character <A name=3DRepertoire>Repertoire</A></H2>
+<P>A <I>character repertoire</I> is defined as an unordered set of =
+abstract=20
+characters to be encoded. The word <I>abstract</I> means that these =
+objects are=20
+defined by convention. In many cases a repertoire consists of a familiar =
+
+alphabet or symbol set.</P>
+<P>Repertoires come in two types: <I>fixed</I> and <I>open</I>. For most =
+
+character encodings, the repertoire is fixed, <I>and often small</I>. =
+Once the=20
+repertoire is decided upon, it is never changed. Addition of a new =
+abstract=20
+character to a given repertoire creates a new repertoire, which then =
+will be=20
+given its own catalogue number, constituting a new object. For the =
+Unicode=20
+Standard, on the other hand, the repertoire is inherently open. Because =
+Unicode=20
+is intended to be the universal encoding, any abstract character that =
+ever could=20
+be encoded is potentially a member of the set to be encoded, whether =
+that=20
+character is currently known or not.</P>
+<P>Some other character sets use a limited notion of open repertoires. =
+For=20
+example, Microsoft has on occasion extended the repertoire of its =
+Windows=20
+character sets by adding a handful of characters to an existing =
+repertoire. This=20
+occurred when the <SPAN class=3Dname>EURO SIGN</SPAN> was added to the =
+repertoire=20
+for a number of Windows character sets, for example. For suggestions on =
+how to=20
+map the unassigned characters of open repertoires, see [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CharMapML">CharMapML=
+</A>].=20
+</P>
+<P>Repertoires are the entities that get <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CS">CS</A> =
+(=E2=80=9Ccharacter set=E2=80=9D )=20
+values in the IBM <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CDRA">CDRA</A>=20
+architecture.</P>
+<P>Examples of Character Repertoires:</P>
+<UL>
+  <LI>the Japanese syllabaries and ideographs of <A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#JIS">JIS</A> X =
+0208 (CS=20
+  01058) [fixed]=20
+  <LI>the Western European alphabets and symbols of Latin-1 (CS 00697) =
+[fixed]=20
+  <LI>the POSIX portable character repertoire [fixed]=20
+  <LI>the IBM host Japanese repertoire (CS 01001) [fixed]=20
+  <LI>the Windows Western European repertoire [open]=20
+  <LI>the Unicode/10646 repertoire [open] </LI></UL>
+<H3><A name=3DVersioning>2.1 Versioning</A></H3>
+<P>The Unicode Standard versions its repertoire by publication of major =
+and=20
+minor editions of the standard: 1.0, 1.1, 2.0, 2.1, 3.0,... The =
+repertoire for=20
+each version is defined by the enumeration of abstract characters =
+included in=20
+that version.</P>
+<P>Repertoire extensions for the Unicode Standard are now strictly =
+additive.=20
+even though there were several discontinuities to the earliest versions =
+(1.0 and=20
+1.1) and affecting backwards compatibility to them. The primary reason =
+for these=20
+was the merger of the [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Unicode">Unicode</A>=
+] with=20
+[<A =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#10646">10646</A>].=20
+Starting with version 2.0 and continuing forward indefinitely into =
+future=20
+versions, once included, no character is ever removed from the =
+repertoire, as=20
+specified in the Unicode Stability Policy [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Stability">Stability=
+</A>].</P>
+<P>The versioning of the repertoire is different from the versioning of =
+the=20
+Unicode Standard as a whole, in particular the Unicode Character =
+Database [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UCD">UCD</A>], =
+which defines=20
+Character Properties (see also [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#PropModel">PropModel=
+</A>]).=20
+There are <I>update versions</I> of the text of the Unicode standard and =
+of the=20
+Unicode Character Database between major and minor versions of the =
+Unicode=20
+Standard. While these update versions may amend character properties and =
+
+descriptions of character behavior, they do not add to the character =
+repertoire.=20
+For more information about versions of the Unicode Standard see <A=20
+href=3D"http://www.unicode.org/versions/">Versions of the Unicode =
+Standard</A> [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Versions">Versions</=
+A>].</P>
+<P>ISO/IEC 10646 has a different mechanism for extending its repertoire. =
+The=20
+10646 repertoire is extended by a formal amendment process. As each =
+individual=20
+amendment containing additional characters is published, it extends the =
+10646=20
+repertoire. The repertoires of the Unicode Standard and ISO/IEC 10646 =
+are kept=20
+in alignment by coordinating the publication of major versions of the =
+Unicode=20
+Standard with the publication of a well-defined list of amendments for =
+10646 or=20
+with a major revision and republication of 10646.</P>
+<H3>2.2 <A name=3DCharactersVsGlyphs>Characters vs. Glyphs</A></H3>
+<P>The elements of the character repertoire are abstract =
+<I>characters</I>.=20
+Characters are different from <I>glyphs</I>, which are the particular =
+images=20
+representing a character or part of a character. Glyphs for the same =
+character=20
+may have very different shapes: as shown in the following examples for =
+the=20
+letter <B><I>a</I></B>.</P>
+<DIV align=3Dleft>
+<TABLE cellPadding=3D2 align=3Dcenter border=3D1>
+  <CAPTION>Figure 1</CAPTION>
+  <TBODY>
+  <TR>
+    <TH>Character</TH>
+    <TH colSpan=3D6>Sample Glyphs</TH></TR>
+  <TR>
+    <TD align=3Dmiddle><I><IMG height=3D50 alt=3DTimes=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/A1.gif" =
+width=3D49=20
+      border=3D0></I></TD>
+    <TD><I><IMG height=3D50 alt=3DFigure=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/A2.gif" =
+width=3D50=20
+      border=3D0></I></TD>
+    <TD><I><IMG height=3D50 alt=3DScript=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/A3.gif" =
+width=3D49=20
+      border=3D0></I></TD>
+    <TD><I><IMG height=3D50 alt=3DFigure=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/A5.gif" =
+width=3D48=20
+      border=3D0></I></TD>
+    <TD><I><IMG height=3D50 alt=3DDecorative=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/A6.gif" =
+width=3D49=20
+      border=3D0></I></TD>
+    <TD><I><IMG height=3D50 alt=3DFraktur=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/A10.gif" =
+width=3D49=20
+      border=3D0></I></TD>
+    <TD><I><IMG height=3D50 alt=3DFigure=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/A8.gif" =
+width=3D49=20
+      border=3D0></I></TD></TR></TBODY></TABLE></DIV>
+<P>Glyphs do not correspond one-for-one with characters. For example, a =
+sequence=20
+of <I>=E2=80=9Cf=E2=80=9D </I>followed by<I> =E2=80=9Ci=E2=80=9D </I>may =
+be represented with a single glyph,=20
+called an <I>fi ligature.</I> Notice that the shapes are merged =
+together, and=20
+the dot is missing from the <I>=E2=80=9Ci=E2=80=9D </I>in the following =
+example:</P>
+<DIV align=3Dleft>
+<TABLE cellPadding=3D2 align=3Dcenter border=3D1>
+  <CAPTION>Figure 2 </CAPTION>
+  <TBODY>
+  <TR>
+    <TH>Character Sequence</TH>
+    <TH>Sample Glyph</TH></TR>
+  <TR>
+    <TD align=3Dmiddle><IMG height=3D50 alt=3Df=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/f.gif" =
+width=3D49=20
+      border=3D0><IMG height=3D50 alt=3Di=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/i.gif" =
+width=3D49=20
+    border=3D0></TD>
+    <TD>
+      <P align=3Dcenter><IMG height=3D50 alt=3Dfi-ligature=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/fi.gif" =
+width=3D49=20
+      border=3D0></P></TD></TR></TBODY></TABLE></DIV>
+<P>On the other hand, the same image as the <I>fi ligature</I> could =
+conceivably=20
+also be achieved by a sequence of two glyphs with the right shapes, as =
+in the=20
+hypothetical example shown in Figure 3. The choice of whether to use a =
+single=20
+glyph or a sequence of two is up to the font containing the glyphs and =
+the=20
+rendering software.</P>
+<DIV align=3Dleft>
+<TABLE cellPadding=3D2 align=3Dcenter border=3D1>
+  <CAPTION>Figure 3 </CAPTION>
+  <TBODY>
+  <TR>
+    <TH>Character Sequence</TH>
+    <TH>Possible Glyph Sequence</TH></TR>
+  <TR>
+    <TD align=3Dmiddle><I><IMG height=3D50 alt=3Df=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/f.gif" =
+width=3D49=20
+      border=3D0><IMG height=3D50 alt=3Di=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/i.gif" =
+width=3D49=20
+      border=3D0></I></TD>
+    <TD>
+      <P align=3Dcenter><I><IMG height=3D50 alt=3Dfi-ligature-left-half=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/fi1.gif" =
+width=3D49=20
+      border=3D0><IMG height=3D50 alt=3Dfi-ligature-right-half=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/fi2.gif" =
+width=3D49=20
+      border=3D0></I></P></TD></TR></TBODY></TABLE></DIV>
+<P>Similarly, an accented character could be represented by a single =
+glyph, or=20
+by separate component glyphs positioned appropriately. In addition, any =
+of the=20
+accents can also be considered characters in their own right, in which =
+case a=20
+sequence of characters can also correspond to different possible glyph=20
+representations:</P>
+<DIV align=3Dleft>
+<TABLE cellPadding=3D2 align=3Dcenter border=3D1>
+  <CAPTION>Figure 4 </CAPTION>
+  <TBODY>
+  <TR>
+    <TH>Character Sequence</TH>
+    <TH colSpan=3D3>Possible Glyph Sequences</TH></TR>
+  <TR>
+    <TD align=3Dmiddle><I><IMG height=3D49 alt=3Do-circumflex-acute=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/o-circumflex-acute.gif=
+"=20
+      width=3D49 border=3D0></I></TD>
+    <TD><I><IMG height=3D49 alt=3Do-circumflex-acute=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/o-circumflex-acute.gif=
+"=20
+      width=3D49 border=3D0></I></TD>
+    <TD><I><IMG height=3D49 alt=3Do=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/o.gif" =
+width=3D49=20
+      border=3D0><IMG height=3D49 alt=3Dcircumflex=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/circumflex.gif" =
+width=3D48=20
+      border=3D0><IMG height=3D49 alt=3Dacute=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/acute.gif" =
+width=3D49=20
+      border=3D0></I></TD>
+    <TD align=3Dmiddle><IMG height=3D49 alt=3Dcircumflex-acute=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/o.gif" =
+width=3D49=20
+      border=3D0><IMG height=3D49 alt=3Dcircumflex-acute=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/circumflex-acute.gif" =
+
+      width=3D48 border=3D0> </TD></TR>
+  <TR>
+    <TD align=3Dmiddle><IMG height=3D49 alt=3Do=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/o.gif" =
+width=3D49=20
+      border=3D0><IMG height=3D49 alt=3Dcircumflex=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/circumflex.gif" =
+width=3D48=20
+      border=3D0><IMG height=3D49 alt=3Dacute=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/acute.gif" =
+width=3D49=20
+      border=3D0></TD>
+    <TD align=3Dmiddle><IMG height=3D49 alt=3Do-circumflex-acute=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/o-circumflex-acute.gif=
+"=20
+      width=3D49 border=3D0></TD>
+    <TD align=3Dmiddle><IMG height=3D49 alt=3Do=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/o.gif" =
+width=3D49=20
+      border=3D0><IMG height=3D49 alt=3Dcircumflex=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/circumflex.gif" =
+width=3D48=20
+      border=3D0><IMG height=3D49 alt=3Dacute=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/acute.gif" =
+width=3D49=20
+      border=3D0></TD>
+    <TD align=3Dmiddle><IMG height=3D49 alt=3Do=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/o.gif" =
+width=3D49=20
+      border=3D0><IMG height=3D49 alt=3Dcircumflex-acute=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/circumflex-acute.gif" =
+
+      width=3D48 border=3D0> </TD></TR></TBODY></TABLE></DIV>
+<P>In non-Latin scripts, the connection between glyphs and characters is =
+at=20
+times even less direct. Glyphs may be required to change their shape, =
+position=20
+and width depending on the surrounding glyphs. Such glyphs are called =
+contextual=20
+forms. For example, the Arabic character <I>heh</I> has the four =
+contextual=20
+glyphs shown in figure 5.</P>
+<TABLE cellPadding=3D2 align=3Dcenter border=3D1>
+  <CAPTION>Figure 5 </CAPTION>
+  <TBODY>
+  <TR>
+    <TH>Character</TH>
+    <TH colSpan=3D4>Possible Glyphs, depending on context</TH></TR>
+  <TR>
+    <TD align=3Dmiddle><IMG height=3D50 alt=3D"Arabic Heh"=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHeh.gif" =
+width=3D49=20
+      border=3D0></TD>
+    <TD><IMG height=3D50 alt=3DIsolated=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHeh.gif" =
+width=3D49=20
+      border=3D0></TD>
+    <TD><IMG height=3D50 alt=3DMedial=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHehMedial.gif"=20
+      width=3D49 border=3D0></TD>
+    <TD><IMG height=3D50 alt=3DInitial=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHehInitial.gif" =
+
+      width=3D49 border=3D0></TD>
+    <TD><IMG height=3D50 alt=3DFinal=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHehFinal.gif"=20
+      width=3D49 border=3D0> </TD></TR></TBODY></TABLE>
+<P>In Arabic and other scripts, justification of text inside fixed =
+margins is=20
+not done by expanding the spaces. Instead, certain glyphs are stretched =
+by=20
+elongating their horizontal parts. Ideally this is implemented by =
+changing the=20
+shape of the glyph depending on the desired width. On some systems, this =
+
+stretching is approximated by inserting extra connecting glyphs called=20
+<I>kashidas</I>, as shown in Figure 6. In such a case, a single =
+character may=20
+conceivably correspond to a whole sequence of <I>kashidas + glyphs +=20
+kashidas</I>.</P>
+<TABLE cellPadding=3D2 align=3Dcenter border=3D1>
+  <CAPTION>Figure 6 </CAPTION>
+  <TBODY>
+  <TR>
+    <TH>Character</TH>
+    <TH>Sequence of glyphs</TH></TR>
+  <TR>
+    <TD align=3Dmiddle><I><IMG height=3D50 alt=3DFigure=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHeh.gif" =
+width=3D49=20
+      border=3D0></I></TD>
+    <TD><IMG height=3D50 alt=3DFigure=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicKashida.gif"=20
+      width=3D49 border=3D0><I><IMG height=3D50 alt=3DFigure=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHehMedial.gif"=20
+      width=3D49 border=3D0></I><IMG height=3D50 alt=3DFigure=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicKashida.gif"=20
+      width=3D49 border=3D0></TD></TR></TBODY></TABLE>
+<P>In other cases, a single character must correspond to two glyphs, =
+because=20
+those two glyphs are positioned <I>around</I> other letters. See the =
+Tamil=20
+characters in Figure 7 below. If one of those glyphs forms a ligature =
+with other=20
+characters, then there is a situation where what is conceptual =
+<I>part</I> of a=20
+character corresponds to visual <I>part</I> of a glyph. If a character =
+(or any=20
+part of it) corresponds to a glyph (or any part of it), then one says =
+that the=20
+character <I>contributes</I> to the glyph.</P>
+<DIV align=3Dleft>
+<TABLE cellPadding=3D2 align=3Dcenter border=3D1>
+  <CAPTION>Figure 7 </CAPTION>
+  <TBODY>
+  <TR>
+    <TH>Character</TH>
+    <TH>Split Glyphs</TH></TR>
+  <TR>
+    <TD align=3Dmiddle><I><IMG height=3D50 alt=3DFigure=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/TamilAU.gif" =
+width=3D49=20
+      border=3D0></I></TD>
+    <TD><I><IMG height=3D50 alt=3DFigure=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/TamilE.gif" =
+width=3D49=20
+      border=3D0>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <IMG =
+height=3D50=20
+      alt=3DFigure=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/TamilAULength.gif"=20
+      width=3D49 border=3D0></I></TD></TR></TBODY></TABLE></DIV>
+<P>For the general case, the correspondence between glyphs and =
+characters is not=20
+one-to-one, and cannot be predicted from the text alone. Whether a =
+particular=20
+string of characters is rendered by a particular sequence of glyphs will =
+depend=20
+on the sophistication of the host operating system and the font. The =
+ordering of=20
+glyphs also does not necessarily correspond to the ordering of the =
+characters.=20
+In particular the right-to-left scripts like Arabic and Hebrew give rise =
+to=20
+complex reordering. See UAX #9: <I><A=20
+href=3D"http://www.unicode.org/reports/tr9/">The Bidirectional =
+Algorithm</A></I>=20
+[<A =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Bidi">Bidi</A>].</P>=
+
+<H3>2.3 <A name=3DCompatibilityCharacters>Compatibility =
+Characters</A></H3>
+<P>For historical reasons, abstract character repertoires may include =
+many=20
+entities that normally would not be considered appropriate members of an =
+
+abstract character repertoire. These so-called compatibility characters =
+may=20
+include ligature glyphs, contextual form glyphs, glyphs that vary by =
+width,=20
+sequences of characters, and adorned glyphs, such as circled numbers. =
+Figure 8=20
+lists some examples in which these are encoded as single characters in =
+Unicode.=20
+As with glyphs, there are not necessarily one-to-one relationships =
+between=20
+characters and code points.</P>
+<P>What an end-user thinks of as a single character (also called a =
+<I>grapheme=20
+</I>in the context of Unicode) may in fact be represented by multiple =
+code=20
+points; conversely, a single code point may correspond to multiple =
+characters.=20
+Here are some examples:</P>
+<TABLE cellPadding=3D2 align=3Dcenter border=3D1>
+  <CAPTION>Figure 8</CAPTION>
+  <TBODY>
+  <TR>
+    <TH>Characters</TH>
+    <TH colSpan=3D4>Code Points</TH>
+    <TH>Notes</TH></TR>
+  <TR>
+    <TD align=3Dmiddle><IMG height=3D50 alt=3D"Arabic Heh"=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHeh.gif" =
+width=3D49=20
+      border=3D0></TD>
+    <TD><IMG height=3D50 alt=3DIsolated=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHeh.gif" =
+width=3D49=20
+      border=3D0></TD>
+    <TD><IMG height=3D50 alt=3DMedial=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHehMedial.gif"=20
+      width=3D49 border=3D0></TD>
+    <TD><IMG height=3D50 alt=3DInitial=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHehInitial.gif" =
+
+      width=3D49 border=3D0></TD>
+    <TD><IMG height=3D50 alt=3DFinal=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/ArabicHehFinal.gif"=20
+      width=3D49 border=3D0> </TD>
+    <TD><I>Arabic contextual form glyphs</I> encoded as compatibility=20
+      characters in Unicode, also known as <I>presentation =
+forms</I>.</TD></TR>
+  <TR>
+    <TD align=3Dmiddle><I><IMG height=3D50 alt=3Df=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/f.gif" =
+width=3D49=20
+      border=3D0><IMG height=3D50 alt=3Di=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/i.gif" =
+width=3D49=20
+      border=3D0></I></TD>
+    <TD align=3Dmiddle colSpan=3D4><I><IMG height=3D50 alt=3D"fi =
+ligature"=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/fi.gif" =
+width=3D49=20
+      border=3D0></I></TD>
+    <TD align=3Dleft><I>Ligature glyph</I> encoded as compatibility =
+character in=20
+      Unicode and several character sets</TD></TR>
+  <TR>
+    <TD align=3Dmiddle><I><IMG height=3D50 alt=3DP=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/P.gif" =
+width=3D49=20
+      border=3D0><IMG height=3D50 alt=3Dt=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/t.gif" =
+width=3D49=20
+      border=3D0><IMG height=3D50 alt=3Ds=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/s.gif" =
+width=3D48=20
+      border=3D0></I></TD>
+    <TD align=3Dmiddle colSpan=3D4><I><IMG height=3D50 alt=3DPts=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/Pts.gif" =
+width=3D49=20
+      border=3D0></I></TD>
+    <TD align=3Dleft><I>A single code point representing a sequence of =
+three=20
+      characters.</I> (Encoded as compatibility character in Unicode and =
+several=20
+      character sets).</TD></TR>
+  <TR>
+    <TD align=3Dmiddle><I><IMG height=3D50 alt=3DKSHA=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/DevanagariKSHA.gif"=20
+      width=3D49 border=3D0></I></TD>
+    <TD align=3Dmiddle colSpan=3D4><IMG height=3D50 alt=3DKA=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/DevanagariKA.gif"=20
+      width=3D49 border=3D0><IMG height=3D50 alt=3Dvirama=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/DevanagariVirama.gif" =
+
+      width=3D49 border=3D0><IMG height=3D50 alt=3Dsha=20
+      =
+src=3D"http://www.unicode.org/unicode/reports/tr17/DevanagariSHA.gif"=20
+      width=3D49 border=3D0></TD>
+    <TD align=3Dleft><I>The Devanagari syllable ksha represented by =
+three code=20
+      points.</I></TD></TR>
+  <TR>
+    <TD align=3Dmiddle><IMG height=3D46 alt=3Dg-ring=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/g-ring.gif" =
+width=3D46=20
+      border=3D0></TD>
+    <TD align=3Dmiddle colSpan=3D4><IMG height=3D46 alt=3Dg=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/g.gif" =
+width=3D46=20
+      border=3D0><IMG height=3D46 alt=3D"ring above"=20
+      src=3D"http://www.unicode.org/unicode/reports/tr17/ring.gif" =
+width=3D47=20
+      border=3D0></TD>
+    <TD align=3Dleft><I>G-ring represented by two code=20
+points.</I></TD></TR></TBODY></TABLE>
+<P>For more information on graphemes see UAX# 29: <A=20
+href=3D"http://www.unicode.org/reports/tr29/"><I>Text Boundaries</I></A> =
+[<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Boundaries">Boundari=
+es</A>].=20
+</P>
+<H3>2.4 <A name=3DSubsets>Subsets</A></H3>
+<P>Unlike most character repertoires, the synchronized repertoire of =
+Unicode and=20
+10646 is intended to be <I>universal</I> in coverage. Given the =
+complexity of=20
+many writing systems, in practice this implies that nearly all =
+implementations=20
+will fully support only some subset of the total repertoire, rather than =
+all the=20
+characters.</P>
+<P>Formal subset mechanisms are occasionally seen in implementations of =
+some=20
+Asian character sets, where for example, the distinction between =
+=E2=80=9CLevel 1 JIS=E2=80=9D=20
+and =E2=80=9CLevel 2 JIS=E2=80=9D support refers to particular parts of =
+the repertoire of the <A=20
+class=3Dcharclass =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#JIS">JIS</A>=20
+X 0208 kanji characters to be included in the implementation.</P>
+<P>Subsetting is a major formal aspect of <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#ISO">ISO</A>/<A=20
+class=3Dcharclass =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#IEC">IEC</A>=20
+10646. The standard includes a set of internal catalog numbers for named =
+
+subsets, and further makes a distinction between subsets that are =
+<I>fixed=20
+collections</I> and those that are <I>open collections</I>, defined by a =
+range=20
+of code positions. Open collections are extended any time an addition to =
+the=20
+repertoire gets encoded in a code position between the range limits =
+defining the=20
+collection. When the last of its open code positions is filled, an open=20
+collection automatically becomes a fixed collection. </P>
+<P>The European Committee for Standardization (<A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CEN">CEN</A>) has =
+defined=20
+several multilingual European subsets of ISO/IEC 10646-1 (called MES-1, =
+MES-2,=20
+MES-3A, and MES-3B). MES-1 and MES-2 have been added as named fixed =
+collections=20
+in 10646.</P>
+<P>The Unicode Standard specifies neither predefined subsets nor a =
+formal syntax=20
+for their definition. It is left to each implementation to define and =
+support=20
+the subset of the universal repertoire that it wishes to interpret.</P>
+<H2>3 <A name=3DCodedCharacterSet>Coded Character Set (CCS)</A></H2>
+<P>A <I>coded character set</I> is defined to be a mapping from a set of =
+
+abstract characters to the set of nonnegative integers. This range of =
+integers=20
+need not be contiguous. In the Unicode Standard, the concept of the =
+Unicode=20
+scalar value (cf. definition D28, in Chapter 3, "Conformance" of [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Unicode">Unicode</A>=
+])=20
+explicitly defines such a noncontiguous range of integers.</P>
+<P>An abstract character is defined to be <I>in a coded character =
+set</I> if the=20
+coded character set maps from it to an integer. That integer is the =
+<I>code=20
+point</I> to which the abstract character has been <I>assigned</I>. That =
+
+abstract character is then an <I>encoded character</I>.</P>
+<P>Coded character sets are the basic object that both <A =
+class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#ISO">ISO</A> and =
+vendor=20
+character encoding committees produce. They relate a defined repertoire =
+to=20
+nonnegative integers, which then can be used unambiguously to refer to=20
+particular abstract characters from the repertoire.</P>
+<P>A coded character set may also be known as a <I>character =
+encoding</I>, a=20
+<I>coded character repertoire</I>, a <I>character set definition</I>, or =
+a=20
+<I>code page</I>.</P>
+<P>In the IBM <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CDRA">CDRA</A> =
+architecture,=20
+<A class=3Dcharclass =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CP">CP</A>=20
+(=E2=80=9Ccode page=E2=80=9D ) values refer to coded character sets. =
+Note that this use of the=20
+term <I>code page</I> is quite precise and limited. It should not be =
+=E2=80=94 but=20
+generally is =E2=80=94 confused with the generic use of <I>code page</I> =
+to refer to=20
+character encoding schemes.</P>
+<P>Examples of Coded Character Sets:</P>
+<TABLE class=3Dgray>
+  <TBODY>
+  <TR>
+    <TH class=3Dgrayfirst>Name</TH>
+    <TH class=3Dgrayfirst>Repertoire</TH></TR>
+  <TR>
+    <TD class=3Dgraymiddle><A class=3Dcharclass=20
+      href=3D"http://www.unicode.org/unicode/reports/tr17/#JIS">JIS</A> =
+X 0208 </TD>
+    <TD class=3Dgraymiddle>assigns pairs of integers known as =
+<I>kuten</I>=20
+    points</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle style=3D"BORDER-TOP: 1pt solid">ISO/IEC =
+8859-1 </TD>
+    <TD class=3Dgraymiddle style=3D"BORDER-TOP: 1pt solid">ASCII plus=20
+Latin-1</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>ISO/IEC 8859-2 </TD>
+    <TD class=3Dgraymiddle>different repertoire than 8859-1, although =
+both use=20
+      the same code space </TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>Code Page 037</TD>
+    <TD class=3Dgraymiddle>same repertoire as 8859-1; different integers =
+
+      assigned to the same characters</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>Code Page 500</TD>
+    <TD class=3Dgraymiddle>same repertoire as 8859-1 and Code Page 037;=20
+      different integers</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle style=3D"BORDER-TOP: 1pt solid">The Unicode =
+Standard,=20
+      Version 2.0</TD>
+    <TD class=3Dgraymiddle style=3D"BORDER-TOP: 1pt solid" =
+rowSpan=3D2>exactly the=20
+      same repertoire and mapping</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>ISO/IEC 10646-1:1993 <BR>plus=20
+  amendments&nbsp;1-7</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle style=3D"BORDER-TOP: 1pt solid">The Unicode =
+Standard,=20
+      Version 3.0</TD>
+    <TD class=3Dgraymiddle style=3D"BORDER-TOP: 1pt solid" =
+rowSpan=3D2>exactly the=20
+      same repertoire and mapping</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>ISO/IEC 10646-1:2000</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle style=3D"BORDER-TOP: 1pt solid">The Unicode =
+Standard,=20
+      Version 4.0</TD>
+    <TD class=3Dgraylast style=3D"BORDER-TOP: 1pt solid" =
+rowSpan=3D2>exactly the=20
+      same repertoire and mapping</TD></TR>
+  <TR>
+    <TD class=3Dgraylast>ISO/IEC 10646:2003</TD></TR></TBODY></TABLE>
+<P>This document does not attempt to list all versions of the Unicode =
+Standard.=20
+See <A href=3D"http://www.unicode.org/versions/">Versions of the Unicode =
+
+Standard</A> [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Versions">Versions</=
+A>] for=20
+the complete list of versions and for information how they match with =
+particular=20
+versions and amendments of 10646.</P>
+<H3>3.1 <A name=3DCharacterNaming>Character Naming</A></H3>
+<P>SC2, the <A =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#JTC1">JTC1</A>=20
+subcommittee responsible for character coding, requires the assignment =
+of a=20
+unique character name for each abstract character in the repertoire of =
+its coded=20
+character sets. This practice is not generally followed in vendor coded=20
+character sets or in the encodings produced by standards committees =
+outside SC2,=20
+in which any names provided for characters, are often variable and =
+annotative,=20
+rather than normative parts of the character encoding.</P>
+<P>The main rationale for the SC2 practice of character naming was to =
+provide a=20
+mechanism to unambiguously identify abstract characters across different =
+
+repertoires given different mappings to integers in different coded =
+character=20
+sets. Thus <SPAN class=3Dname>LATIN SMALL LETTER A WITH GRAVE</SPAN> =
+would be the=20
+<I>same</I> abstract character, even though it occurred in different =
+repertoires=20
+and was assigned different integers in different coded character =
+set.</P>
+<P>The IBM CDRA [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CDRA-Ref">CDRA</A>],=
+ on the=20
+other hand, ensures character identity across different coded character =
+sets (or=20
+<I>code pages</I> ) by assigning a catalogue number known as a <A=20
+class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#GCGID">GCGID</A> =
+(graphic=20
+character glyphic identifier), to every abstract character used in any =
+of the=20
+repertoires accounted for by the <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CDRA">CDRA</A>. =
+Abstract=20
+characters that have the same GCGID in two different coded character =
+sets are by=20
+definition the same character. Other vendors have made use of similar =
+internal=20
+identifier systems for abstract characters.</P>
+<P>The advent of Unicode/10646 has largely rendered such schemes =
+obsolete. The=20
+identity of abstract characters in all other coded character sets is=20
+increasingly being defined by reference to Unicode/10646 itself. Part of =
+the=20
+pressure to include every =E2=80=9Ccharacter=E2=80=9D from every =
+existing coded character set=20
+into the Unicode Standard results from the desire by many to get rid of=20
+subsidiary mechanisms for tracking bits and pieces, odds and ends that =
+are not=20
+part of Unicode, and instead just use the Unicode Standard as the =
+universal=20
+catalog of characters.</P>
+<H3>3.2 <A name=3DCodeSpaces>Code Spaces</A></H3>
+<P>The range of nonnegative integers used for the mapping of abstract =
+characters=20
+defines a related concept of <I>code space</I>. Traditional boundaries =
+for types=20
+of code spaces are closely tied to the encoding forms (see below), =
+because the=20
+mappings of abstract characters to nonnegative integers are done with =
+particular=20
+encoding forms in mind. Examples of significant code spaces are 0..7F, =
+0..FF,=20
+0..FFFF, 0..10FFFF, 0..7FFFFFFF, 0..FFFFFFFF.</P>
+<P>Code spaces can also have fairly elaborate structures, depending on =
+whether=20
+the range of integers is conceived of as contiguous, or whether =
+particular=20
+ranges of values are disallowed. Most complications result from =
+considerations=20
+of encoding form. When an encoding form specifies that the integers that =
+are=20
+being encoded are to be serialized as sequences of bytes, there are =
+often=20
+constraints placed on the particular values that those bytes may have. =
+Most=20
+commonly such constraints disallow byte values corresponding to control=20
+functions. In terms of code space, such constraints on byte values =
+result in=20
+multiple non-contiguous ranges of integers that are disallowed for =
+mapping a=20
+character repertoire. (See [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Lunde">Lunde</A>] =
+for=20
+two-dimensional diagrams of typical code spaces for Asian coded =
+character sets=20
+implementing such constraints.) </P>
+<BLOCKQUOTE>
+  <P><B>Note:</B> In <A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#ISO">ISO</A> =
+standards the=20
+  term octet is used for an 8-bit byte. In this document, the term byte =
+is used=20
+  consistently for an 8-bit byte only.</P></BLOCKQUOTE>
+<H2>4 <A name=3DCharacterEncodingForm>Character Encoding Form</A> =
+(CEF)</H2>
+<P>A <I>character encoding form</I> is a mapping from the set of =
+integers used=20
+in a <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CCS">CCS</A> to the =
+set of=20
+sequences of code units. A <I>code unit</I> is an integer occupying a =
+specified=20
+binary width in a computer architecture, such as an 8-bit byte. The =
+encoding=20
+form enables character representation as actual data in a computer. The=20
+sequences of code units do not necessarily have the same length.</P>
+<UL>
+  <LI>A character encoding form whose sequences are all of the same =
+length is=20
+  known as <I>fixed width</I>.=20
+  <LI>A character encoding form whose sequences are not all of the same =
+length=20
+  is known as <I>variable width</I>. </LI></UL>
+<P>A character encoding form <I>for a coded character set</I> is defined =
+to be a=20
+character encoding form that maps all of the encoded characters for that =
+coded=20
+character set.</P>
+<BLOCKQUOTE>
+  <P><B><I>Note: </I></B>In many cases, there is only one character =
+encoding=20
+  form for a given coded character set. In some such cases only the =
+character=20
+  encoding form has been specified. This leaves the coded character set=20
+  implicitly defined, based on an implicit relation between the code =
+unit=20
+  sequences and integers.</P></BLOCKQUOTE>
+<P>When interpreting a sequence of code units, there are three=20
+possibilities:</P>
+<OL>
+  <LI>The sequence is <I>illegal.</I> There are two variants of =
+this:<BR>In the=20
+  first variant, the sequence is <I>incomplete</I>. For example,=20
+  <UL>
+    <LI>0xA3 is incomplete in CP950.=20
+    <UL>
+      <LI>Unless followed by another byte of the right form, it is =
+illegal.=20
+    </LI></UL>
+    <LI>0xD800 is incomplete in Unicode.=20
+    <UL>
+      <LI>Unless followed by another 16-bit value of the right form, it =
+is=20
+      illegal. </LI></UL></LI></UL>In the second variant, the sequence =
+is complete,=20
+  but explicitly illegal. For example,=20
+  <UL>
+    <LI>0xFFFF is illegal in Unicode. This value can never occur in =
+valid=20
+    Unicode text, and will never be assigned. </LI></UL>
+  <LI>The sequence represents a valid code point, but is =
+<I>unassigned</I>. This=20
+  sequence may be given an assignment in some future, <I>evolved</I> =
+version of=20
+  the character encoding. For suggestions on how to handle unassigned =
+characters=20
+  in mapping, see [<A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CharMapML">CharMapML=
+</A>].=20
+  <BR>For example,=20
+  <UL>
+    <LI>0xA3 0xBF is unassigned in CP950, as of the year 1999.=20
+    <LI>0x0EDE is unassigned in Unicode, V3.0 </LI></UL>
+  <LI>The source sequence is <I>assigned</I>: it represents a valid =
+encoded=20
+  character. There are two variants of this:<BR>First is a standard =
+assigned=20
+  character. For example,=20
+  <UL>
+    <LI>0x0EDD is assigned in Unicode, V3.0 </LI></UL>The second variant =
+is a=20
+  user-defined character. For example,=20
+  <UL>
+    <LI>0xE000 is an assigned user-defined character whose semantic=20
+    interpretation is left to agreement between parties outside of the =
+context=20
+    of the standard. </LI></UL></LI></OL>
+<P>The encoding form for a <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CCS">CCS</A> may =
+result in=20
+either fixed-width or variable-width sequences of code units associated =
+with=20
+abstract characters. The encoding form may involve an arbitrary =
+reversible=20
+mapping of the integers of the CCS to a set of code unit sequences.</P>
+<P>Encoding forms come in various types. Some of them are exclusive to =
+the=20
+Unicode/10646, whereas others represent general patterns that are =
+repeated over=20
+and over for hundreds of coded character sets. Some of the more =
+important=20
+examples of encoding forms follow.</P>
+<P>Examples of fixed-width encoding forms:</P>
+<TABLE class=3Dgray>
+  <TBODY>
+  <TR>
+    <TH class=3Dgrayfirst>Type</TH>
+    <TH class=3Dgrayfirst>Each character<BR>encoded as</TH>
+    <TH class=3Dgrayfirst>Notes</TH></TR>
+  <TR>
+    <TD class=3Dgraymiddle width=3D"25%">&nbsp; 7-bit</TD>
+    <TD class=3Dgraymiddle>a single 7-bit quantity</TD>
+    <TD class=3Dgraymiddle>example: <A class=3Dcharclass=20
+      href=3D"http://www.unicode.org/unicode/reports/tr17/#ISO">ISO</A> =
+646 </TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>&nbsp; 8-bit G0/G1 </TD>
+    <TD class=3Dgraymiddle>a single 8-bit quantity</TD>
+    <TD class=3Dgraymiddle>with constraints on use of C0 and C1 =
+spaces</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>&nbsp; 8-bit </TD>
+    <TD class=3Dgraymiddle>a single 8-bit quantity </TD>
+    <TD class=3Dgraymiddle>with no constraints on use of C1 =
+space</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>&nbsp; 8-bit <A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#EBCDIC">EBCDIC</A> =
+</TD>
+    <TD class=3Dgraymiddle>a single 8-bit quantity </TD>
+    <TD class=3Dgraymiddle>with the EBCDIC conventions rather than <A=20
+      class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#ASCII">ASCII</A>=20
+      conventions</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>16-bit (<A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UCS">UCS</A>-2) =
+</TD>
+    <TD class=3Dgraymiddle>a single 16-bit quantity </TD>
+    <TD class=3Dgraymiddle>within a code space of 0..FFFF</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>32-bit (<A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UCS">UCS</A>-4) =
+</TD>
+    <TD class=3Dgraymiddle>a single 32-bit quantity </TD>
+    <TD class=3Dgraymiddle>within a code space 0..7FFFFFFF</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>32-bit (<A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UTF">UTF</A>-32) =
+</TD>
+    <TD class=3Dgraymiddle>a single 32-bit quantity </TD>
+    <TD class=3Dgraymiddle>within a code space of 0..10FFFF</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>16-bit <A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#DBCS">DBCS</A> =
+process=20
+      code </TD>
+    <TD class=3Dgraymiddle>a single 16-bit quantity</TD>
+    <TD class=3Dgraymiddle>example: UNIX widechar implementations of =
+Asian=20
+    CCS's</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>32-bit <A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#DBCS">DBCS</A> =
+process=20
+      code </TD>
+    <TD class=3Dgraymiddle>a single 32-bit quantity</TD>
+    <TD class=3Dgraymiddle>example: UNIX widechar implementations of =
+Asian=20
+    CCS's</TD></TR>
+  <TR>
+    <TD class=3Dgraylast><A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#DBCS">DBCS</A> Host =
+</TD>
+    <TD class=3Dgraylast>two 8-bit quantities</TD>
+    <TD class=3Dgraylast>following IBM host =
+conventions</TD></TR></TBODY></TABLE>
+<P>Examples of variable-width encoding forms:</P>
+<TABLE class=3Dgray>
+  <TBODY>
+  <TR>
+    <TH class=3Dgrayfirst>Name</TH>
+    <TH class=3Dgrayfirst>Characters are encoded as</TH>
+    <TH class=3Dgrayfirst>Notes</TH></TR>
+  <TR>
+    <TD class=3Dgraymiddle width=3D"25%"><A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UTF">UTF</A>-8 =
+</TD>
+    <TD class=3Dgraymiddle>a mix of one to four 8-bit code units in=20
+      Unicode<BR>and one to six code units in 10646</TD>
+    <TD class=3Dgraymiddle>used only with Unicode/10646</TD></TR>
+  <TR>
+    <TD class=3Dgraylast><A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UTF">UTF</A>-16 =
+</TD>
+    <TD class=3Dgraylast>a mix of one to two 16 bit code units</TD>
+    <TD class=3Dgraylast>used only with =
+Unicode/10646</TD></TR></TBODY></TABLE>
+<P>The encoding form defines one of the fundamental aspects of an =
+encoding: how=20
+many <I>code units</I> are there for each character. The number of code =
+units=20
+per character is important to internationalized software. Formerly this =
+was=20
+equivalent to how many <I>bytes</I> each character was represented by. =
+With the=20
+introduction by Unicode and 10646 of wider code units for <A =
+class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UCS">UCS</A>-2, <A=20
+class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UTF">UTF</A>-16, =
+UCS-4, and=20
+UTF-32, this is generalized to two pieces of information: a =
+specification of the=20
+width of the code unit, <I>and</I> the number of code units used to =
+represent=20
+each character. The UCS-2 encoding form, which is associated with =
+ISO/IEC 10646=20
+and can only express characters in the <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#BMP">BMP</A>, is a=20
+fixed-width encoding form. In contrast, UTF-16 uses either one or two =
+code units=20
+and is able to cover the entire code space of Unicode.</P>
+<P>UTF-8 provides a good example. In UTF-8, the fundamental code unit =
+used for=20
+representing character data is 8 bits wide (that is, a byte or octet). =
+The width=20
+map for UTF-8 is:</P>
+<BLOCKQUOTE>
+  <TABLE cellSpacing=3D2 cellPadding=3D2 border=3D0>
+    <TBODY>
+    <TR>
+      <TD height=3D24>0x00..0x7F</TD>
+      <TD>=E2=86=92</TD>
+      <TD>1 byte</TD></TR>
+    <TR>
+      <TD height=3D24>0x80..0x7FF</TD>
+      <TD>=E2=86=92</TD>
+      <TD>2 bytes</TD></TR>
+    <TR>
+      <TD height=3D24>0x800..0xD7FF, 0xE000..0xFFFF</TD>
+      <TD>=E2=86=92</TD>
+      <TD>3 bytes</TD></TR>
+    <TR>
+      <TD height=3D24>0x10000 .. 0x10FFFF</TD>
+      <TD>=E2=86=92</TD>
+      <TD>4 bytes</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<P>Examples of encoding forms as applied to particular coded character =
+sets:</P>
+<TABLE class=3Dgray>
+  <TBODY>
+  <TR>
+    <TH class=3Dgrayfirst>Name</TH>
+    <TH class=3Dgrayfirst>Encoding forms</TH></TR>
+  <TR>
+    <TD class=3Dgraymiddle><A class=3Dcharclass=20
+      href=3D"http://www.unicode.org/unicode/reports/tr17/#JIS">JIS</A> =
+X 0208 </TD>
+    <TD class=3Dgraymiddle>generally transformed from the <I>kuten</I> =
+notation=20
+      to a 16-bit =E2=80=9CJIS code=E2=80=9D encoding form,<BR>for =
+example "nichi", 38 92=20
+      (kuten) =E2=86=92 0x467C JIS code</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>ISO 8859-1 </TD>
+    <TD class=3Dgraymiddle>has the 8-bit G0/G1 encoding form </TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle><A class=3Dcharclass=20
+      href=3D"http://www.unicode.org/unicode/reports/tr17/#CP">CP</A> =
+037 </TD>
+    <TD class=3Dgraymiddle>8-bit <A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#EBCDIC">EBCDIC</A>=20
+      encoding form </TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>CP 500 </TD>
+    <TD class=3Dgraymiddle>8-bit <A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#EBCDIC">EBCDIC</A>=20
+      encoding form </TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>US <A class=3Dcharclass=20
+      =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#ASCII">ASCII</A></TD=
+>
+    <TD class=3Dgraymiddle>7-bit encoding form</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>&nbsp;ISO 646 </TD>
+    <TD class=3Dgraymiddle>7-bit encoding form</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>Windows CP 1252 </TD>
+    <TD class=3Dgraymiddle>8-bit encoding form</TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>Unicode 4.0</TD>
+    <TD class=3Dgraymiddle>UTF-16 (default), UTF-8, or UTF-32 encoding =
+form=20
+  </TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>Unicode 3.0 </TD>
+    <TD class=3Dgraymiddle>either UTF-16 (default) or UTF-8 encoding =
+form </TD></TR>
+  <TR>
+    <TD class=3Dgraymiddle>Unicode 1.1 </TD>
+    <TD class=3Dgraymiddle>either UCS-2 (default) or UTF-8 encoding form =
+</TD></TR>
+  <TR>
+    <TD class=3Dgraylast>ISO/IEC 10646,</TD>
+    <TD class=3Dgraylast>depending on the declared implementation =
+levels, may=20
+      have UCS-2, UCS-4, UTF-16, or UTF-8. </TD></TR></TBODY></TABLE>
+<UL>
+  <LI><I>Note that Shift-JIS is not an encoding form. It is discussed in =
+the=20
+  next section.</I> </LI></UL>
+<H2>5 <A name=3DCharacterEncodingScheme>Character Encoding Scheme =
+(CES)</A></H2>
+<P>A <I>character encoding scheme</I> (CES) is a reversible =
+transformation of=20
+sequences of code units to sequences of bytes in one of three ways: </P>
+<BLOCKQUOTE>
+  <P>a. A <I>simple</I> CES uses a mapping of each code unit of a CEF =
+into a=20
+  unique serialized byte sequence in order. </P>
+  <P>b. A <I>compound</I> CES uses two or more simple CESs, plus a =
+mechanism to=20
+  shift between them. This mechanism includes bytes (for example single =
+shifts,=20
+  SI/SO, or escape sequences) that are not part of any of the simple =
+CESs, but=20
+  which are defined by the character encoding architecture and which may =
+require=20
+  an external registry of particular values (such as for the ISO 2022 =
+escape=20
+  sequences). </P>
+  <P>The nature of a compound CES means there may be different sequences =
+of=20
+  bytes corresponding to the same sequence of code units. While these =
+sequences=20
+  are not unique, the original sequence of code units can be recovered=20
+  unambiguously from any of these.</P>
+  <P>c. A <I>compressing </I>CES maps a code unit sequence to a byte =
+sequence=20
+  while minimizing the length of the byte sequence. Some compressing =
+CESs are=20
+  designed to produce a unique sequence of bytes for each sequence of =
+code=20
+  units, so that the compressed byte sequences can be compared for =
+equality or=20
+  ordered by binary comparison. Other compressing CESs are merely=20
+reversible.</P></BLOCKQUOTE>
+<P>Character encoding schemes are relevant to the issue of =
+cross-platform=20
+persistent data involving code units wider than a byte, where =
+byte-swapping may=20
+be required to put data into the byte polarity canonical for a =
+particular=20
+platform. In particular:</P>
+<UL>
+  <LI>Most fixed-width byte-oriented encoding forms have a trivial =
+mapping into=20
+  a CES: each 7-bit or 8-bit quantity maps to a byte of the same value.=20
+  <LI>Most mixed-width byte-oriented encoding forms also simply =
+serialize the=20
+  sequence of CC-data-elements to bytes.=20
+  <UL>
+    <LI>UTF-8 follows this pattern, because it is already a =
+byte-oriented=20
+    encoding form.=20
+    <LI>UTF-16 must specify byte-order for the byte serialization =
+because it=20
+    involves 16-bit quantities. Byte order is the sole difference =
+between=20
+    UTF-16BE, in which the two bytes of the 16-bit quantity are =
+serialized in=20
+    big-endian order and UTF-16LE, in which they are serialized in =
+little-endian=20
+    order. </LI></UL></LI></UL>
+<P>It is important not to confuse a Character Encoding Form (<A =
+class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CEF">CEF</A>) and a =
+CES.</P>
+<OL>
+  <LI>The <A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#CEF">CEF</A> maps =
+code=20
+  points to code units, while the CES transforms sequences of code units =
+to byte=20
+  sequences. (For a direct mapping from characters to serialized bytes, =
+see <A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CharacterMaps">Secti=
+on=20
+  6</A> <I>Character Maps</I>.)=20
+  <LI>The CES must take into account the byte-order serialization of all =
+code=20
+  units wider than a byte that are used in the CEF.=20
+  <LI>Otherwise identical CESs may differ in other aspects, such as the =
+number=20
+  of user-defined characters that are allowable. (This applies in =
+particular to=20
+  the IBM <A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#CDRA">CDRA</A>=20
+  architecture, which may distinguish host <A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#CCSID">CCSID</A>s =
+based on=20
+  whether the set of <A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#UDC">UDC</A>'s is =
+
+  conformably convertible to the corresponding code page or not.) =
+</LI></OL>
+<P>Note that some of the Unicode encoding schemes have the same labels =
+as the=20
+three Unicode encoding forms. When used unqualified, the terms UTF-8, =
+UTF-16,=20
+and UTF-32 are ambiguous between their sense as Unicode encoding forms =
+and as=20
+Unicode encoding schemes. For UTF-8, this ambiguity is usually =
+innocuous,=20
+because the UTF-8 encoding scheme is trivially derived from the byte =
+sequences=20
+defined for the UTF-8 encoding form. However, for UTF-16 and UTF-32, the =
+
+ambiguity is more problematical. As encoding forms, UTF-16 and UTF-32 =
+refer to=20
+code units as they are accessed from memory via 16-bit or 32-bit data =
+types;=20
+there is no associated byte orientation, and a BOM is never used. =
+(Viewing=20
+memory in a debugger or casting wider data types to byte arrays is a =
+byte=20
+serialization).</P>
+<P>As encoding <I>schemes</I>, UTF-16 and UTF-32 refer to serialized =
+bytes, for=20
+example the serialized bytes for streaming data or in files; they may =
+have=20
+either byte orientation, and a single BOM may be present at the start of =
+the=20
+data. When the usage of the abbreviated designators UTF-16 or UTF-32 =
+might be=20
+misinterpreted, and where a distinction between their use as referring =
+to=20
+Unicode encoding forms or to Unicode encoding schemes is important, the =
+full=20
+terms should be used. For example, use <I>UTF-16 encoding form</I> or =
+<I>UTF-16=20
+encoding scheme</I>. They may also be abbreviated to UTF-16 CEF or =
+UTF-16 CES,=20
+respectively. </P>
+<P>Examples of Unicode Character Encoding Schemes:</P>
+<UL>
+  <LI>The Unicode Standard has seven character encoding schemes: UTF-8, =
+UTF-16,=20
+  UTF-16BE, UTF-16LE, UTF-32, UTF-32BE, and UTF-32LE.=20
+  <UL>
+    <LI>UTF-8, UTF-16BE, UTF-16LE, UTF-32BE and UTF32-LE are simple CESs =
+
+    <LI>
+    <P>UTF-16 and UTF-32 are compound CESs, consisting of an single, =
+optional=20
+    <I>byte order mark </I>at the start of the data followed by a simple =
+
+CES.</P>
+    <TABLE class=3Dgray cellPadding=3D2 align=3Dcenter border=3D1>
+      <TBODY>
+      <TR>
+        <TH class=3Dgrayfirst>Name</TH>
+        <TH class=3Dgrayfirst style=3D"TEXT-ALIGN: center">CEF</TH>
+        <TH class=3Dgrayfirst>CES</TH></TR>
+      <TR>
+        <TD class=3Dgraymiddle>UTF-8</TD>
+        <TD class=3Dgraymiddle style=3D"TEXT-ALIGN: center">+</TD>
+        <TD class=3Dgraymiddle>simple</TD></TR>
+      <TR>
+        <TD class=3Dgraymiddle>UTF-16</TD>
+        <TD class=3Dgraymiddle style=3D"TEXT-ALIGN: center">+</TD>
+        <TD class=3Dgraymiddle>compound</TD></TR>
+      <TR>
+        <TD class=3Dgraymiddle>UTF-16BE</TD>
+        <TD class=3Dgraymiddle style=3D"TEXT-ALIGN: center">&nbsp;</TD>
+        <TD class=3Dgraymiddle>simple</TD></TR>
+      <TR>
+        <TD class=3Dgraymiddle>UTF-16LE</TD>
+        <TD class=3Dgraymiddle style=3D"TEXT-ALIGN: center">&nbsp;</TD>
+        <TD class=3Dgraymiddle>simple</TD></TR>
+      <TR>
+        <TD class=3Dgraymiddle>UTF-32</TD>
+        <TD class=3Dgraymiddle style=3D"TEXT-ALIGN: center">+</TD>
+        <TD class=3Dgraymiddle>compound</TD></TR>
+      <TR>
+        <TD class=3Dgraymiddle>UTF-32BE</TD>
+        <TD class=3Dgraymiddle style=3D"TEXT-ALIGN: center">&nbsp;</TD>
+        <TD class=3Dgraymiddle>simple</TD></TR>
+      <TR>
+        <TD class=3Dgraylast>UTF-32LE</TD>
+        <TD class=3Dgraylast style=3D"TEXT-ALIGN: center">&nbsp;</TD>
+        <TD =
+class=3Dgraylast>simple</TD></TR></TBODY></TABLE><BR></LI></UL>
+  <LI>Unicode 1.1 had three character encoding schemes: UTF-8, UCS-2BE, =
+and=20
+  UCS-2LE, although the latter two were not named that way at the =
+time.</LI></UL>
+<P>Examples of Non-Unicode Character Encoding Schemes:</P>
+<UL>
+  <LI>ISO 2022-based charsets (ISO-2022-JP, ISO-2022-KR, etc.), which =
+use=20
+  embedded escape sequences; these are compound CESs.
+  <LI><A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#DBCS">DBCS</A> =
+Shift (mix=20
+  of one single-byte CCS, for example <A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#JIS">JIS</A> X =
+0201 and a=20
+  DBCS CCS, for example based on JIS X0208, with a numeric shift of the =
+integer=20
+  values), for example, Code Page 932 on Windows.=20
+  <LI><A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#EUC">EUC</A> =
+(similar to=20
+  the DBCS Shift encodings, with the application of different numeric =
+shift=20
+  rules, and the introduction of single-shift bytes: 0x8E and 0x8F, that =
+may=20
+  introduce 3-byte and 4-byte sequences), for example, EUC-JP or EUC-TW =
+on UNIX.=20
+
+  <LI>IBM host mixed code page Asian character sets, which formally mix =
+two=20
+  distinct CCS's with the SI/SO switching conventions, for example, <A=20
+  class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#CCSID">CCSID</A> =
+5035 on=20
+  IBM Japanese host machines. </LI></UL>
+<P>Examples of compressing Character Encoding Schemes:</P>
+<UL>
+  <LI><A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#BOCU">BOCU-1</A>, =
+see <A=20
+  href=3D"http://www.unicode.org/notes/tn6/">Unicode Technical Note =
+#6</A>:=20
+  <I>BOCU-1: <A class=3Dcharclass=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#MIME">MIME</A>-compa=
+tible=20
+  Unicode Compression</I>. [<A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#BOCU-Ref">BOCU</A>].=
+ BOCU-1=20
+  maps each input string to a unique compressed string, but does not map =
+each=20
+  code unit to a unique series of bytes.=20
+  <LI>Punycode, defined in [<A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#RFC3492">RFC3492</A>=
+], like=20
+  BOCU-1, is unique only on a string basis.=20
+  <LI><A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#SCSU">SCSU</A> =
+(and <A=20
+  class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#RCSU">RCSU</A>): =
+see <A=20
+  href=3D"http://www.unicode.org/reports/tr6/">UTR #6: <I>A Standard =
+Compression=20
+  Scheme for Unicode</I></A> [<A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#SCSU-Ref">SCSU</A>].=
+ The=20
+  input to SCSU and RCSU are code units, the output is a compressed =
+stream of=20
+  bytes. Because of compression heuristics, the same input string may =
+result in=20
+  different byte sequences, but the schemes are fully reversible. =
+</LI></UL>
+<H3>5.1 <A name=3DByteOrder>Byte Order</A></H3>
+<P>Processor architectures differ in the way that multi-byte machine =
+integers=20
+are mapped to storage locations. <I>Little Endian</I> architectures put =
+the=20
+least significant byte at the lower address, while <I>Big Endian</I>=20
+architectures start with the most significant byte.</P>
+<P>This difference does not matter for operations on code units in =
+memory, but=20
+the byte order becomes important when code units are serialized to =
+sequences of=20
+bytes using a particular <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CES">CES</A>. In =
+terms of=20
+reading a data stream, there are two types of byte order: <I>Same</I> =
+<I>as</I>=20
+or <I>Opposite</I> <I>of</I> the byte order of the processor reading the =
+data.=20
+In the former case, no special operation needs to be taken; in the =
+latter case,=20
+the data needs to be byte reversed before processing.</P>
+<P>In terms of external designation of data streams, three types of byte =
+orders=20
+can be distinguished: <I>Big Endian (<A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#BE">BE</A>)</I>, =
+<I>Little=20
+Endian (<A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#LE">LE</A>)</I> and =
+
+<I>default</I> or <I>internally marked</I>.</P>
+<P>In Unicode, the character at code point U+FEFF is defined as the =
+<I>byte=20
+order mark</I>, while its byte-reversed counterpart, U+FFFE is a =
+noncharacter=20
+(U+FFFE) in <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UTF">UTF</A>-16 , =
+or outside=20
+the code space (0xFFFE0000) for UTF-32. At the head of a data stream, =
+the=20
+presence of a byte order mark can therefore be used to unambiguously =
+signal the=20
+byte order of the code units.</P>
+<H2>6 <A name=3DCharacterMaps>Character Maps</A></H2>
+<P>The mapping from a sequence of members of an abstract character =
+repertoire to=20
+a serialized sequence of bytes is called a <I>Character Map</I> (CM). A=20
+<I>simple character map</I> thus implicitly includes a <A =
+class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CCS">CCS</A>, a <A=20
+class=3Dcharclass =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CEF">CEF</A>,=20
+and a <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CES">CES</A>, =
+mapping from=20
+abstract characters to code units to bytes. A <I>compound character =
+map</I>=20
+includes a compound CES, and thus includes more than one CCS and CEF. In =
+that=20
+case, the abstract character repertoire for the character map is the =
+union of=20
+the repertoires covered by the coded character sets involved.</P>
+<P>Unicode Technical Report #22: <I><A=20
+href=3D"http://www.unicode.org/reports/tr22/">Character Mapping Markup=20
+Language</A></I> [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CharMapML">CharMapML=
+</A>]=20
+defines an XML specification for representing the details of Character =
+Maps. The=20
+text also contains a detailed discussion of issues in mapping between =
+character=20
+sets.</P>
+<P>Character Maps are the entities that get IANA<I> charset</I> [<A=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#charset">charset</A>=
+]=20
+identifiers in the <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#IAB">IAB</A> =
+architecture.=20
+From the <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#IANA">IANA</A> =
+charset point=20
+of view it is important that a sequence of encoded characters be =
+unambiguously=20
+mapped onto a sequence of bytes by the charset. The charset must be =
+specified in=20
+all instances, as in Internet protocols, where textual content is =
+treated as an=20
+ordered sequence of bytes, and where the textual content must be =
+reconstructible=20
+from that sequence of bytes.</P>
+<P>In the IBM <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CDRA">CDRA</A> =
+architecture,=20
+Character Maps are the entities that get <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#CCSID">CCSID</A> =
+(coded=20
+character set identifier) values. A character map may also be known as a =
+
+<I>charset</I>, a <I>character set</I>, a <I>code page</I> (broadly =
+construed),=20
+or a <I>CHARMAP.</I></P>
+<P>In many cases, the same name is used for both a character map and for =
+a=20
+character encoding scheme, such as UTF-16BE. Typically this is done for =
+simple=20
+character mappings when such usage is clear from context.</P>
+<H2>7 <A name=3DTransferEncodingSyntax>Transfer Encoding Syntax</A> =
+(TES)</H2>
+<P>A <I>transfer encoding syntax</I> is a reversible transform of =
+encoded=20
+<B>data</B> which may (or may not) include textual data represented in =
+one or=20
+more character encoding schemes.</P>
+<P>Typically TESs are engineered to transform one byte stream into =
+another,=20
+while avoiding particular byte values that would confuse one or more =
+Internet or=20
+other transmission/storage protocols. Examples include base64, uuencode, =
+BinHex,=20
+and quoted-printable. While data transfer protocols often incorporate =
+data=20
+compressions to minimize the number of bits to be passed down a =
+communication=20
+channel, compression is usually handled outside the TES, for example by=20
+protocols such as pkzip, gzip, or winzip.</P>
+<P>The Internet Content-Transfer-Encoding tags =E2=80=9C7bit=E2=80=9D =
+and =E2=80=9C8bit=E2=80=9D are special=20
+cases. These are data width specifications relevant basically to mail =
+protocols=20
+and which appear to predate true TESs like quoted-printable. =
+Encountering a=20
+=E2=80=9C7bit=E2=80=9D tag does not imply any actual transform of data; =
+it merely indicates that=20
+the charset of the data can be represented in 7 bits, and will pass =
+7-bit=20
+channels =E2=80=94 it really indicates the encoding form. In contrast, =
+quoted-printable=20
+actually converts various characters (including some <A =
+class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#ASCII">ASCII</A>) =
+to forms=20
+like =E2=80=9C=3D2D=E2=80=9D or =E2=80=9C=3D20=E2=80=9D, and should be =
+reversed on receipt to regenerate legible=20
+text in the designated character encoding scheme. </P>
+<H2>8 <A name=3DAPIBinding>Data Types and API Binding</A></H2>
+<P>Programming languages define specific data types for character data, =
+using=20
+bytes or multi-byte code units. For example, the char data type in Java =
+or C#=20
+always uses 16-bit code units, while the size of the char and wchar_t =
+data types=20
+in C and C++ are, within quite flexible constraints, implementation =
+defined. In=20
+Java or C#, the 16-bit code units are by definition <A class=3Dcharclass =
+
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UTF">UTF</A>-16 =
+code units,=20
+while in C and C++, the binding to a specific character set is again up =
+to the=20
+implementation. In Java, strings are an opaque data type, while in C =
+(and at the=20
+lowest level also in C++) they are represented as simple arrays of char =
+or=20
+wchar_t.</P>
+<P>The Java model supports portable programs, but external data in other =
+
+encoding forms must first be converted to UTF-16. The C/C++ model is =
+intended to=20
+support a byte serialized character set using the char data type, while=20
+supporting a character set with a single code unit per character with =
+the=20
+wchar_t data type. These two character sets do not have to be the same, =
+but the=20
+repertoire of the larger set must include the smaller set to allow =
+mapping from=20
+one data type into the other. This allows implementations to support <A=20
+class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UTF">UTF</A>-8 as =
+the char=20
+data type and <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#UTF">UTF</A>-32 as =
+the=20
+wchar_t data type, for example. In such use, the char data type =
+corresponds to=20
+data that is serialized for storage and interchange, and the wchar_t =
+data type=20
+is used for internal processing. There is no guarantee that wchar_t =
+represent=20
+characters of a specific character set. However, a standard macro,=20
+__STDC_ISO_10646__ can be used by an environment to designate that it =
+supports a=20
+specific version of 10646, indicated by year and month.</P>
+<P>However, the definition of the term <I>character</I> in the <A=20
+class=3Dcharclass =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#ISO">ISO</A>=20
+C and C++ standard does not necessarily match the definition of abstract =
+
+character in this model. Many widely used libraries and operating =
+systems define=20
+wchar_t to be UTF-16 code units. Other <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#API">API</A>s =
+supporting=20
+UTF-16 are often simply defined in terms of arrays of 16-bit unsigned =
+integers,=20
+but this makes certain features of the programming language unavailable, =
+such as=20
+string literals.</P>
+<P><A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#ISO">ISO</A>/<A=20
+class=3Dcharclass =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#IEC">IEC</A>=20
+TR 19769 extends the model used in ISO C and C++ by recommending the use =
+of two=20
+typedefs and a minimal extension to the support for character literals =
+and=20
+runtime library. The data types char16_t and char32_t are unsigned =
+integers=20
+designed to hold one code unit for UTF-16 or UTF-32 respectively. Like =
+wchar_t=20
+they can be used generically for any character set, but a predefined =
+macros=20
+__STDC_UTF_16__ and __STDC_UTF_32__ can be used to indicate that the =
+data type=20
+char16_t or char32_t holds code units that are in the respective Unicode =
+
+encoding form.</P>
+<P>When character data types are passed as arguments in APIs, the byte =
+order of=20
+the platform is generally not relevant for code units. The same API can =
+be=20
+compiled on platforms with any byte polarity, and will simply expect =
+character=20
+data (as for any integral-based data) to be passed to the API in the =
+byte=20
+polarity for that platform. However, the size of the data type must =
+correspond=20
+to the size of the code unit, or the results can be unpredictable, as =
+when a=20
+byte oriented strcpy is used on UTF-16 data which may contain embedded =
+NUL=20
+bytes.</P>
+<P>While there are many API functions that by design do not need to care =
+about=20
+which character set the code units correspond to (strlen or strcpy for =
+example),=20
+many other operations require information about the character and its=20
+properties. As a <SPAN lang=3Den-us></SPAN>result portable programs may =
+not be=20
+able to use the char or wchar_t data types in C/C++.</P>
+<H3>8.1 <A name=3DStrings>Strings</A></H3>
+<P>A string data type is simply a sequence of code units. Thus a Unicode =
+8-bit=20
+string is a sequence of 8-bit Unicode code units; a Unicode 16-bit =
+string is a=20
+sequence of 16-bit code units; a Unicode 32-bit string is a sequence of =
+32-bit=20
+code units.</P>
+<P>Depending on the programming environment, a Unicode string may or may =
+not=20
+also be required to be in the corresponding Unicode encoding form. For =
+example,=20
+strings in Java, C#, or <A class=3Dcharclass=20
+href=3D"http://www.unicode.org/unicode/reports/tr17/#ECMA">ECMA</A>Script=
+ are=20
+Unicode 16-bit strings, but are not necessarily well-formed UTF-16 =
+sequences. In=20
+normal processing, there are many times where a string may be in a =
+transient=20
+state that is not well-formed UTF-16. Because strings are such a =
+fundamental=20
+component of every program, it can be far more efficient to postpone =
+checking=20
+for well formedness.</P>
+<P>However, whenever strings are specified to be in a particular Unicode =
+
+encoding for=E2=80=94even one with the same code unit size=E2=80=94the =
+string must not violate=20
+the requirements of that encoding form. For example, isolated surrogates =
+in a=20
+Unicode 16-bit string are not allowed when that string is specified to =
+be=20
+well-formed UTF-16.</P>
+<H2>9 <A name=3DDefinitionsAndAcronyms>Definitions and Acronyms</A></H2>
+<P>This section briefly defines some of the common acronyms related to =
+character=20
+encoding and used in this text. More extensive definitions for some of =
+these=20
+terms can be found elsewhere in this document.</P>
+<TABLE class=3Dnb cellSpacing=3D2>
+  <TBODY>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DACR>ACR</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Abstract Character Repertoire</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DAPI>API</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Application Programming =
+Interface</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DASCII>ASCII</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>American Standard Code for Information=20
+    Interchange</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DBE>BE</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Big-endian (most significant byte =
+first)</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DBMP>BMP</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Basic Multilingual Plane, the first =
+65,536=20
+      characters of 10646</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DBOCU>BOCU</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Byte Ordered Compression for =
+Unicode</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DCCS>CCS</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Coded Character Set</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DCCSID>CCSID</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Code Character Set Identifier</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DCDRA>CDRA</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Character Data Representation =
+Architecture from=20
+    IBM</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DCEF>CEF</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Character Encoding Form</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DCEN>CEN</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>European Committee for =
+Standardization</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DCES>CES</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Character Encoding Scheme</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DCM>CM</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Character Map</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DCP>CP</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Code Page</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DCS>CS</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Character Set</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DDBCS>DBCS</A></TD>
+    <TD class=3Dnb vAlign=3Dtop height=3D24>Double-Byte Character =
+Set</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DECMA>ECMA</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>European Computer Manufacturers =
+Association</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DEBCDIC>EBCDIC</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Extended Binary Coded Decimal =
+Interchange=20
+  Code</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DEUC>EUC</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Extended Unix Code</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DGCGID>GCGID</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Graphic Character Set Glyphic =
+Identifier</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DIAB>IAB</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Internet Architecture Board</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DIANA>IANA</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Internet Assigned Numbers =
+Authority</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DIEC>IEC</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>International Electrotechnical =
+Commission</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DIETF>IETF</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Internet Engineering Taskforce</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DISO>ISO</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>International Organization for=20
+  Standardization</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DJIS>JIS</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Japanese Industrial Standard</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DJTC1>JTC1</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Joint Technical Committee 1 (responsible =
+for=20
+      ISO/IEC IT Standards)</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DLE>LE</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Little-endian (least significant byte =
+first)</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DMBCS>MBCS</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Multiple-Byte Character Set (1 to n =
+bytes per code=20
+      point)</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DMIME>MIME</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Multipurpose Internet Mail =
+Extensions</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DRFC>RFC</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Request For Comments (term used for an =
+Internet=20
+      standard)</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DRCSU>RCSU</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Reuters Compression Scheme for Unicode =
+(precursor=20
+      to SCSU)</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DSBCS>SBCS</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Single-Byte Character Set</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DSCSU>SCSU</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Standard Compression Scheme for =
+Unicode</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DTES>TES</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Transfer Encoding Syntax</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DUCS>UCS</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Universal Character Set; Universal =
+Multiple-Octet=20
+      Coded Character Set =E2=80=94 the repertoire and encoding =
+represented by ISO/IEC=20
+      10646-1:1993 and its amendments.</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DUDC>UDC</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>User-defined Character</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DUTF>UTF</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Unicode (or UCS) Transformation=20
+  Format</TD></TR></TBODY></TABLE>
+<H2><A name=3DReferences>References</A></H2>
+<TABLE class=3Dnbwide cellSpacing=3D6>
+  <TBODY>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3D10646>[10646]</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>ISO/IEC 10646 =E2=80=94 Universal =
+Multiple-Octet Coded=20
+      Character Set,<BR>for availability see <A=20
+      href=3D"http://www.iso.org/">http://www.iso.org/</A></TD></TR>
+  <TR>
+    <TD class=3Dnoborder vAlign=3Dtop width=3D1>[<A =
+name=3DBidi>Bidi</A>]</TD>
+    <TD class=3Dnoborder vAlign=3Dtop>Unicode Standard Annex #9: <I>The=20
+      Bidirectional Algorithm<BR></I><A=20
+      =
+href=3D"http://www.unicode.org/reports/tr9/">http://www.unicode.org/repor=
+ts/tr9/</A></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop>[<A name=3DBOCU-Ref>BOCU</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>Unicode Technical Note #6: <I>BOCU-1:=20
+      MIME-Compatible Unicode Compression</I>,<BR><A=20
+      =
+href=3D"http://www.unicode.org/notes/tn6/">http://www.unicode.org/notes/t=
+n6/</A>=20
+    </TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A =
+name=3DBoundaries>[Boundaries]</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Unicode Standard Annex #29: <I>Text=20
+      Boundaries</I>, <A=20
+      =
+href=3D"http://www.unicode.org/reports/tr29/">http://www.unicode.org/repo=
+rts/tr29/</A>=20
+    </TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DCDRA-Ref>[CDRA]</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Character Data Representation =
+Architecture=20
+      Reference and Registry, IBM Corporation, Second Edition, December =
+1995.=20
+      IBM document SC09-2190-00 </TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop width=3D1>[<A =
+name=3DCharMapML>CharMapML</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>Unicode Technical Report #22: =
+<I>Character Mapping=20
+      Markup Language</I> (CharMapML),<BR><A=20
+      =
+href=3D"http://www.unicode.org/reports/tr22/">http://www.unicode.org/repo=
+rts/tr22/</A></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop width=3D1>[<A =
+name=3Dcharset>Charset</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>IANA charset assignments<BR><A=20
+      =
+href=3D"http://www.iana.org/assignments/character-sets">http://www.iana.o=
+rg/assignments/character-sets</A></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop width=3D1>[<A =
+name=3DCharts>Charts</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>The online code charts can be found at =
+<A=20
+      =
+href=3D"http://www.unicode.org/charts/">http://www.unicode.org/charts/</A=
+>=20
+      An index to characters names with links to the corresponding chart =
+is=20
+      found at <A=20
+      =
+href=3D"http://www.unicode.org/charts/charindex.html">http://www.unicode.=
+org/charts/charindex.html</A></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop width=3D1>[<A name=3DFAQ>FAQ</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>Unicode Frequently Asked Questions<BR><A =
+
+      =
+href=3D"http://www.unicode.org/faq/">http://www.unicode.org/faq/<BR></A><=
+I>For=20
+      answers to common questions on technical issues.</I></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop width=3D1>[<A =
+name=3DFeedback>Feedback</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>Reporting Errors and Requesting =
+Information=20
+      Online<I><BR></I><A=20
+      =
+href=3D"http://www.unicode.org/reporting.html">http://www.unicode.org/rep=
+orting.html</A></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop width=3D1>[<A =
+name=3DGlossary>Glossary</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>Unicode Glossary<A=20
+      =
+href=3D"http://www.unicode.org/glossary/"><BR>http://www.unicode.org/glos=
+sary/<BR></A><I>For=20
+      explanations of terminology used in this and other =
+documents.</I></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DLunde>[Lunde]</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Lunde, Ken, <I>CJKV Information =
+Processing,=20
+      </I>O'Reilley, 1998, ISBN 1-565-92224-7 </TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DPropModel>[PropModel]</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Unicode Technical Report #23:<I>The =
+Unicode=20
+      Character Property Model</I>, <A=20
+      =
+href=3D"http://www.unicode.org/reports/tr23/">http://www.unicode.org/repo=
+rts/tr23/</A>=20
+    </TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop width=3D1>[<A =
+name=3DReports>Reports</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>Unicode Technical Reports<BR><A=20
+      =
+href=3D"http://www.unicode.org/reports/">http://www.unicode.org/reports/<=
+/A><BR><I>For=20
+      information on the status and development process for technical =
+reports,=20
+      and for a list of technical reports.</I></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DRFC2130>[RFC2130]</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>The Report of the IAB Character Set =
+Workshop held=20
+      29 February 1 March, 1996. C. Weider, et al., April 1997,<BR><A=20
+      =
+href=3D"http://www.ietf.org/rfc/rfc2130.txt">http://www.ietf.org/rfc/rfc2=
+130.txt</A>=20
+    </TD>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DRFC2277>[RFC2277]</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>IETF Policy on Character Sets and =
+Languages, H.=20
+      Alvestrand, January 1998,<BR><A=20
+      =
+href=3D"http://www.ietf.org/rfc/rfc2277.txt">http://www.ietf.org/rfc/rfc2=
+277.txt</A></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DRFC3492>[RFC3492]</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>RFC 3492: <I>Punycode: A Bootstring =
+encoding of=20
+      Unicode for Internationalized Domain Names in Applications =
+(IDNA)</I>, A.=20
+      Costello, March 2003,<BR><A=20
+      =
+href=3D"http://www.ietf.org/rfc/rfc3492.txt">http://www.ietf.org/rfc/rfc3=
+492.txt</A></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop>[<A name=3DSCSU-Ref>SCSU</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>Unicode Technical Standard #6: A =
+Standard=20
+      Compression Scheme for Unicode,<BR><A=20
+      =
+href=3D"http://www.unicode.org/reports/tr6/">http://www.unicode.org/repor=
+ts/tr6/</A>=20
+    </TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A name=3DStability>[Stability]</A></TD>
+    <TD class=3Dnb vAlign=3Dtop>Unicode Stability Policies, <A=20
+      =
+href=3D"http://www.unicode.org/policies/">http://www.unicode.org/policies=
+/</A>=20
+    </TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop width=3D1>[<A name=3DUCD>UCD</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>Unicode Character Database.<BR><A=20
+      =
+href=3D"http://www.unicode.org/ucd/">http://www.unicode.org/ucd/</A><BR><=
+I>For=20
+      an overview of the Unicode Character Database and a list of its =
+associated=20
+      files</I></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop width=3D1>[<SPAN><A=20
+    name=3DUnicode0>Unicode</A></SPAN>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>The Unicode Standard<I><BR>For the =
+latest version=20
+      see:</I> <A=20
+      =
+href=3D"http://www.unicode.org/versions/latest/">http://www.unicode.org/v=
+ersions/latest/</A>.<BR><I>For=20
+      the last major version see:</I> The Unicode Consortium. <A=20
+      href=3D"http://www.unicode.org/versions/Unicode4.0.0/">The Unicode =
+Standard,=20
+      Version 4.0</A>. (Boston, MA, Addison-Wesley, 2003. 0-321-18578-1) =
+<I>or=20
+      online as </I><A=20
+      =
+href=3D"http://www.unicode.org/versions/Unicode4.0.0/">http://www.unicode=
+.org/versions/Unicode4.0.0/</A>=20
+    </TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop width=3D1>[<A =
+name=3DUnicode>Unicode</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>The Unicode Consortium. <A=20
+      href=3D"http://www.unicode.org/versions/Unicode4.0.0/">The Unicode =
+Standard,=20
+      Version 4.0</A>. Reading, MA, Addison-Wesley, 2003. =
+0-321-18578-1.</TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop width=3D1>[<A =
+name=3DVersions>Versions</A>]</TD>
+    <TD class=3Dnb vAlign=3Dtop>Versions of the Unicode Standard<BR><A=20
+      =
+href=3D"http://www.unicode.org/standard/versions/">http://www.unicode.org=
+/standard/versions/</A><BR><I>For=20
+      information on version numbering, and citing and referencing the =
+Unicode=20
+      Standard, the Unicode Character Database, and Unicode Technical=20
+      Reports.</I></TD></TR>
+  <TR>
+    <TD class=3Dnb vAlign=3Dtop><A =
+name=3DW3CCharMod>[W3CCharMod]</A></TD>
+    <TD class=3Dnb vAlign=3Dtop><I>Character Model for the World Wide =
+Web 1.0</I>,=20
+      <BR><A=20
+      =
+href=3D"http://www.w3.org/TR/charmod/">http://www.w3.org/TR/charmod/</A><=
+/TD></TR></TBODY></TABLE>
+<H2><A name=3DAcknowledgements>Acknowledgements</A></H2>
+<P>Thanks to Dr. Julie Allen for extensive copy-editing and many =
+suggestions on=20
+how to improve the readability, particularly of section 2.</P>
+<H2><A name=3DRevisions>Modifications</A></H2>
+<P>From Version 4:</P>
+<BLOCKQUOTE>
+  <P>Aligned the discussion of TES to more closely match common =
+practice.=20
+  Improved the discussion of CES. Note: Versions 4 and 3.3 were proposed =
+updates=20
+  that are superseded. Edited the text for style and clarity throughout, =
+labeled=20
+  figures, changed some lists to tables, applied copy edits. =
+[AF]</P></BLOCKQUOTE>
+<P>From Version 3.3:</P>
+<BLOCKQUOTE>
+  <P>Improved the discussion of <A class=3Dcharclass=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#CES">CES</A>.=20
+[AF]</P></BLOCKQUOTE>
+<P>From Version 3.2:</P>
+<BLOCKQUOTE>
+  <P>Updated for Unicode 4.0. Added subsections on <A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Versioning">Versioni=
+ng</A>,=20
+  <A =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#ByteOrder">Byte=20
+  order</A> and <A=20
+  =
+href=3D"http://www.unicode.org/unicode/reports/tr17/#Strings">Strings</A>=
+.=20
+  Expanded the discussion on <A=20
+  href=3D"http://www.unicode.org/unicode/reports/tr17/#APIBinding">data =
+types and=20
+  APIs</A>. Edited the text for style and clarity throughout. Migrated =
+to=20
+  current TR format. [AF]</P></BLOCKQUOTE>
+<HR>
+
+<P><FONT size=3D-1>Copyright =C2=A9 1999-2004 Unicode, Inc. All Rights =
+Reserved. The=20
+Unicode Consortium makes no expressed or implied warranty of any kind, =
+and=20
+assumes no liability for errors or omissions. No liability is assumed =
+for=20
+incidental and consequential damages in connection with or arising out =
+of the=20
+use of the information or programs contained or accompanying this =
+technical=20
+report. The Unicode <A =
+href=3D"http://www.unicode.org/copyright.html">Terms of=20
+Use</A> apply.</FONT></P>
+<P><FONT size=3D-1>Unicode and the Unicode logo are trademarks of =
+Unicode, Inc.,=20
+and are registered in some jurisdictions.</FONT></P></DIV></BODY></HTML>
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/webscripts/logo60s2.gif
+
+R0lGODdhIgAhAPcAAAAAADMAAGYAAJkAAMwAAP8AAAAzADMzAGYzAJkzAMwzAP8zAABmADNmAGZm
+AJlmAMxmAP9mAACZADOZAGaZAJmZAMyZAP+ZAADMADPMAGbMAJnMAMzMAP/MAAD/ADP/AGb/AJn/
+AMz/AP//AAAAMzMAM2YAM5kAM8wAM/8AMwAzMzMzM2YzM5kzM8wzM/8zMwBmMzNmM2ZmM5lmM8xm
+M/9mMwCZMzOZM2aZM5mZM8yZM/+ZMwDMMzPMM2bMM5nMM8zMM//MMwD/MzP/M2b/M5n/M8z/M///
+MwAAZjMAZmYAZpkAZswAZv8AZgAzZjMzZmYzZpkzZswzZv8zZgBmZjNmZmZmZplmZsxmZv9mZgCZ
+ZjOZZmaZZpmZZsyZZv+ZZgDMZjPMZmbMZpnMZszMZv/MZgD/ZjP/Zmb/Zpn/Zsz/Zv//ZgAAmTMA
+mWYAmZkAmcwAmf8AmQAzmTMzmWYzmZkzmcwzmf8zmQBmmTNmmWZmmZlmmcxmmf9mmQCZmTOZmWaZ
+mZmZmcyZmf+ZmQDMmTPMmWbMmZnMmczMmf/MmQD/mTP/mWb/mZn/mcz/mf//mQAAzDMAzGYAzJkA
+zMwAzP8AzAAzzDMzzGYzzJkzzMwzzP8zzABmzDNmzGZmzJlmzMxmzP9mzACZzDOZzGaZzJmZzMyZ
+zP+ZzADMzDPMzGbMzJnMzMzMzP/MzAD/zDP/zGb/zJn/zMz/zP//zAAA/zMA/2YA/5kA/8wA//8A
+/wAz/zMz/2Yz/5kz/8wz//8z/wBm/zNm/2Zm/5lm/8xm//9m/wCZ/zOZ/2aZ/5mZ/8yZ//+Z/wDM
+/zPM/2bM/5nM/8zM///M/wD//zP//2b//5n//8z//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAiACEA
+QAj/AK8JHCiwlcFWBAceXJiQoKCEgghIJPCw4cCIBBA6FFjx4kSKCVtJ1GjxWkVBKFOSvNYqpcuX
+HS+WnElzZkyTH28W/JgRIkeIOUM2NOjzGsiaOz9iKVkxEKtrgZyyYuVU4NSpA50GEqj1KdWnJoFO
+1CmS58qwaD2Oneli7MKWPx0GpRnx7EmxEm+KRFrRRUOMS/HqlGmUgN+abXkatlgRq2OwWAdevXYV
+LOXIXJ9K3cxVq1XPX6NqBnsTY96GiT/ajav2dEMsZouWnvtXtWy8Ry2WVXx09lqaI2/L/U0Ty+q0
+HGkXPMtSeOvcOwdvRM5SefXFNgX2HGqRZ/bCzLsrNA5f0bbu1Ip1SkfKPqvmrVejiobaNTR8rVsz
+0xddVbJlz5fJ1x9l8ukn4GeiUTWfglEJFBAAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/A1.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHDwcgNMCAosWKGC9qzFgRgkeIEScmpHiQJMaSIlEy8AjhgcsH
+IAEcHGByo02OG1d6fPngwgWIDCSivKjypNGaB1nyvLDgZ0GhRW9Kxan0QYQHTX0WnGigq9evYMOK
+ZeAAwlWXTRdQuEBhYFcGFSzInUu3rt27FuI6uODS5wIIFwALhCA3ruG8iA8rTsx4cQG/bP9qBUD4
+cOHGmBdrLlygp0/AgQEsqFDAQmnSplOXXq26NevXqE0/AA0awIHLm3Nn3h33wOe/FBZwRl2AtPHi
+yI8rT87cdNzikn1eiJC3+GW82LMjdm6hJ2DAEUr+c66+vDxz88YTZ4Xwl3p63vA3X15doSno6dyR
+u97/mn/+wwfQRsEDiFmn24HwkbdeU+Ftd9p5EKLXnH5y+fYdfunFpt2GuA0XHVsNckdehCSi59xp
+C0gGGIGHGRjfi8+16FtgDHL3nH/95ehaXKnFpdZnfMV4GoxEumhBgIGBeJ2EFhCQAAZQYpDABCV2
+CJ1fK6LGI492TSAlAaZ5KSV2zfWWZGDunTiicWKC+ZyYCZS3XXVyrefTA1p2yGMBUZLXZJ+K0Wfg
+lRdSV+CN9FkQJZdxLdqalYWpFR2eQ2KWl5dU0sknlDbSmSdpFtrn3oNrsubpBE9CueWgntYJZJD+
+uIm3nWGlOflllBRax5h1SAZGAXXWiZdeck0+mamiqlqJqGF2wprYkFta8GQCPW6KwYmWZVuAfZ+F
+96lcpE7bmKPgqnlcXs3ieWinFrQZW2l9ukjrrEcCJhmw/x3a51yG4Urrjetu+2qa2iIGKHP7vvvv
+ZRZKRylxWp4WJZVcporBt3R6uiAAhjL2rLQThylllAQ4OaKfxkm2AEzADgtwo1GSjCzJGrYY6Z0C
+sbjuvBXYCuUEhcEJ5scxVuebSwItW+68delXacR50rkyTEnvpqtymOkX9bl5HUD1QBI4XTSx8169
+pJqXIV2QBPz2SK+pe567tadfr/2poI1Byy84qVB3FpMCChToMdaavhdt1HVDJEHYflIIbmwtji0X
+AgUUENNDEjSgueaZN5D555xvHrrno18uUEAAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/A2.gif
+
+R0lGODlhMgAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAyADIA
+AAj+AAEIHEiQIIODCBMqXMiwoMOHAAYgNMCAosWKGC9qzMgAgkcIEB1KPEhxokmSJzGi/AjhgcuQ
+Ag8OKMlxo82aHT+6fHDhQkgGI3GiHKqyKEWWOy8s6CkSaMqbUDkifRBhaU+fBica2Mq1q9evYB14
+jOCyp1WQAytSrGChrdu3cOPKbevAwQWeVi9AwAoAgoG2bANbEEx4sOHCiC0UUHp1L18IgA1HTkz5
+sOXBBXg2xrogcAHFFT6LVkx6tOnSqAuEBvxgL4QFaA+QrkzbcmLDBQ7AvgpggdvQq1ULBz68OPHj
+qkEnb90TAgUAESSzlTy3evXkbHPr5R3h8+rvxsP+Ix+P2/DZvdClT7bNnrZozxWWOvbZHbT90/hT
+65/sfelukA+o196AtRGH2QF6WZWecJhhNp54EE5H3Vl6pTedZ9ZlCNdw9h3gGHr1JfeZgxGWWNhh
+FPoU4IUNFkggiSTK19yC30mW3437NQhYihbiBpxtBCSAwZAJJDDBBIQpcFhyDlrgoVIgmiahgUIS
+SQBbQWIwgQVBIskhdorxuKJ0DLZVJQYEuDXiBEMOOcGIbWHX33YVRlecbWwOmeaPq+WJZpPZSYYg
+nQA8wGJ22RHQ5p7sFbAohmCqthtsz9kZKJMW5JlAg6cpqidp6yXHY3QnAldlmusF5qdtDAYmY4X+
+hr7XqqOfgkfcmcpNOdqgjqWn3moWtLkkXJ4OKSGHKO61G3QiBhrYorM12eaQ9gnGoZiRDVtAlZte
+ytaZ1MLnHW4Ifrhgi4cV+6ZgFoBL7WicmtccU4ZahqyfCVxZAL5+KlBqg09S2uN7amJ5ZpFGTkDA
+Z22u62OrYtYIX5zZAgZnBQSkOSLBF2o3n4XejcjnbGX+mGp5wJ61VKEYtsghu8DeZyCYhgWMlZ3D
+ShiZrIVhGipw/t0lUL3BIQpjz02SaKBgVj0w0Ik+5kzwxePqOptuTj+da5McV72ktVtjeEDWBElg
+dagWF10emNMxGd9DEiiXNqDj2ljt0XFWQLZEQ3HTXTCZ7cGJbmh7F6SAv2rO3aziJJscXOEPKSCB
+BHKy2OzGAyaHQAEwPURAA6CHLgHoozdQ+uilh666BAg00DkAAQEAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/A3.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHEAccNMCAosWKGC9qzFgRgkeIDyVOTEhxpEmMJ0t6hPCg5QOQ
+AA4OKMlxo82aB1e6fHDhAkQGInGmREizaE6PLSPwXOCzYFCUOG9K1enyAtOmBica2Mq1q9evYBk4
+gKBU6dULELBuZVDBgtu3cOPKnWuhrYMLLXv2TEtBIAS3bQPXHSy4MOHDhgv0PLsgrd/DgBFLNky5
+QN0CPNFq9rmggmXLni18Fk16tOnSqC+7xbx3L4ADkSlPnl24QFvCTNNqXgDY9mfPwH0HHy5c+ODi
+Fa7qjnD59m260Of+Huz2ANrGFyJY7t0cuXfiwA/+g7atHC3z8LTT1w5tm3qB3HqZt5+P+rT91G8F
+tz+gGwKFB8fJJtsECWCAQQKVhaZgXcoxpZ173YGngIEUHihaeIGNR5p1aaV1XnuhQTdBhRU+Nx11
+gWHXEwUPXtgbeAWSSKGL+rXlG4PYpQVgjZONSOEEbhU4AYjGoSiadddlR2N9pE1oYAIXFkCAgavB
+deOCC1DQ2gM2LlgbhQgONqWFGQpmpAX8acZiZBG2FyMGo1kQ4wQYztflhVdhxyVobL7lJAYEEDZm
+AnxutyR1HO51XpQRztmcBRQGuuRtGrZVHl4LQjYmBqSJ5iOU6x0KHHweRkafbXMW9mNwnYLIaHL+
+FKi4p5G3zfibj5waWqZq+nGY24e82uYjkLdtCiqvx6nG56VcxrZdATEG6uaPS07nnGpporUmfYLF
+2BuugJ6aGKvJtYapsxfO2NaUb0rWHWSeJWrele5FaoGPm5bGKncaWsAsj+3JaCGFCpyJnpltpYmd
+fC62J6eMdVUobZd2VlzuZosiLCWJ0oIb5rWuugpfT3uyt+Cngdr4Zq7IkkYpg3stAABzsanmMndt
+DYtwtYIp/JJ84fHJ47ur3Rmyfle9BMCOAerrcKbouYqsgky1JJCNLkL2Ks7iBeuyZQdYfbV4Qe8s
+tckGHxZ2QRI8/ZZxdjpds8WkiU2QBEWfLSpHrfSC3JbSD0lgIrlVKnjlduy1DPhDCihwsKm1ESZ0
+zd0tDpEEeMcdsqlzB20BAqLBFHgDpEtQOumnm96A6aqfjroECIguUEAAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/A5.gif
+
+R0lGODlhMAAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAwADIA
+AAj+AAEIHEhwIIODCBMqXMiwoEOHAxAaYDCxIsWLFjNiZAChI4SHBSMenCix5EiTF096hPCgJUgA
+BweQ3KixJk2OHls+uHDhIQORN08KTUl04kqdFxbwDJlwps2nG48+iKCUZ0+DIw1o3cq1q9evDjpG
+aMmz6keBWhlUsMC2rdu3cOOydeDgws6qFyBchcB2rV8LfwMDHiy4sIUCSa3q7cmXcFvDkB0LBlxg
+p+KkFQpkPry5wOHPnkODHi069GbAD/RCWADhwGPJsCNHHlzgAGurCzhrNr07s+/ewH8L1702NU8I
+FCI4Hiy3uXPNtA/ktRpB9GbhwbNj9017sFm9yv/+xh4v2zTlCkoXX1AOvT3p96Xf96UMWOltlrRl
+kye/m7L01TxVx5xn2xWggHYIrjUfW2blFR50p8FFgHNx9caZBQcsBp5nF55nIQEYTIBBAgkUyJ14
+fjVol2MQwoYBAbthMF9h/f2W3nHs/RVfaARM8BiJO37WF4f1HcfTA2tZaBgBMG4GIn8KcpdhUuAt
+6CF3Fkz4F4hNandhkioiSWB/b0HHFo8vPucXgTc6yFxgFiqZZZomnsmcdNPZxZ2cUbLVIwaAvjib
+jujpxVpybZlJ2mYJpDnnhEHGuVaYWJ74JqATAgaij/pB2CYED16XnYicegZiAmNi16FneC4m4Jr+
+bymIKYEWiFgikW4RWp+hVSY55J4VYEpbown8GtyMFoT5JbKyOrpWoxhcBxtwGOYJ6pm/jZYZtNcF
+OqC2uSZr5Hpm9ilYoEyCCGgCBxpG7ZSHKndhdp8RAO2E6TK5JrBvKtsnc8gCXKaQ2NKX2X/UjWlw
+jQyXp6DC4ualVHgLwklYql4miSKGhvYkYHu+cuirwBUi25t9dgHwwJvM0iptnaI6VtUDAmms8Iku
+pyoZhAoTaBvNNbN8Wos8JzpahxYfALRAEmgspI7zMjttZ1Eu4JAEO8N28ZVysljB0gRhbV5nHm5d
+csOHgU2QAgo4DauuXNNIm9pXN11wdyC3uO8cZ2shUMBLVzcgQQOEDy744YgTrvjiiCMAOAABAQA7
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/A6.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHEAccNMCAosWKGC9qzFgRgkcIEAtKnJiQIsmTGFGa/AjhgcuQ
+AA4OMMlxo82aB1m6fHDhAkQGI3GqREizaM6POy8s8CmyJFGcN23qfBBhac+CRA1o3cq1q9evDBx4
+jOCy5wIKFygY1FrBgtu3cOPKnWuhrQMHFx4sXQDhQl+BEBy8bUu4ruHCiA8rbmu4QM+0fK8CgOCW
+ceXFmBNrHszTb8+/CyoUEE26gAXTqE+rTs16tWrRqjv39QvgwGDDmXNvLnx46ey+C9yOXl26+Ojj
+xpOfLm51dgTcvC3TnR53OOMCB/xGjmAadum6yMP+Jxc//HXd5nyfE+5+ebduxdZV+37MXXXjtq3z
+u24Nv+2B3xQ8cBh777mHWHfsVYDeBc9ZhyB440WIHHgUmpZdX309gB9j68lFwAQJYCBiAhMoMFd5
+HJ43W1rP3WcfaQSEKOKMNCagwIQbLrfcApFl6F173SlA45BDEjBgirhlpx2D9yV4GgEYEGCkW1Am
+IKWUIrpG4Y9nfZbXjxsSKBxjUMZIowLrIQnbf55R0CJ+OuIW33AYTPBWlXOGeZ5ZPjq5pYPXJWDl
+kMLpmCJ2nvmlHoLesWeaoSHCJWJiD7bVXE8abgnkZR/KKCKUNB5naGWjzddXg5cN92gFZhKJgQX+
+V4ZoWWGiKkhBZF9qOqCngo6YpaAyLldpYxf6xl2HP45oZAWRWiDrW8/+ad6lTKLY2AR1ugVilKOF
+COqMcabIGJt+udnkayEWUKNhkQ6papgbUisgdLhhkACF9uIXKWPNqqnjhZ/VV+tx7c6YwHAhTlCA
+p43qaoG8B+IG5QRXYkvxt1aaeRm9w7G5XWOptuWpq66+q6N1ECdo7cg0GsnyxmoWMF9Pi1L4Z6cj
+Ugxeq3ZWWil6AGTaqLiFzorbmPTS6/EDAKDaH3EVwjlqjibLjKlAQjuamG6A+plidi8BEPF1EKYG
+25yDmf1z2GKH6+BiqxYNYXt0W3AA0wRJkKNd21MbOuHfcBbA9kAS+J0jreYphvThhuH9UOHmBU4a
+yGfPnTiCjj+kgIlD0zs50eK+bUHmECkggd5xi5r65KhNriMCBcAEUQMNSEB77bTbbnvut+O+O+8N
+ICA7AAEBADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/A10.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHEAccNMCAosWKGC9qzFgRgkcIEAtKnJiQIsmTGFGa/AjhgcuQ
+AA4OMMlxo82aB1m6fHDhAkQGI3GqREizaM6POy8s8CmyJFGcN23qfBBhac+CRA1o3cq1q9evDBx4
+jOCy5wIKFygY1FrBgtu3cOPKnWuhrQMHFx4sXQDhQl+BEBy8bUu4ruHCiA8rbmu4QM+0fK8CgOCW
+ceXFmBNrHszTb8+/CyoUEE26gAXTqE+rTs16tWrRqjv39QvgwGDDmXNvLnx46ey+C9yOXl26+Ojj
+xpOfLm51dgTcvC3TnR53OOMCB/xGjmAadum6yMP+Jxc//HXd5nyfE+5+ebduxdZV+37MXXXjtq3z
+u24Nv+2B3xQ8cBh777mHWHfsVYDeBc9ZhyB4ySWQAAHLkbceeKpl11dfD+DH2IVyEZAABiQmMIEC
+FkyQAFzlfXjebGk9d599palI4o04kgjhjMONtkBkHHrXXoIqWkDABDmSOEGCLV5mQXbaMXhfgsKd
+hkGVR+JIoWsYCnnWZ3kJ6eFyhk0wAW4W4LhYkxj+5xkFMuJHpoOiYTAmjsXx6J1VkXVIJXSmuWVi
+j2qySKaL2Hnml3oIesckBiOaSACeyOH2YFvN9dRhl06SZoGEpmWpZmLxQThfXw1e1iNsRmJwpmX+
+eO5X2HHnURBZmJxCVxeJFCKnZnwXzqqhb9wFeymSV35YQKwQBgobe5lKyeasI9pJa5o3XrujYk8C
+qN6cz7Z145aEMeuph6tGK6Cu8N24ImzV6ggslcNp+Fl9tDoq7o1LVmBirKzJWZ4F6kaXa7yuDhrv
+BCJyO6t/wKHKo6r7jmsasuN6WmlvYIZJpZB1TcprZcuWeFt/x83XE6PmOerWpBR+CDOGtBJYGXoA
+bPrwkNJpixnKECv1AAAyrjqnpZrVjO6Y+Fk1dM4aGwzyd8AeavV5eT2d2GtMYugk19dZ2uZLAglZ
+9bRGm71zYQc8PZAETBMHbtqdzign2QRJcOhLx3U72CynQrpdkN5c0+xy2Kx2mRpsghekgAIHOkwx
+oC6u2fhDCkgggbNG013pqsMhUABMEDUgQQOoo3666aqnznrqq6/eAAKkAxAQADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/A8.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiwoMOHAxAaYDCxIsWLFjNiZAChI4SHDiMenCix5EiTF096hPCgJUiB
+BweQ3KixJk2OHls+uHABJAORN08KTUl04kqdFxbwDJlwps2nG48+iKCUZ0+CEg1o3cq1q9evDjpG
+aMmzKoSrALQyqGChrdu3cOPKbevAwYWdVS+cpSAQQlu2gC0EHiy4MOHDFgoktZr0LAC/ht0inhyZ
+sOACO/VqTlqhQOfEnwskHi26NOnTpkt/Fpz5rN4DkivLpky5cAGlrs8uAO1Zde/OwH8LD04cNOgH
+uXlGiFx4rvPnnpsf2Hw2gunPxIdrzw7c9mWzPCH+LA88uzxt1YZxh7+wPLp71PBTw//r/UDyu7Zp
+mzffu7DZBdWJxtZo3G1nYHd/CaheeONFt9pzELr122UVKAWgZta1FR2FB3ZImIAW2EfBZg9E5mBh
+CWCg4oorEsAfdhr+p1d7gaVWAYs4qjhBfJKBWKFeC1Bw1gNs9UdYi2+lqKICs21Y5I+bsUcfh5+p
+6GJ3BLBIwHbGRWdfY3oRCWJzf03g4ltsZaliAnOdKBh4yuUnYH9tTaAkBgm4eGcC3Gl4WYjJsQQj
+cxWomWOOClhG3o+6VUdff6VNsOaWo1lAwJ1W2ggplCQOGpgCVtJHHqYY7KhoW9Ml1+CfwKVo6pz+
+xGE6wZy8+bdemAMCJlpiKrrp1pmGYsBqc8At6Oh7hoXqW6GlsiWpirm6t9qXnYoKYopsEqYkpSsa
+92R64V1oHYzYPZvnaJdqaQGSBPrZWapWCZrfnwWQeuiWz15J4Z8WWHjWsV1GZu+aZhamI4JOAjqi
+a+NVdt2zBftpm6RsajjgbzLeFZy39KLpIIhZJvAxeSECOSIAy8U24WAnRstWAny2y1uFrl01rpFv
+DYfagAHTm6uFdwlUIqET5nzYhi0bJtp0QQtUJIE+UplgaEfX6t8CDxBUAWLosYzmo5W67NkBWRMk
+wb5dyzcyiEm7WeFDZ1u839M1ih0tayCd7fU9rn2SdreE2IlW9kMKKGCa0nBx7TKxiQ3+kgQS6Br4
+xkV/251oCBTwEtwNdN65BJ57Dnroo4/egOkIbC5QQAA7
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/f.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHDwcgNMCAosWKGC9qzFgRgkeIEScmpHiQJMaSIlEy8AjhgcsH
+IAEcHGByo02OG1d6fPngAkgGElFeVHmyaM2DLHleWOCzYFCiN6PiTPogwgOmF5oaLGmgq9evYMOK
+ZeAAglWXTLFSGNiVQQULcOPKnUu3roW3Di64zMoXQlMIcN8Kvkt4sOHCiA8XyJr2gt+/iAMnnny4
+cuACPbNScOwTcIUCFgp8Dk0atOnSqE+rHh26p18ICyAAWADasm3KuAv3jM0XwIG7ok1/Hh6cuPHi
+yN8Wt8D0MQQKEeK+JWy3unXRhEVjhX0hQnDgwI/+i0+ePHv2A871Tl+P+/CEBBjiTzAsHHyF7Reg
+h1Y+WnVqCwQkQACA8MWnAGmSjfZWc7w9wF57hSmAwQRxERAfBglgp2Bt2vHlWHQbhkfeZ/ANON0E
+FyZYm1zocaaeitYBGF94oaE4336SFcegX9FhB5qI4hXIGnal8bfiXWk95iCMtxV4GX/UsffdAS6a
+9d1g/9V2oYJRXnnkglkpOZiPt6W43pWSZTdai7HpV5+G5RWw5X4/qokjkfeFmRWIkbEW14WAAmpc
+mmdaQKVzDn6HJnF/zlgndV7ax5ye3UnXpWVzDofjg4WyySOdUKam3IUagnqnkUhS+gBicCpWQYr+
+CI6JpZSHhukdadOtOKgFmYIHqX0r4lepYHAiiBipytFYapeG+tVmj7myp6lpc+q66am1CbtqqMsd
+liKZm1p7XpW3QplrkaLNaSeup3EpLIgr1oclXN9y2Seznlb6ZWFkphsfnqYud6W2anI45GCw2mvu
+tQXUuueXdWKpZXwh2ntksGEuAACfeLYKXsKEMkxss0v5dGu/yeIoY3wEQAmuudmWDNO2IS9bgAIF
+YmhilJfxCxyVegmEqsLYBRooh8DiGtcCC8AkNM8iRvZogiFTdoDTA7nsZ3/hTnsqqKdd/ZAE93JJ
+n2VQS6vx2OjSGHVc7UZasQVYF6TAgSOPLF0sqQqHrFzdEEkgwY/RAum21nQiUEABMT1EQAOQNyBB
+5JRXLjnkk1+ueeMCBQQAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/i.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiwoMOHAxAaYDCxIsWLFjNiZAChI4SHDiMenCix5EiTF096hPCgJUiB
+BweQ3KixJk2OHls+uHABJAORN08KTUl04kqdFxb0DJlwps2nG48+iKCU51KDIw1o3cq1q9evDjpG
+aMlTqVIKA7UyqGChrdu3cOPKbevAwYWdVXlCWAqhLdu/FgALDkx4sGELBZKWvbC3Z9/Cbg9Lhjw4
+cAG8FPQ6toy4QgHEoD+LDk16tGnPbXcyZrwAwgLQk2NTnv33ctLGFw7URl3As+/ewH8LD0688+cD
+qxlTiADb79zn0J37rYr7AVu/n4drJ75du4UDjTv+XmDu2/lkCxMwTJAtvTd1q8x7dy5dugKG+6bp
+y89uQanrvSwRJh976U1AG2SU5bVaBPzBxl1xxnUHHGffAagXeQN+Ntdu0RWWnXusNcZgW/JZ5h1/
+DwoHGmGBmdUYBQ9ANuCB18lWm4DIhTfefGzld9qEPpJ2I1vv7WVdhDSal2SPNR63V2s8MceiidwZ
+F2GK801YwXuMWfchanINOEECGEA3I47J7UWekt4pQOZ9GHQnIGdEatZlecHNVkACb95Hm2iAcQbe
+bVG6VaJ+hBEAZ4+kKakllzCWZ+KfbcHJo4d0oqkjhqjJ6dui2JXX6Wh1rqYmf2DGdSicExpao3n+
+ThK6I6NUikqiffc1Cdh+v7VoZ4BnGpanpTNK+qplOWomZXH5mQdqs6NSyCUEDL4qLG8WsEpZicey
+NSiUO1pZpbWWqshklr5BGqO1cAEKnKVTAsriq/7ptcCIo5r7Fq5xfsnih3S+twAAa3a6ba/wDhas
+c9/yRPBonEHblqL3EcCovOfuZ5bDAKybqbAWuAlnAgRQGqi3Vg10rq558gtnua1i2+kCShFUAZOt
+vrXfipFpOOm2310l0LGhzohqcbbmyd8BDkngocEc2nryx1l+95AEGgYK8aH5yUyqcw+8pIACSHLY
+MoJT4xn2SwJJ4HSo8z7N69zXIVAA2003IEESA3z3vXffgPP9t+CAI4A3AAEBADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/fi.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEiQIIODCBMqXMiwoMOHAxAaYDCxIsWLFjNiZAChI4SHDiMenCix5EiTF096hPCgJUiB
+BweQ3KixJk2OHls+uHABJAORN08KTUl04kqdFxb0LBgR6EybUDcefRBBKc+lMCUa2Mq1q9evYB10
+jNCSp1KlAylOrGChrdu3cOPKbevAwYWdVhdAoCAQgoG2bANbEEx4sOHCiC0USGqWAs++gA1HTkz5
+sOXBBfA6htATguECiiuAHq24NOnTplMXEN125wXOrwEsKF25tuXEmCs8gM0ZwIHAq0eLHh6cuPHi
+yNmuBmwVdoS3bCXPnT59OesDr/VeiBA8NOjj4JP+ixf83UJzvc8vVyYwIQGG9wkmUBaeWyns7cW9
+q1Y8AcMEAhYQ4B4GCaAG2mQHHsAbBQ9EZt1tFrg3wYFtDZjAfKyJdt52tLX1HXL9JQBYcQPmll9k
+g9n32l3AAQcXAe/JV15bMBYYV37LKXgVBc9F9yBx/WFAwIehITiceilqx9kDGXrYYQUlRkcea7d1
+Rxx22XHYpIuglYhZbiPu96VbCzi2IpMjHnnYexhYV96PEIKpI2c86udWfmwqh6KPxn12ZAV5LSkl
+mBawaeihiMJFn54qvsZdhm56yOZcQWLQp4+HNccTmlTCmad4hb4H4YOrqcjZcwdyyRqbcA6Wp2r+
+5KVIgXZagimYq6LCWsCkcDZZAHYQ2MfkcqWZGKqlEFbwqrFfsqUphx66KBirR5JGLYVqXrfgo5Gy
+BtqyTy77p36A8gRbg4eVN62oOIrGK2HqKgasuah2KNxq4kqm7Ht60kffs5zG2Ra13q36XryDRqej
+dj12t1xxrxIL2KR9tgswlZI9+K6xk0pnWY4r8tRjs5/hiuyTu/L7obfSbTislKQZ3OaUA+d6K80L
+i3znljSyOaRy0cH4HgH9VhvYWY+97OBwCgxIIIDWCchmAgAW5qZVS7U447GJKoYoxfTRdgBaAjVp
+Istw3RoXzy5iV1AFQKfqltZGg0pckSk6JEFLkdKunG6y+jqI2QF6l3w3xjHvdy/Joj0AkgIKkBx4
+YYAP+mVmLwmkgAQSAF1wu+MVuRwCBWSudwMSNIC66qyznnrrsL8uAQINmB4QADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/fi1.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHEAccNMCAosWKGC9qzFgRgkcIEAtKnJiQIsmTGFGa/AjhgcuQ
+AA4OMMlxo82aB1m6fHAhJIOROFUipEk058edFxb0FFlyKM6bNnU+iKD0wlKDEw1o3cq1q9evDBx4
+jODSalUKBrVWsMC2rdu3cONaWOvAwQWeVS9AWArBQdu1gOcKDkx4sOG1ggsktarXqkAIbBFHPky5
+sOW/PBk3BgC5QoG5BTxb+Ex6tOnSqE+bFv2Z514IC0Au+Gy4su3LgQdn3uv4QGDSnoOHHi68OHHi
+o4Ur5Q2BQgS2n3NLlkv9bWjBc6vCvhDhevThoI3+iz9eHDpoCweYc/8bfXJhAhMSYJifYALu5Ngr
+aL/gHH9i1qdNgMEEBFhAgHwYJJAabb+ttVxsdw3WHmXyTUAbWwgmYNl3g+WlV3ercSicgAlERhyC
+4V0nGoDpNbaedOexRcB89k1oYIIX+ocYYA/u9Zx3a7XnmYAYEMDhdRI2iF9oSkEYYZCEAYfijv8x
+GN5k2B3gIgQgIiZkWyieF5yJqonZ3n4vqpicivNhoGJ7agKG5I6ftRibc7QBCd1abQb5V5IrLrki
+mg8YpmabiCIK5YRewliAlsz9mNuEBbQJF5WjReelmBYQuqic+PVJHKgV0ImfqXb6iGWcbLWpZn7+
+wAFXZXZW8fZAoH5+Z+lpi54qoaGQ1voclIbO1eevhXF43pm1WnUrkOCJ5uqY31FZ3q+p9vfnthUc
+a16D4FU5aLN3CZfieZYip+eOxNIZ7Ie1kVrpfNb6d+SmonVKrqR6YjftmqW6F1m9gqXKHZKCJncs
+wgCv2TBxhJqIKWLpyjlmu2qquRxjP5674rwY4NsWpSNjF512CwAwLKNY/vvpf1e2i95eSqlsJbQ3
+zmekzDzDHGSTdwFQaKD5KYBgggXGKSSDS9MaNACmfpwootAxHeKR5x2wwAMDjZmfyZfO5fVllB3A
+NUHEgifreBKT9zB6ZxMkQbyHsfp1skoeANE/3LGeW7KIC4ItWdwFKaDArxJTdrehFhdAOEQKSDB3
+zCmmLZ6vCBQAE0QNSNDA56CH/rnnnYsOOukNILA5AAEBADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/fi2.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHDwcgNMCAosWKGC9qzFgRgkeIEScmpHiQJMaSIlEy8AjhgcsH
+IAEcHGByo02OG1m2fHkBJAOJKC+qPEm05kqWLx9cWNCzINChN6Ny1OkywgOmF5oaLGmgq9evYMOK
+deDRqkumWCkM7MqggoW3cOPKnUv3rQMHF1xm3QuhKYS3bgNbEEx4sOHCiC0UyIr2Qt+efw/DTUxZ
+cuHBBZRmpeAYMmbFFQooHi26NOnTplOHfpu5M4QFr0dXnm259mGlsPceCFxgde/foYMDHy68OOje
+Fpg+hkAhgmzAdN3WlW5YLnK3vbG+zkt9dfHrxEv+B8c8HrvhAgeWX3A+XjLg65NFk3/um/dg7Rea
+gz5+XLp45ION99to0HmXnGO5PXAeYcj1xht2q0FXIHmiBYdVVhBEUCFr8wEoIGHlATdZXOl1tt58
+EVZXgHwqErgfXCICp1xuGrIG4nWBhVigiIJVVwFajykomGk2ujdkhAx6N+ABJma435HnyVahh6kR
+mKJb+HHXX4NQFgZfYhRaUCJs+lU3YozGqWgchB5m+YCSwrVInQUY1GknBtY9eRyTy7E3IZxTpjiB
+nWtySJ2bcZomXY8PimZnbfAhN2Zfzv3JH38bDkYoal0iOqCIkJIW2qNffsabchj6OSemwSG2aZj+
+n1WYpXNc8mideY7WOeB7ixo2aXNcHlZrhBtW8Gp5/SnmpoT16VnBhwWQyqBk2TVJq6lGKurjpqqJ
++haTJr7pY4PYsrmancX6uGBuNC4oX6YfxmVsnRSaC52ntbFZZJyPmkmthSae6FuYz8bHIKGBagsX
+uK8BIK59rAIo3lv9Muruj30xBUClHlrGZXsE2EkArvFiuVReDkNbX7CHEZCAnQkQAKl94MIEwGUw
+dsdaaXf2HKt/hi2wgM03J9xqgOX1OJeBEJJ3ANE3f5ZtcSoPN597TxckwY5SoliubebKCtHWX04J
+43NV/ufvalATpIACoPZ6WWUXK9b2QwRsvV8heGEbFywCK8b0kAQNEF54A4gnjrjhiituuAQINCC4
+QAEBADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/o-circumflex-acute.gif
+
+R0lGODlhMQAxAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADEA
+AAj+AAEIHEhwAAODDBIqXMiwoUMIEAhKlIgwoQEGFzNi3KixI0eMEB+InCgxocGLClFutJiyJUsG
+IUWOJAng4MqPHnPiTBgzgsgLF0jaZKnx5U2VSHlCkClywYKgFBcm1UmVY8+mQKEORGmgq9evYMOK
+vejAgU+sQCFodWDBQoW2cOPKnUu3bYW3QB9kvaCWgkAIdt0Kfkt4sOHCiAW3LVDgwlOgC9T+dVvg
+beDECTBgIHD58ODKbvXyHR10QYUCi09bQM169enME1rLXk2bMm3RavkCONA5cWELBDR79o168NPc
+ahfYrcz6tHPQoCdsZv68Oujqj3NHoGzZ8tzrBRL+TKj7XXGBA3wjX4hQ3Lb1wqjfJnhPHbzxtHy3
+O+9tG7xq3591R9txWW0H3VuzBQacZhgoQNts7R1owQHIUfCAYNcNx1xmmiWQIXG/VZDdU+yZxx11
+cCmAgXiacUYffLahp5Za+tn33WsJrCadh3U1p5iIuV1AQYmuBYgiAfMJFpwC7x3WnFMzXnAhjPEd
+Nh5zbSH54Yn/tYVeeusVSeWDRXIXV4JwIfjWAhTg94CaKAKooJhOPhdjlEPOuVx1OnK44ngv/mjX
+Y+q9GV9938GGWnAt9ugadDKmpR9/1WXmIlwMEtCkd6Bll9d+zWVoAWwYvsVojgB+SCCNcInaGqP+
+BIQqn2axkXmommyqJ+V+ZhYmHQaeFfArqsMVKeNxNaomZmUcLhcYo8DWp6x3nq5XJa/tMfgfitrO
+BepbFKaVJ4KlcsfgtXEx+Oh+arpV7YWiEgZapoFR16GGnxGYX2pYtlcBh1f+WACtEPbnLn7WCiiv
+atAunGWjchYWrnrbPUqnYABbFt2KXB4I3buCkosltLFqzHF7Z8In4mgLAFDitiE+TKtbSBK7MGi0
+WfYlUC5/ZpiEFkzgp3hc/qyyegs84HJrGBbpsVxYtlqbyhM6pTQAiKEr6J44F33zfVdjveyJ7m3J
+boBptnZA2AK12+XWsnFK5rqBrT2RBE2XC51HZ3SmqtoBJOHts4B1ximte4KxTZAC1x5atre1neks
+aopL5CDOChdnnZEOY0gTQRKE3oAEDYxe+umkn1566qq33gACBXwOQEAAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/o.gif
+
+R0lGODlhMQAxAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADEA
+AAj+AAEIHEhwAAODDBIqXMiwYUMIEAlKlIgwoQEGFzNi3KixI0cGECE8eDBxYkKDFxWm3GhRpcuW
+IUeOLDnwIMuPHnPiBAnxQYSRFy7QtNlSY8ujN1dejClzwYKgEysm3anTI9OfT4MKJZjSgNevYMOK
+HWvAgdmfD7QuoABhKwAHFixUiEu3rt27eOPOtXAh7dMFbS9QEAhBr9zDcxMjXqy48eG4BS5k1doW
+QOECFTDTdcyZMeMCcjEXSHuhLQTACxRbEL26NejXrmPDBh26bgXSgS8ceN25t+fGmkPPLfA0MAQK
+CwxnXp25uWjn0J9rHt6c+QPjQSMIB703r3e7vA/+az5QOmhb7ZuZS4/O/vli7pCzGo/g/rd9zqyn
+Ty9u/gJ66rIFOFtstj02HnZ91ebbgp85Z6B8gPnHHWztVbjeYwrKxZ952gH33YeuVSdeBX+Z5l+I
+eq2nInueaXYgBeUlqNh0990n3WIamlccfcIJ6OOAtKXY2nLkncaWf8vtxeCSwTkmn1YPGLaidBMk
+gMGVCUzgXnU3gnZAWxFC0GGT3lmppQUEXIkBAZDRRSNiT2ZHG2vtWclmd2oSkFhwEx72ZX9i4tiZ
+mSimiUECbzqGGX8RauficLEZemePVmIwQYj5JTZZYFEm+dsEV/Y4HKiH0qhkm0X2xyOkKlbqpmH+
+hmIgJJ2HxRmoY3epqV91anqq5HMbnocpe72+GZeuPbJG158xdoqhchbk2eZzWL4HHIk6njehg7xV
+eqlqmV15aXhDjhdjaRH4Ci2axYoo6W9BEieZiVGKpx6A3ro5F6gJbMcctF/CCOaY4P5bQKyTrnZo
+a+ltu6iOCwDA473wPRarlhUQkEC/Hu5ZV5FZSSziqY/GVaWaWW5Hcopz/QUVAM6WLDOk+gZpMGeT
+DdRdwY+dWt2vP7P8GnkR61xbn0kifbS6fSr3lEQV+GxYz0d7Bhm4yh4wkQT33mywci52TR2ZWm8t
+Jc8ez4iftaPRBIAC/5ab4XIV0z3rYyS5/TYmgFKT6eCePoum90ASSEBAA4g3IEHiiiO+OOONO844
+Ag0gUIDeAQEAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/circumflex.gif
+
+R0lGODlhMAAxAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAwADEA
+AAj+AAEIHEhwAAODDBIqXMiwYUMIEAlKLLjQAAOLGC9qzMhxIwOIEB48mCgxoUGLClFqTKiyZcqP
+EEWKJCnw4EqPHXPihBkygsgLF0jaZOmRqNGbLkHKfLBgAVCJCI/qnOpR6QOfToEGHYjSgNevYMOK
+HWvAgVmfD7QuoABhoAMLFirAnUu3rt27cOVauJDW6QIITwFAyBu3sNzDhhMjXlwYboELWbVSEGyh
+QAXLcxlrVqy4QFzLBdJeAAx4AeLKlyur9sx6tevWnj/TrSCa9AHWm3NzXoz5s9wCTgEDXUA4NejL
+yI8rT4688HHUD4RDoBDBt2e9eLPXxe1c7oHRWqv+Z0a9vDzz54ivO84K8UKE57vjawaN2nfc4OEJ
+Y4btmgCG/wq8VtdhsVnmF2kPyKbbYQn8h0ECmPGW2oSYHSDdAu/Jdp15Cjw4wX8EWMdbY7/hN1p1
+I95VQAIJVPYhhHRxl9h1BwJVnYznyUVAAs35p0Bz6f1WXwUmUpBgkLtNUJ9nO0YI32mXfQceBBk2
+x19rep3mWIwUpmbBWkBBgOGExXGmHncEjpilBRaCZ6R+OaI3pH1WwmngcICh2Bt2dqln3ZaOpUmY
+iVQW2OVyqnkZn2wKsmdjYvJBCmR5dN5JmntLGifgfs2pZld6ea31F1BHqrfgnE7mOGQB34l54pn5
+5MWp15mb1deYo5gylt1vgl7JWIXSUbcar+YVF9tu+w2J65HdybdhpUDOeRmhVfZ2ZaJ+KgpolrER
+GaaNZEa4KIEiirihd6UBliCJ5lqpqYSNlQnct7nSpy2XMwq5JaL3gedUhnmZyu+5ZUIZqGdS5tdp
+tPORWKy495UW1I287vvamvSp6C6bTW21McOGERxytM16uxUAaybaLqP2pmrvlgcsQJCgmm63JrmA
+OozYARJJMOvNcj7X7ci2ysZzz9aCvLDAIP85EkkBnnatgkVbTCZtNAmkAJqd3RyruKAWkPVAEkhA
+QANop6022hKo3fbaaiPQAAJi0xQQADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/acute.gif
+
+R0lGODlhMQAxAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADEA
+AAj+AAEIHEgQAIMBDBIqXMiwoUMGECIWnCgQIUIGBjBqzMhxo8eOHCNCePCAIsGFGRWm1JhwpUuV
+CUWSJGkSgMWXID/q7Agx4oMIJC9coHixpUejSFkqTSlz5oIFQwsWXbqzKsimQKEKLbjRgNevYMOK
+HcvAgVmgD4QKhRAVgAEHFipYmEu3rt27eOPKtXAhrVa2FARCmLs3rmG5iA8rTsyYsIUCF6BSiMxW
+cNwChhdrbsz58uMKaS+wZTt0QQXMpz1jXv24NevXrlsXLhAaAlQIAA44zty592bDBRDfXhvZcfDP
+wZOfXq68OfPlny9X+Cs0gvTdhfNqt3s8tYUDohf+sI2AGbnn587To9+LOi51CNYT8/7tu3H3uQWG
+V49+vH9s2ADGpthxB5AGAQUPnDdfYwlggAEB9Z3X3nRrQUUecOatV0CDE+CnIWKosQbeaBfE5xiI
+du1FgIPH5dXiXsKRdgEFFyrXmnT9yTXBg8g9B5xcybknnmh9zXdfY5cl0GFvLxoHXnglZkgYgKnJ
+lUCA5QVZpQULTEakidcdaWSEMO5WIJE0ruZddzbm6KF6/AFJIWVFlgljeR7y1uJdE5pJpGjWaanl
+dbJN6JxqClIXZWIv3iemmNApJt1w48UmZ5YnugakgD1m2OWQdc63WIj0SSoncCPediFzEqJYpZr8
+6rUnG5fElbjlYVnaWV52dZXJ5ncGImjcpgNuyuh6cZ6naHxNvqprdL/pedmIa10o5ZpbspcabK9m
+RuufJh6b6aXydTYmsHQGummO/rXIro/sHqZogtlK29l9deF76XALALCqeYMGiW+IkZIKo1ZbhZup
+pD9GZ1+50Z25QEk1diowq6eum6mb0z1VEgBIZuxtmQqCWO+0fQ1ErqwEwyohoYh6d8DHKmP3a8gn
+5tqsYTNPJIGb0G57qn+aNdfaARRJYLPIIuPqNMSgmaSAwRjaWKjTpBpMM0UKKNDqueKaOmBNBEkg
+QQNnN6C22mmnvTbabL+dNgINIFBATQEBADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/circumflex-acute.gif
+
+R0lGODlhMAAxAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAwADEA
+AAj+AAEIHEhwAAODDBIqXMiwYUMIEAlKLLjQAAOLGC9qzMhxIwOIEB48mCgxoUGLClFqTKiyZcqP
+EEWKJCnw4EqPHXPihBkygsgLF0jaZOmRqNGbLkHKfLBgAVCJCI/qnOpR6QOfToEGHYjSgNevYMOK
+HWvAgVmfD7QuoABhoAMLFirAnUu3rt27cOVauJDW6QIITwFAyBu3sNzDhhMjXlwYboELWbVSEGyh
+QAXLcxlrVqy4QFzLBdJeAAx4AeLKlyur9sw6AQYMBFbL9vyZbgXRpA+w3rzZ9QTOhzF/llvAKWCg
+CwinBn25OWgLBF6jZo6ZeHPUD45DoBBhuGe9eAv+T4CNd3dhzAdGa+2eebrz961/wz/93XFWiBci
+MFfOmX8C3qgNF5dx6xGGGWuzVRDdawRchuCDwTlWgV+kPVAbgHq59loC/Gn2HXraLaBfbR/OpwAG
+CYxHHnXOEXYegaN1txhtdV2WAIcFjPcfXtcRNyBkx3VnnnfXEfAfZtEpwGJ1qx0GIwUWIsbkYr8d
+CB2HwNUXXHrqQTDidQ/KppeUy4n54VxrAQWBiKmNCZxqZbrpoYAHkHYBlAbOt1+b582nmmJZ/ZWf
+gI2FZ51w4EkooGcweknbc3ouBx6k+9Vm2H1AydgYhpt2OmNilhEImJCHztake9OZKuWAFAjK14X+
+b5IJ62aQVpbemjHWt9uS18HZJIt51YfpoIwZGmCxtrmoV51qcncqr4iSeCiY1qE2bJR9xnqmXlN2
+2titan4pXJgI8slkmG0Kq2am5nK6qXnFjukZs4Ja6CmvAQpn2H4HtjmsjJSWdxp8dDF5HrhOjRjs
+vu85Bqty48IaWaaE9ggqY8BWK68F9AZFaqqmgnrsXLSR+V1TTglErbazXlhdrcRxOZCbcGa8bcla
+4uzrAQsQFNyqBctZIomJFX2ARBJwq/G5PorMGb8cTyTBuD9XDOvLLZI5EkkKOP0nzPVZunB9W9Ok
+5Mi0ystnr1LSRJAEEhDQwNx01z23BHfXjbcJ3Q0g0HcBbgcEADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/ArabicHeh.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHDwcgNMCAosWKGC9qzFgRgkeIEScmpHiQJMaSIlEy8AjhgcsH
+IAEcHGByo02OG1d6fPngwgWIDCSivKjypNGaB1nyvLDgZ0GhRW9Kxan0QYQHTX0WnGigq9evYMOK
+ZeAAwlWXTRdQuEBhYFcGFSzInUu3rt27FuI6uODS5wIIFwALhCA3ruG8iA8rTsx4cQG/bP9qBUD4
+cOHGmBdrLlygp0/AgQEsqFDAQmnSplOXXq26NevXqE0/AA0awIHLm3Nn3h33wOe/FBZwRl2AtPHi
+yI8rT87cdNzikn1eiJC3+GW82LMjdm6hJ2DAEUr+c66+vDxz88YTZ4Xwl3p63vA3X15doSno6dyR
+u97/mn/+wwfQRsEDiFmn24HwkbdeU+Ftd9p5EKLXnH5y+fYdfunFpt2GuA0XHVsNckdehCSi59xp
+C0gGGIGHGRjfi8+16FtgDHL3nH+lJTBBfzyKeJoFan3GV4wu5oYBBgkogGCM2wUYGIjXjaicaRMc
+eWQCEsbFGHR+rYjacXgVl4CVVhKAXXO9PRmYex2WJ9eYZB5p4lyxrefTA+kllxkBSBIA55Wb6Wmc
+fU9SJ5d1OE6QgHhVWrnfloWpFR2eiB6IgZmo+XlkZvoZVoCF9rnXqZSlVcmYBXxicOJ71W1n53T+
+PxJXF2ljEqBnlVjWJSh3TgZGAZviefrelWZaoOiVq0Jq4KsEGhhrYgXEGeeOio3qKaFrHurpfhVI
+a2UCBaY2Xmz1CQkrk4E2GieWz2b4YG+ASWaog24a+6eOwZ4nbovMtsoqXaPuG6W25EWqJqzbCatn
+gQp/uTC5pc3IHgCioovZu3S26W+lki0AU4gn8mcZwfr112JcWcEEAIsJc2qji7tZtyxfKhPp8JRa
+uvggqVrmbMEBLg1UQc/b6cpkatXOOhxiQBckgcyr6owu1FKGXF3QTnfYWKUdFnnqtio/9PSIrY3L
+Ws883hz2Qwoo8OPWRENrcdKyxSSQBBJEnachzeI5m6cFCBRQgN1ON2D44YdLYLjiiTfAOOKLI0A4
+AAEBADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/ArabicHehMedial.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEiQIIODCBMqXMiwoMOHAxAaYDCxIsWLFjNiZAChI4SHDiMenCix5EiTF096hPCgJUiB
+BweQ3KixJk2OHls+uHABJAORN08KTUl04kqdFxbwLBgR6EybUDcefRBBKc+eAxMa2Mq1q9evYA04
+6BihJU+rH2FuZVDBgtu3cOPKnevWgYMLO61egIAVggG3bQNbEEx4sOHCiC0USHqVb1/AhiEnnny4
+8uACOxv3XBC4gOIKnkMrHi26NOnTBUADfsAXwoKPB0ZTnl05seECB15fXfAWtOrUwH0HHy68eOrP
+x1nzhEAhQuS2kelKl368Le69VyN4Vs2duHfj4G/+G0bL1zn087XT0/7duYJSxxe0f55vuj7q+5K3
+K9XN8rlk9QBOBtxlB+xllXMDdgfedwxCFx1ae5mX33QUxhXcfAc4Vl5o1gHW4Ie+WRYYhHj5x12A
+KLa3HXDvLYfgidDZJyN+l/VGooTWhYhYAhgokOJl5x2XYVIbkuagcRbwiEECC4ZXnWIkPiDigHAp
+uaRnFc7HXYsRIgcjkApgIKaYKjbp1nZuFYgdXujlWF0BPE5AgJhPUlZZarq91hx9851pwZwJeEbm
+ffWFeNyN6QE5GI8EDLaklj9WxyVL7CWYWpgYuMXoYR/26ZmajjlnIpYFTICBnJuKNp1gkvKlm3b+
+OcpmmJg8JtAoYSD+FyVkjo7p66/AZgrgcBYUqCGCNQar7K+/nebgeMvx9EBhy1YrbGLEDqmneaJZ
+u+x3kA4W5ZdwifmnkhPMJRhcbxK4Zny3gSdmoxaYeiqxHF4oG5ZoKTXtcZZZIOYEqs2Jwa0oPmmY
+tj2JipyRtaJpKpP5doglq77thxcA05poGLqkmRsdpMJVZtUDAqkIZGoGL0lABQYryOmRolWQG8op
+o6kar1b++p+qF3ZWLM4DSdChosf1TOtxNScKsHsOSUDyc3D+mm5tQaP5GdEFSV1jvoYRoGQCNYb4
+1sU6YwaSAj7W6eGz7Xqp6NdcP6SABEYzvTMipBfPHK8FCBTw0kMSNGB44Q0UjrjhiTfOuOOHI9DA
+4AAEBAA7
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/ArabicHehInitial.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHEAccNMCAosWKGC9qzFgRgkeIDyVOTEhxpEmMJ0t6hPCg5QOQ
+AA4OKMlxo82aB1e6fHDhAkQGInGmREizaE6PLSPwXOCzYFCUOG9K1enyAtOmBica2Mq1q9evYBk4
+gKBU6dULELBuZVDBgtu3cOPKnWuhrYMLLXv2TEtBIAS3bQPXHSy4MOHDhgv0PLsgrd/DgBFLNky5
+QN0CPNFq9rmggmXLni18Fk16tOnSqC+7xbx3L4ADkSlPnl24QFvCTNNqXgDY9mfPwH0HHy5c+ODi
+Fa7qjnD59m260Of+Huz2ANrGFyJY7t0cuXfiwA/+g7atHC3z8LTT1w5tm3qB3HqZt5+P+rT91G8F
+tz+gGwKFB8fJFtgE6hHmm2qBKceUdu51B5wCGCTwHXIGqmaZdWmldV57ocVVQAIYRBjdaqI5Fxt2
+PVHAYIm9hUdAiCFOMGFibR2YHHZpAagfZRPAGCIBtBlHXY3WXZcdizXWZ0GPPgJ531s2gmbBAhS0
+9kCNoVUGoo8JCMhhZNTxp5mKYIK3pI8wTmBmePNheRV2V0pJ3VsQEmjBlj/KtR2SYGK413kljgdc
+Ak56xqWDkI03WHl4ZRmbWy+CiaYCiLU5JHmaaRgZfbaB2KVoTDKJAXuk8WkjlSjGOSR1MBLKZAL+
+Z2IA5HoIHodhbhsi6BuaaVrmaaD6Wbhoa43GJueLaMLaFrLPTWdiaGKiRSZ9gxEwAZ5cTgBkiHzu
+eCqxV0bG67jjGhgcZJ75aZ6N5EZo7bgylprfaB0yGm5o5Nppmah5BiakYIOJiZ18gHGZgL7+Lgki
+gcMF2CammwHa4WqOwtXhnlCaKhh8PcVJq64drvdlkreBpiAAzAFbYaUN+8vejgGntcBLDDZLWrBy
+ZoyxePpd9RIAOjZX4cjAjhxlhcnh9XOSiJbcMMtI03thSwNVkDCUWFos7HbTrSrYAT8PJIFzXz7M
+tIAsGmcZ1QVJ0G17XoPMIdwmthd220rqerM7ahlTrOhtdxekgAKySUb33ACT7VngD0kgQdkvp+2y
+0PQhIBpMDxHQwOYNSLC555+HLnrnokuAAOYCBQQAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/ArabicHehFinal.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiwoMOHAxAaYDCxIsWLFjNiZAChI4SHDiMenCix5EiTF096hPCgJUiB
+BweQ3KixJk2OHls+uHABJAORN08KTUl04kqdFxbwDJlwps2nG48+iKCUZ0+CEg1o3cq1q9evDjpG
+aMmzKoSrALQyqGChrdu3cOPKbevAwYWdVS+cpSAQQlu2gC0EHiy4MOHDFgoktZr0LAC/ht0inhyZ
+sOACO/VqTlqhQOfEnwskHi26NOnTpkt/Fpz5rN4DkivLpky5cAGlrs8uAO1Zde/OwH8LD06cN2Cz
+PCNELjy3uXPPti0c0LvgbATTn4kP364dePTjPM/+QlAeeDbzCbQNq76cGLdV5dDjo048IcH81KP/
+smd7IDeFB7alhwEG6Q3W22UVmKXUdcyJ1p1nA3LHXWxuTSfeBeRBt1pcBSSAgQLOvfWbcdVZRQGD
+oP01nAUTDIiehN6Vx5ZgC5R4FoCBaWhYiwNikIBo5gF2YHDShbdgimzh52GPPrKHn2kqxrYABeHd
+lWSMghHQYwITaEmgfpNBh6Bo/Wl2on5ReokBAaJ5aRyMxv1VVYkPZHegAgPax9yABKDZnI69WRge
+eWBasOQEQKo5wWgPeseoW8hZGV9nPDJpaQIFgvmbe9a5Jaallrb4Y5L3vSnZlCVKOiNboPZIAI/+
+belYW3AW4pZhdq8umWefXhKwqoS8MRcpg0J6SmFbeR44l2X8+UcokDFO6tmSII7ZHWnARQqghg7K
+VpiaPRaaI2Hu6aUckrGelp0FoIambpSeDTspuoS1aam4Y0ZWZonnBmjtemxVigGwKn6m7X5RvjWj
+g0AWCheWNG6GYbdD5ltssb4RSepn01EHQIbMQewolrOGXOICAsEXIJC+xbpwnE96B11VDwiEY4re
+yqijy+ZpqFTNAl0ZpXYWW1vwgWKSCXTQ/pIaGbePFquwbAcUJMGq2DoZnXrqbpdi1Q5JgGDIO1+c
+83JJLm11w0QezTXDRGLXrdoFKaDAuho3zR4pmohh9tJAElz9aHRJ/3qlcBYgUMDfYTcgQQOQP+74
+5JRXbjnkCDAOQEAAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/ArabicKashida.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEiQIIODCBMqXMiwoMOHAxAaYDCxIsWLFjNiZAChI4SHDiMenCix5EiTF096hPCgJUiB
+BweQ3KixJk2OHls+uHABJAORN08KTUl04kqdFxbwLBgR6EybUDcefRBBKc+eAxMa2Mq1q9evYA04
+6BihJU+rH2FuZVDBgtu3cOPKnevWgYMLO61egIAVggG3bQNbEEx4sOHCiC0USHqVb1/AhiEnnny4
+8uACOxv3XBC4gOIKnkMrHi26NOnTBUADfsAXwoKPB0ZTnl05seECB15fXfAWtOrUwH0HHy68eOrP
+x1nzhEAhQuS2kelKl368Le69VyN4Vs2duHfj4G/+G0bL1zn087XT0/7duYJSxxe0f55vuj7q+5K3
+K9XN8rlk9QBOBtxlB+xllXMDdgfedwxCFx1ae5mX33QUxhXcfAc4Vl5o1gHW4Ie+WRYYhHj5p1qA
+l1UwW4LAvbccgtyJZ59nb83YG42DkSihdSGuqGKAx6VoQYZJbUiagwsWh1yS81lH4gMiBkkhjtR1
+liN2ES65XYoNahmebG4ViOUD6PGIIm0ifqbba83R56aNcHZ43HE6pjfYeihWVp2Le5HJ4YBcKpkk
+iyGOJqZjzplYAJUWUuhgjSPypZt2Zm7J5KC+CVfZk5ANhsGnoIYq6qikfsrlkFhCgOBlFpTq6qvb
+oCJpwZOFwWorqacSyaZ5ot3qK6hbXjlmjI/+J5dgcEl553bXwSchcb95WZqSyMlGI1pK+Vnmf3ia
+eRh6uvaUaLU0XijakqfpyV5q++EFAJkmRtekvNUFCpdgVj0gUHvMtneYlP7666Fsuem7r6U4Cnbu
+hQqPhq6VBxg8kAQdCimabafZFqR7DkkwL2IMb0dYyJGlJnFBHrNKY6Furezyoy7/ezJBCigwb7k9
+boxzdTorNrNDCkhA8Zwn3sxtvcchUMBLD0nQwNNON+B01E9LbXXVV0ONQANMAxAQADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/TamilAU.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHDwcgNMCAosWKGC9qzFgRgkeIEScmpHiQJMaSIlEy8AjhgcsH
+IAEcHGByo02OG1d6fPngwgWIDCSivKjypNGaB1nyvLDgZ0GhRW9Kxan0QYQHTX0WnGigq9evYMOK
+ZeAAwlWXTRdQuEBhYFcGFSzInUu3rt27FuI6uODS5wIIFwALhCA3ruG8iA8rTsx4cQG/bP9qBUD4
+cOHGmBdrLlygp0/AgQEsqFDAQmnSplOXXq26NevXqE0/AA0awIHLm3Nn3h33wOe/FBZwRl2AtPHi
+yI8rT87cdNzikn1eiJC3+GW82LMjdm6hJ2DAEUr+c66+vDxz88YTZ4Xwl3p63vA3X15doSno6dyR
+u97/mn/+wwfQRsEDiFmn24HwkbdeU+Ftd9p5EKLXnH5y+fYdfunFRUACCWDgYQITKKDdXZYZFx1b
+1IlHWocettjiBBKi59xpC0gGGIGGFcDiBATIRcAELfYYH2MGmuZbYAw+2OEEc8WVWocJEOcfa06e
+ZoFan02HGpAEJMcdaR7iNmSRFgQYGFsEWkAABkw6+WVpQEYY4ZfOZSWZexMkMJeXqFWw5nXaGWil
+hZ81CGKRz223Zp8FKMDihwRU8KiLHq7n0wNxYRApbAVmelmeXaoJpKYYzBVmYfadSZ0FpRa2IaT+
+iK2J3AQTkDkqBsWtiauJwYGGaQGlakippnlt6GMC4s1oAZQ+YqAnYhba5x6xkhL7KrIW0JoXiC9y
+BmSU2Tobm6XTlXYoq0Kq6SFptJbmrFxLOgkkkwXMe5mZgVGwap55BWvdqQn0WEGp/+Jq2pLmspkc
+uTgCW2vAc+m6bY/AJhZmXB0KnPFlqQbWoJ9srhnpq7WyihiHCRM8sL8X05illuLd6qKemRqna7eZ
+GswqBk72BphkOMb66KEaYtush7UKS/OaelpXALkppnZdsopZ15rUFFrd25k+uUeelcel5iaCh+lX
+328A/Foiop3KSVzYOdb3M0yrqhab3XRm52aPgaheKpDa28XdaXVfL/d1YqX55pJAcZstaJWE5wY2
+2FcuzjjVhMtlJdv9Fem5cQfARJAE6anIGJF0lp0fd92JPnqTkTfXJ+LKBR54ZyBJIHbmTT7IO12y
+6+f6Qwoo8FzPXiI+XPI5Ij48RBKQPmPZiQpO/e4IFFBATA9J0ID3DYQfPvjgi2/++OiHz71AAQEA
+Ow==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/TamilE.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHEAccNMCAosWKGC9qzFgRgkeIDyVOTEhxpEmMJ0t6hPCg5QOQ
+AA4OKMlxo82aB1e6fHDhAkQGInGmREizaE6PLSPwXOCzYFCUOG9K1enyAtOmBica2Mq1q9evYBk4
+gKBU6dULELBuZVDBgtu3cOPKnWuhrYMLLXv2TEtBIAS3bQPXHSy4MOHDhgv0PLsgrd/DgBFLNky5
+QN0CPNFq9rmggmXLni18Fk16tOnSqC+7xbx3L4ADkSlPnl24QFvCTNNqXgDY9mfPwH0HHy5c+ODi
+Fa7qjnD59m260Of+Huz2ANrGFyJY7t0cuXfiwA/+g7atHC3z8LTT1w5tm3qB3HqZt5+P+rT91G8F
+tz+gGwKFB8fJZtgECWBgIAYJTICYb6oFphxT2rnX3XAKHGjhgQSIVptqllmXVlrntRfaXBMYmGCG
+FhBQooFtTUedg7pdQEGEGhJWXIkJZLjdbQQYqKB+LYaWHHZpAagfaYJVmABoDVrW45LNRXacdddl
+V+ORoCWQQIANulXgiAwKacECFLT2QJBhXtYjAeG1112JCkDmXHUfysgcdb3dRmBcaL61ZptBangV
+dmeON6dtCRb3omoYoMjknBZ4uNd5eTJZQKOxaWioBRjYiCST5eEV3IvtddpnYExyWqOc5GkGIlz+
+fbqFgZgEFIggm27VOh+goJGJnahp2tjpYD1emGEFtQrGZYse5kapkIbmqKGtFkI5gYLjSdhWqPLN
+OaIFBN6GoJcHenatsoGGxt9eM+6KJLGN2tZpqQZ6qWONIvbaGl5Solqjll6KeGBd0hrWpKTmfQoZ
+vROoKJqtE1hmKoPBjrnvmeKFF1qtF5o4GAbbyVnjuthR6qKbelKbaFu1TqgpbheLmdiocIWMHpAB
+vreZldBeCatxNHOoLWAPAoDxiIECHaVzKC87cloLvCSfp+ni99uu7iZ91UtG+9t0l6jOvOyjkeLF
+tcFNNrmhm6lm22tLA6F5c2whj4au08oewPVbQBI8l3SLedoo95XTYbY33y+LSLfgTufrXgWHEyRB
+ptkqu93JQ4sYOUEKKMCe2IrjXDWHmxckweRYpmtcxsdZgIBoMD0kQQO0NzD77LbXrnvuteNOuwQI
+xC5QQAA7
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/TamilAULength.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEiQIIODCBMqXMiwoMOHAxAaYDCxIsWLFjNiZAChI4SHDiMenCix5EiTF096hPCgJUiB
+BweQ3KixJk2OHls+uHABJAORN08KTUl04kqdFxbwLBgR6EybUDcefRBBKc+eAxMa2Mq1q9evYA04
+6BihJU+rH2FuZVDBgtu3cOPKnevWgYMLO61egIAVggG3bQNbEEx4sOHCiC0USHqVb1/AhiEnnny4
+8uACOxv3XBC4gOIKnkMrHi26NOnTBUADfsAXwoKPB0ZTnl05seECB15fXfAWtOrUwH0HHy68eOrP
+x1nzhEAhQuS2kelKl368Le69VyN4Vs2duHfj4G/+G0bL1zn087XT0/7duYJSxxe0f55vuj7q+5K3
+K9XN8rlk9QBOBtxlB+xllXMDdgfedwxCFx1ae5mX33QUxhXcfAc4Vl5o1gHW4Ie+WRYYhHj5x12A
+KLa3HXDvLYfgidDZJyN+l/VGooTW5Zhiisdd1laGSW1Imo4LFvndfNaR+ICIHro1QQIYRJnABG5B
+GeWVV75VnX7YRYhcd4MpkAABbhEwwZUEYPBWlj6KB12BXT6AXmVmQqbYmRhAedyVYFb3mW6vNUdf
+hwUkMKhbVybQVpp5btfbbW3dyGQFEzwpJZmp4ZmAZ4wqimSCg7W4l5wcrpjAphZYiSmeVFIaZav+
+8zXpGZyO4VijBRgQsKiUbbF656uD9jgiX7q9KNtgahqWZaFREuCZqsJCepySkJKWq2KMqlmBqoNx
+WyOMihWooXzotXUqAQRYaWgBWYLWrqM1OippjgNmi2ZbbOIaJXrRqgZkoPL1CFm6l5YpZWqdHjpc
+qMvxtOR5oEan2qNazmnxdfC96CiYE6sYonDfrugWWkrZGu1hF/4Hr8WQ/dtTwAp3GCN9xx5nM73u
+MfYAAA/7ZyKS/4XoM3pW7QwAziIr6KHSyIX8bW5GH80yylR35pafQ9d4QNQCSXAzzeKF3V7Mo4Xq
+kAR2lrvx2pVhXa4FXBPktdNW1x1vZEmvWEE13AMpoMDbfgYOuGBUY/aSQApIgDaHQzZ+oeCjIVDA
+4Wc3IEEDmF9+ueWcd5455p9jjgDlAQEAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/P.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHDwcgNMCAosWKGC9qzFgRgkeIEScmpHiQJMaSIlEy8AjhgcsH
+IAEcHGByo02OG1d6fPngwgWIDCSivKjypNGaB1nyvLDgZ0GhRW9Kxan0QYQHTX0WnGigq9evYMOK
+ZeAAwlWXTRdQuEBhYFcGFSzInUu3rt27FuI6uODS5wIIFwALhCA3ruG8iA8rTsx4cQG/bP9qBUD4
+cOHGmBdrLlygp0/AgQEsqFDAQmnSplOXXq26NevXqE0/AA0awIHLm3Nn3h33wOe/FBZwRl2AtPHi
+yI8rT87cdNzikn1eiJC3+GW82LMjdm6hJ2DAEUr+c66+vDxz88YTZ4Xwl3r67Rjiy58vP0GCCbsv
+r67QFPR07tadZgEBCchHAAFzETCBfPi9BuBhB9BGwQOIWWeYeATIN5xcBRSIQQK6kbdeU+FtJ2B6
+8qG2mIcJnIacc+JZ4Nt3/6X3XFxzaYjjcQMyGKNlxkXHVokPwlhBijDOFReL5AWo4gKSAUbhYRZe
+pmGVKi4Yn2NU+hYYidzh6GJeSKbGo5YYtCYmYmp9xteNYVZngXwWnlgAmlxuF2FgQ+pHZWEpWleh
+XFq2mF6V0PklpYrjXaghhzYWwCBddSI242fuJalicUjieBmTNpop3no+PcBoYjHSqZxpHmJAwIX+
+cQbJJ3h+ppbYpAmimQCCtjImHn/BgWaqgKhWRx999/EaqZwXztife2PCemR8d/16IrPEkvombmGW
+pmpy5G3Hna+9SUhdgAACuiWqf4KLroXamsptsVf2uh9mjFXXH6Yv8ujoupvJuZ+LT7q5LaNwzhnf
+ec1pRmy5TNH6q2o3lonXqhMHqG2mocJHLcMdd7ujjHyW+l7Dkq6b2cA7WpvXiABQB+l1cWUYnwLE
+qdkYwSICtgBM4VEJJ4H1Iehwztf+mhVMAFAYLmLH0mfkdoo5WZ1vLgn0nJICxliXpxxiK2bLFvzM
+NAAVXCh0k4euCmusvx5wtkASHBoruZhNDKtPgFkXJMFcWDpop87Lqj03QX+TvbKZxcbWNY6HE6SA
+Av2CjBu4CJPbWUx0Jy4upTwCfvnWCJjGud8NpN6ABKu3zrrqrMfeuuqpS4DA6QAEBAA7
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/t.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiwoMOHAxAaYDCxIsWLFjNiZAChI4SHDiMenCix5EiTF096hPCgJUiB
+BweQ3KixJk2OHls+uHABJAORN08KTUl04kqdFxbwDJlwps2nG48+iKCUZ0+CEg1o3cq1q9evDjpG
+aMmzKoSrALQyqGChrdu3cOPKbevAwYWdVS+cpSAQQlu2gC0EHiy4MOHDFgoktZr0LAC/ht0inhyZ
+sOACO/VqTlqhQOfEnwskHi26NOnTpkt/Fpz5rN4DkivLpky5cAGlrs8uAO1Zde/OwH8LD04cNOgH
+uXlGiFx4rvPnnpsf2Hw2gunPxIdrzw7c9mWzPCH+LA88uzxt1YZxh7+wPLp71PBTw//r/UDyu7Zp
+mzffu7DZBdWJxtZo3AmnAAYCbhfdXwKqF9540a323AQYSCjXb5dVoBSAmlnXVoQZbocBBgxyF5mA
+FthHwWYPnEjgbBQieB52H/6nV3uEyVfagSN+GJ9kKGqo1wIUnPUAW8KVR8CIPc5In2fgKUcfkNkl
+wOSVIyqwnXHR2deYXkcmOOCAbw3I5GlkvgWiYFGy11xwIWJXAJOBiYkhgaJ5qRlLcI7JnJkjYojY
+n+pxuFxs76HnGZ2IogYnlFa5FiaNsjV3Zn8gWjbgdMmNd9mn2V3GaGVJ9sdWlOIZZ5hoUwJKYqL+
+cJEHnIMBIolkiVxWwOR7gA3HW1t6StoqqG+2deaqiGX6X3V4MpegqCNSquOACXIa6ZEn2lqsBWdq
+e15bG57F7K3u1WkroxFqpypbKrJIo6xBGttjunLdOmt4VUH4qanXzTkiAT722uenKQ65IgDYvjvs
+gFZikABbEySQ6ZPpuXZVe7iW+96SVybgnaL5bXiXQAmjuKa2FnCMwQSCFttdwSMLpGnAKDYX8Ieh
+knnqAg8QpG25xfpKbZrm/nZAzwRJkJ9xP+ucYX6JyrrAQ0r7SeyYmN5cKXZIOyTBs3I2m+y+IX7a
+tUMKKDCsbIJOTCmSZ4MkgdIak5smq6H5KRoaAgW8RHUDgEsAeOANCF744YYfTjjgCPgtUEAAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/s.gif
+
+R0lGODlhMAAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAwADIA
+AAj+AAEIHEhwIIODCBMqXMiwoEOHAxAaYDCxIsWLFjNiZAChI4SHBSMenCix5EiTF096hPCgJUgA
+BweQ3KixJk2OHls+uHDhIQORN08KTUl04kqdFxbwDJlwps2nG48+iKCUZ0+DIw1o3cq1q9evDjpG
+aMmz6keBWhlUsMC2rdu3cOOydeDgws6qFyBchcB2rV8LfwMDHiy4sIUCSa3q7cmXcFvDkB0LBlxg
+p+KkFQpkPry5wOHPnkODHi069GbAD/RCWADhwGPJsCNHHlzgAGurCzhrNr07s+/ewH8L1702NU8I
+FCI4Hiy3uXPNtA/ktRpB9GbhwbNj9017sFm9yv/+xh4v2zTlCkoXX1AOvT3p96Xf96UMWOltlrRl
+kye/m7L01TxVx5xn22lnIHfzsWVWXuFBd5pzELbVG2cWHLAYeJ5ReN6BHE7m14J2Oebgfvr9tmF6
+x7H3V3wswiffg+gdx9MDa/VXIonLcWdhUuAlWGCNEySAAQYJTEAAARhslx9tINJIYIJvFSAkAYcR
+IOSQcZl3HYoM5kdgcBNgQOVabIWZZHADMifddHZdN594FmB5nWdywjaiZrexltx87pk35AR9QRdm
+jaStuFaTbsIG2JBi8okkhYU9GeOFDdKHnQVmEjnmaxue1lmFMrb5ZoYiXjlkApv25xaCH+p1m4r+
+n50H2lqZnqoAdJ16eWioNI6q6Ga1YgCom35Jeth/KdqYpomE1rrpaJ/uymavNXKXaKJInlptjvTt
+qCd7GuK6WaPbZgppe8yCGJ6dfwkbbpxDOpjhiP6x2WZ/d3KG5bmnsmXsZ6eZpZRyr01IZr/cZbup
+ocyt5W1P1TFbcAWMospWtsP2aSieiT0AwANvBuqmmAQEWTGVpI5IrAVVeQwAoV8S9qS/nBZLpqfW
+2ebyy4bJC+mSKn8ZmGcH7AyABLKaZyx36MYnnrgLOIS0v5HqRnXDIm7LmdEDIT30zyEDLLS453I9
+kAK3xlqtwT/DGCh9lb0kkAQSFMtcd/km7SYaAgXIXZAEDQQOeAODE2544IYXfrgECDTgd0AAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/Pts.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEiQIIODCBMqXMiwoMOHAxAaYDCxIsWLFjNiZAChI4SHDiMenCix5EiTF096hPCgJUiB
+BweQ3KixJk2OHls+uHABJAORN08KTUl04kqdFxbwLBgR6EybUDcefRBBKc+eAxMa2Mq1q9evYA04
+6BihJU+rH2FuZVDBgtu3cOPKnevWgYMLO61egIAVggG3bQNbEEx4sOHCiC0USHqVb1/AhiEnnny4
+8uACOxv3XBC4gOIKnkMrHi26NOnTBUADfsAXwoKPB0ZTnl05seECB15fXfAWtOrUwH0HHy68eOrP
+x1nzhEAhQuS2kelKl368Le69VyN4Vs2duHfj4G/+G0bL1zn087XT0/7duYJSxxe0f55vuj7q+5K3
+K9XN8jmG/wAGmMAEBKhnoHCXHbCXVc4B5xYBCQBYoAUQ/jfBd9/19hZae5l3GXQAVjbBfwk8iMF0
+wc13gGPliWZdBQD6NlqEGExgwYjgVffcYBziZVlbIcpGIYkE/KchYQ4K995yDSII43+dGQYgjb/h
+pxpgPT6AnmoA6uhZgEbS9qEFKyZVHn2AxehWdWAGSCGNBJ7oZY8eRhnicYoVWeOdQ5ZYAI2H6Yfd
+XlqG1pma1dGoJwaBRRiZo4a6peCgzt0G4n/bKTZijRbwCeVxRVaWmm6vNZfkZwASSOGmF3YK5WD+
+Fs7HKJ5tZQkZnqnSiEECEz4ppwVwrnllcEt2KCRwQcbF5asVLMqrZHBN6piWl0XWpXFSYgrdojVm
+Sixfupnnra+FVYsodLom8OJ4y/FU6Jiu/hopkEYeB2qq1XmmIIseCluAmoIZqqalbgEqZJbrXooB
+cdZq22mvQ54YZZmlVipjagNriPGr/9oo46fcITyuAncieJyEwNbbVpGtAnYdfP2unG6BiOm6K5Fv
+lhilBWgpRe3JbYZpWrAYEDABjerOZxjFPTWptFzcpfe0dfT5th9eAFAbGYYfDrf1leXW6q5AUYoJ
+dabtOZhkbg8MVMF59tkbXrV4HlntAW0TJIFYgwYayDd0DHvGo0MS5Jcj3UKmXVh1eRP+9Nm1uSg4
+1Zle1nhBCiiA3NzFBepy5NZd/pACBEiQGN9v6Qi3jBYgUMBLD0nQwOy0NyC77bjfXjvuuyMAOwAB
+AQA7
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/DevanagariKSHA.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEiQIIODCBMqXMiwoMOHAxAaYDCxIsWLFjNiZAChI4SHDiMenCix5EiTF096hPCgJUiB
+BweQ3KixJk2OHls+uHABJAORN08KTUl04kqdFxb0LBgR6EybUDcefRBBKc+lMCUa2Mq1q9evYB10
+jNCSp1KlAylOrGChrdu3cOPKbevAwYWdVhdAoCAQgoG2bANbEEx4sOHCiC0USGqWAs++gA1HTkz5
+sOXBBfA6htATguECiiuAHq24NOnTplMXEN125wXOrwEsKF25tuXEmCs8gM0ZwIHAq0eLHh6cuPHi
+yNmuBmwVdoS3bCXPnT59OesDr/VeiBA8NOjj4JP+ixf83UJzvc8v216POXRupbC3F3ePur7q+5NB
+WzjAm8KDyNbdZoECEySAwYEJEFCBAgc26CAGCXQn2nnb0dbWd8gR8GCDimm4YYMJSFYBfK/dBRxw
+cRmYoAUEGIjBBG15+OGL7vF3FQXPRRegcQdGJqN0FnD4lnULaMfZA6zpaCFbELYXZI8YVsChcZhh
+l12FSR5GmpQRGjZBgyc+iUF5yrW1gGMlIgnYfOR9OQFbLtKoX1tgXmiZjZzh6B1c81nwJYQNErDk
+j9YVl9eR0Z243IWiyQihoGwR8OeUl5lX4mvcJbnjojImEGecD6o2XHM8qcmaWwGy2OCbLIK6oYD+
+g5HI2XP6hSmcigSQxiIBkiYwgYzHhXamdljmtiOdMMJqp5hxRYcdBPAhuSiqxmLQXgUTTMDmamAi
+ZxipFTJaqGQYQKpYoMO5RWmioNn4Go5sihiagdqyOGmyodUp3Hfg/qclbdPO2GS6HB5bwLM8QUDr
+kvoV56iD9QZWZ3vL9UvYooK9NemUpDUooWQ2apdjd96x5q1b9E42cbqrWTxnuolOlpuHggbnonvK
+sYUwTzleCzDFubWlYswGljkthdJmrPS/Ph6Ya7pdkqczZ1alZxrLJsdcpoEKohrmYWc9lrS8BlNZ
+gaTiRvcZcVYtpWiWAKvNqJ1aCwfdAWgJdKpqiOO+jTN9iHWHXUEVYD03xUtb2N3iiS7gkARusZuz
+ZXanK2/M3h3w+LVkXh1grZwba9kDICmgwL8w5yd1fnwrRvpLACggAeROTv4y4KWtbQECBcD+eAPA
+SwB8A8ITb3zwyBtfvAQINOB7QAA7
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/DevanagariKA.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHDwcgNMCAosWKGC9qzFgRgkeIEScmpHiQJMaSIlEy8AjhgcsH
+IAEcHGByo02OG1d6fPngAkgGElFeVHmyaM2DLHleWOCzYFCiN6PiTPogwgOmF5oaLGmgq9evYMOK
+ZeAAglWXTLFSGNiVQQULcOPKnUu3roW3Di64zMoXQlMIcN8Kvkt4sOHCiA8XyJr2gt+/iAMnnny4
+cuACPbNScOwTcIUCFgp8Dk0atOnSqE+rHh26p18ICyAAWADasm3KuAv3jM0XwIG7ok1/Hh6cuPHi
+yN8Wt8D0MQQKEeK+JWy3unXRhEVjhX0hQnDgwI/+i0+ePHv2A871Tl+P+3Zl4eArbL8APbRy5anz
+q84vefTb5rw9wJ4FCWBg4IEIJqjgggcSEBhWWZkVn2gFMmjhhQ3ChR5n6klGWoUYhqggAfI5xlt0
+2GE3mHUWHMgiXWk9JqCHxIVHXgUujjfeARQ4551/oF3WXgEH1tZeYfN1SN1w4O0X5IHT6YeafH6d
+aJ99KRI2AYgJKHCXi8u5l2R0K94XGogIOugiARUmMEFt5B3AYUujfbfeBBa2aCCeI9o1ZmQ1pgkX
+AXiieWACIBJQ3oacoXhfkG9lSB2BCSbgYAF8JlBZkg9kZxhoOcL5GYITeAgmagA65h11olKKgYP+
+/vFpIKxwQpnYn0z6N6ikBCi4pAW9Grhoeqte6amrCoL4qKuazlUAp4gtB5yhGJQK5mAHvmljiT5e
+GWV8FmxpoKVfGjgdaLKC+5acHM6YIpPmGUlakYIV0CacpFG5lF/RHWumkWbiaC52wb76638RZiWg
+vLrWC++oBsaFbsQ1DtccX2Ri2eSkGlfAJgYrFkBokOBpGOECACx8sKcqlkxgmNItqV2VPvW77Lvh
+kZbzuTy/i11jMKnMXsASvzcYdv6Gxi5MANQ74bmA7hetrvkyp9dAFQxtpIrI9cfyry1XcADTWGd5
+MMmFLYf0v06P/ZAE/eELZJ2Tcv1rfCi/XTU/kCvPDZfccsNFdkEKeLm219IeXSaNrcUkkARw4wzf
+3/hNrTECBRTgeEESNOB55w10Drron4fueemme745AAEBADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/DevanagariVirama.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHEAccNMCAosWKGC9qzFgRgkcIEAtKnJiQIsmTGFGa/AjhgcuQ
+AA4OMMlxo82aB1m6fHAhJIOROFUipEk058edFxb0FFlyKM6bNnU+iKD0wlKDEw1o3cq1q9evDBx4
+jODSalUKBrVWsMC2rdu3cONaWOvAwQWeVS9AWArBQdu1gOcKDkx4sOG1ggsktarXqkAIbBFHPky5
+sOW/PBk3BgC5QoG5BTxb+Ex6tOnSqE+bFv2Z514IC0Au+Gy4su3LgQdn3uv4QGDSnoOHHi68OHHi
+o4Ur5Q2BQgS2n3NLlkv9bWjBc6vCvhDhevThoI3+iz9eHDpoCweYc/8bfTLu24avI66g/YLz5JO9
+q07NX3X8tcvFdtdg7cH3HmHfDZaXXt2tluB4EJJ3HmvovWbVc9KdV92G12EHWIB7PefdWrRFaGJi
+JKaolIADpkiggbd1OB9bBzTGYIHtIdbfjqYl96AF9a0XHIr4HQifh5+ll1RzDeI3YnjkRVneiNEF
++cB/SG4oV4751ciciLn9aKKEFIoGoFW8PeCifJGxaeSQtYmmpIDPEZkibTymBt2Q4NGHplVqFmgm
+jO/ZOZqXaGLo43nfjTkedu1ZOShltGnp1ozyJblXbPehCFyRUkrpJGBV/nnXpL+R+macbYKGKIPt
+EzZqnnl5OjhhW5K6156bhHqY31pzhujkZAQ6ihyVCpqqpq6xWmpdhsMtx1h3g5qZY6jimYeqdgsA
+sKyLSK6aqq/XzdmTiKPidxoGGCQwAY9YerfiXQAommF4c03ALgYTxFjtZDXSC8Cdi1b72QQTJMCv
+qK0+uMACDwxUwYwUl8ZaAfoqABdyhyUZMUFTkujeX6PpSwByqeqH3scESfDri9a2aXKxXMrX7UMu
+4wjzrm3pOyujvrJckAIKDAnufDUnrKquJAoNkQISSLDm0U/6eCdiCBQAE0QNNCBB1197DXbXY4tN
+ttldI7A1AAEBADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/DevanagariSHA.gif
+
+R0lGODlhMQAyAPcAAP///4zGvcbe3pzW/1JzjHOcvZTO/3ut1mOMrTlKWlJrhISt1pzO/2OEpZTG
+93ulzoy973Ocxlp7nEJac4S152uUvXOUvYSt3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAxADIA
+AAj+AAEIHEhwIIODCBMqXMiQQcGHDwcgNMCAosWKGC9qzFgRgkeIEScmpHiQJMaSIlEy8AjhgcsH
+IAEcHGByo02OG1d6fPngAkgGElFeVHmyaM2DLHleWOCzYFCiN6PiTPogwgOmF5oaLGmgq9evYMOK
+ZeAAglWXTLFSGNiVQQULcOPKnUu3roW3Di64zMoXQlMIcN8Kvkt4sOHCiA8XyJr2gt+/iAMnnny4
+cuACPbNScOwTcIUCFgp8Dk0atOnSqE+rHh26p18ICyAAWADasm3KuAv3jM0XwIG7ok1/Hh6cuPHi
+yN8Wt8D0MQQKEeK+JWy3unXRhEVjhX0hQnDgwI/+i0+ePHv2A871Tl+P+3Zl4eArbL8APbRy5anz
+q84vefTb5rw9wB5iCWBg4IEIJqggAf7Vph1fjkXXYHgFFKjghRcSQNp0cKHHmXr91UaYhRiWaKAC
+2Q0HoF/RYQcaeNhNh+AEcx0413frpfWYgCEiJlyCGg5no3GXjXbAh2bhSN1w2R1oYZAFHCiiYC8S
+Nh+I9ynJpI0Wvnggh9gVBpqHsdUHn3SnwfWlBQUmcJeNyyF315USiumfmHBW0GaUBk62ZAFHOifg
+d5ExWcGaBRBgIImpTchcVo9FJ519hJIm5XSKIugne2SyGCeH4b1pIHuZjvoppfJBmtUD/RU5JZ/+
+GEAJ1wQ2yhWjZM1B2uKGU8JVW6YJBEkAiRgQyeucqmLpo6EvEnvhskta0Gl9TJ5561u0logftAVc
+Oaivlp322bCL0pgnhYgFqmuh8A0momSirQkejMh+yCNx8OI7mosyGqilnbzxJumLVFLX6n32yVtw
+mKnay6x9rs47oIWovhuculnVyeRlYsI4YYGgIjzddgsA4N2GoSK86WVuLuextH4xZXJkLkL8Hb8Q
+p5xzYY3BxGp517Z667zxUfgZVjABACq7lIZ6bMH7GlzBAQskrbSc+nYscpEHn3mA1QINRnS1ki37
+4s2HSQu2QBKgDDXE+vbKHn4OHgBR21FvvB47wQ7y2qC7cK09kAIKvI11tO6+3aDgBUnQdrSTZtn0
+tvghUEABMT0kQQOcb97A5p53LvrooHeOQOYCBQQAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/g-ring.gif
+
+R0lGODlhLgAuAPcAAAAAACEpMSk5SjFKWjlSY0Jaa0pje1JrjFJzjFp7lFp7nGOEpWOErWuMrXOU
+vXulznut1oSt1oSt3oS13oS154y154y975TG95TG/5TO/5zO/5zW/////wAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAuAC4A
+AAj+ADkIHEiQg4aDCBMqXMgww4WCEAduYEixYsIMGC5YoBCR4ESLIBdi1FhBAoSOHD6GXKlhpIWS
+EB6chKiSJUiXMGVGoGlzJU6TOiVMIOigqNGjSJMqPfoSKIQIQocKXEq1qlKZQSdM4MjBqtevEJ5G
+pcDxq1mrEsaSPeuAQQEAAAowYFtUK9m1ZhkIQFAUgYC5bO/ePVuAr1EEBegKxvsVQFLHgRefhXyU
+stnFFAgb7ps4suCzDAIYRhAA8FnMbN3ClUvXAerWsIu+jt16ttcFBQKsVlAUrmWqtqu+9e3bgAPf
+X4MvJUC8+QHkXpUnfb4asALmxJNLtqobgHGkBrLdR99ONQFcAUsFQLcq/ejwzUgRrK/a3ugAuKaR
+MpgPnPxS/kgBqFR9vcFVlYBJEXicgVQhiJSC6gGQ31H7Mcief0oNl8BS5llIH4ZJdYieUtj9tpSC
+DnT33VHhOXgUivJVV9R1zWn3mVctNgdXiTaSNYFZORJHwIImDnjXUGctYECEA2xIpI0TnERbUQvs
+qF2UU1kFAAGdJRXjilVpNVNXVkXoJFLdnRnmmGRW1WIABzRQVAMJRBiAWWxmSVUD3enoG29ePdCR
+VXr5CUAAgFqFkp7l5QZXAATAVxVKAQEAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/g.gif
+
+R0lGODlhLgAuAPcAAAAAACEpMSk5SjFKWjlSY0Jaa0pje1JrjFJzjFp7lFp7nGOEpWOErWuMrXOU
+vXulznut1oSt1oSt3oS13oS154y154y975TG95TG/5TO/5zO/5zW/////wAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAuAC4A
+AAj+ADkIHEiQg4aDCBMqXMhQA4aCEAdu2NCwokUNGS5cqBCR4MSLIBVmvGBhgoQHHT+GXDmy5EmU
+EFWuBNnS5IMHECIUlDnTYs2XOSUQdEC0qNGjSJMedXkz6ISBSqNKVQqhaQQJEygInMq1qwMITilo
+9Uo2qoSzWcVyKMsW6YS0YtvKLSq2LoW5eO3exStXL9++dv+29Su4LOHCXg8j5qp4sdTGUhcUCAAA
+QAEFRCsDSBy4awHNoA040My5blcCoFMfIN0VMtLVlQswIKoANejScadSBiD6qIHbrTtHTVBZgFIB
+rBkLV/oZAAKlCJJPdW10QOXZSRlIf7w86faj35WzUi8annxl3Hujls98PrhpqcgBYEeqvb3y91Gb
+J1BK3P707kj1Z1xStm3mXm5S7dabUb+td9R4RUUXG3a1pYZeVw2mVlmBuE3gVYagETCaf9xRYBJZ
+CxgQ3wD7jWigciatxdcCGyYWo4xSAUBAAdBVtuBUN+IYVXwtHrVbkVIFuZVUDQZwQANENZBAfAF4
+BQFEUzWwm4aaYcYVTFhKxUB8GgbgJVcdLSlVApNVFgABz3nVUUAAOw==
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.unicode.org/unicode/reports/tr17/ring.gif
+
+R0lGODlhLwAuAPcAAAAAACEpMSk5SkJaa1JzjGOErXOUvXulznut1oSt1oSt3oS13oS154y975TG
+95TG/5TO/5zO/5zW/////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAvAC4A
+AAj+ACcIHEhQYISDCBMqXMjwQcGHBCVIYEixYkIIDhw0WAAx4kSLIBdi1LhAwYGOEySGXIlw5EaT
+BxBAVMlypcuSB2ImeEizJsibMBEkUFDQgNGjSJMqXZr0ZU6hChYwGMi0qlWmCJ4OlTp1wtWvYA0g
+gMq1a9izVRVEZcB2Ktq3SheUZesVrl2jbdvWvQs3L1u+d/0yAGxXMOG+fg+/Nfy2wAAAAAYUWJwY
+bQEBBIwSEDD5LOOzAzIfJTAA7eewAJSm9lz57Gqkr8GeBhsaKWnTrcMWCCCaQIDOYWeDdQxZMuW8
+inEjTx48N3Orwp8vjS49KfXqR69jN6Ade/fq36Uwh38+nrnfvduV5iWanmlboujbZ2dgUqD8uPWp
+3j+aX//+rBDtZ8BJAd6Hkn3toRQQADs=
+
+------=_NextPart_000_002F_01C634BF.40F51800
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.unicode.org/reports/reports.css
+
+BODY {
+	BACKGROUND-POSITION: 0% 50%; BACKGROUND-ATTACHMENT: scroll; MARGIN: =
+0px; COLOR: black; BACKGROUND-REPEAT: repeat; FONT-FAMILY: 'Lucida Sans =
+Unicode', 'Arial Unicode MS', Arial, sans-serif; BACKGROUND-COLOR: white
+}
+TABLE {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; =
+BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid; =
+BORDER-COLLAPSE: collapse; border-spacing: 0
+}
+TH {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; =
+VERTICAL-ALIGN: top; BORDER-LEFT: black 1px solid; COLOR: black; =
+BORDER-BOTTOM: black 1px solid; FONT-FAMILY: 'Lucida Sans Unicode', =
+'Arial Unicode MS', Arial, sans-serif; BORDER-COLLAPSE: collapse; =
+TEXT-ALIGN: left; border-spacing: 0
+}
+TD {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; =
+VERTICAL-ALIGN: top; BORDER-LEFT: black 1px solid; COLOR: black; =
+BORDER-BOTTOM: black 1px solid; FONT-FAMILY: 'Lucida Sans Unicode', =
+'Arial Unicode MS', Arial, sans-serif; BORDER-COLLAPSE: collapse; =
+TEXT-ALIGN: left; border-spacing: 0
+}
+DIV.body {
+	MARGIN: 3em
+}
+.syntax {
+	BACKGROUND-COLOR: #eeeeff
+}
+.example {
+	BACKGROUND-COLOR: #eeffee
+}
+.values {
+	BACKGROUND-COLOR: #ffffee
+}
+LI {
+	MARGIN-TOP: 0.25em; MARGIN-BOTTOM: 0.25em
+}
+TABLE.body {
+	WIDTH: 100%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; =
+BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+CAPTION {
+	FONT-WEIGHT: bold; FONT-SIZE: 120%; PADDING-BOTTOM: 0.75em
+}
+TD.icon {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 2px; BORDER-TOP: 0px; PADDING-LEFT: =
+2px; FONT-WEIGHT: bold; FONT-SIZE: 100%; PADDING-BOTTOM: 2px; MARGIN: =
+0px; BORDER-LEFT: 0px; COLOR: #fffffe; PADDING-TOP: 2px; BORDER-BOTTOM: =
+0px; FONT-FAMILY: Arial, Geneva, sans-serif; BACKGROUND-COLOR: #990000; =
+TEXT-ALIGN: left
+}
+TD.gray {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: =
+0px; FONT-SIZE: 6pt; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; =
+COLOR: #fffffe; PADDING-TOP: 0px; BORDER-BOTTOM: 0px; BACKGROUND-COLOR: =
+#999999
+}
+TD.body {
+	PADDING-RIGHT: 20px; PADDING-LEFT: 20px; PADDING-BOTTOM: 20px; =
+BORDER-TOP-STYLE: none; PADDING-TOP: 20px; BORDER-RIGHT-STYLE: none; =
+BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+TABLE.header {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; MARGIN: 0px; BORDER-LEFT: 0px; =
+WIDTH: 100%; BORDER-BOTTOM: 0px
+}
+.noborder {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; MARGIN: 0px; BORDER-LEFT: 0px; =
+BORDER-BOTTOM: 0px
+}
+.nb {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; MARGIN: 0px; BORDER-LEFT: 0px; =
+BORDER-BOTTOM: 0px
+}
+.nbwide {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; MARGIN: 0px; BORDER-LEFT: 0px; =
+WIDTH: 92%; BORDER-BOTTOM: 0px
+}
+.wide {
+	WIDTH: 92%
+}
+.copyright {
+	FONT-SIZE: 75%
+}
+BLOCKQUOTE {
+	MARGIN: 20px
+}
+BLOCKQUOTE.tus {
+	FONT-SIZE: 11pt; FONT-FAMILY: Times New Roman, serif
+}
+DT {
+	FONT-STYLE: italic
+}
+A:link {
+	COLOR: red
+}
+A:active {
+	COLOR: blue
+}
+A:visited {
+	COLOR: #666666
+}
+A:hover {
+	COLOR: #ff3333
+}
+H1 {
+	MARGIN-TOP: 8px; FONT-WEIGHT: bold
+}
+H2 {
+	MARGIN-TOP: 8px; FONT-WEIGHT: bold
+}
+H3 {
+	MARGIN-TOP: 8px; FONT-WEIGHT: bold
+}
+H4 {
+	MARGIN-TOP: 8px; FONT-WEIGHT: bold
+}
+H5 {
+	MARGIN-TOP: 8px; FONT-WEIGHT: bold
+}
+H6 {
+	MARGIN-TOP: 8px; FONT-WEIGHT: bold
+}
+H1 {
+	FONT-SIZE: x-large; TEXT-TRANSFORM: uppercase; TEXT-ALIGN: center
+}
+H2 {
+	FONT-SIZE: large
+}
+H3 {
+	FONT-SIZE: medium
+}
+H4 {
+	FONT-SIZE: medium; FONT-STYLE: italic
+}
+H5 {
+	FONT-SIZE: small
+}
+H6 {
+	FONT-SIZE: small; FONT-STYLE: italic
+}
+P.bar {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: =
+100%; PADDING-BOTTOM: 4px; COLOR: #fffffe; PADDING-TOP: 4px; =
+FONT-FAMILY: Arial, Geneva, sans-serif; BACKGROUND-COLOR: #990000; =
+TEXT-ALIGN: right
+}
+A.bar:link {
+	COLOR: #fffffe
+}
+A.bar:visited {
+	COLOR: #fffffe
+}
+A.bar:active {
+	COLOR: #fffffe
+}
+A.bar:hover {
+	COLOR: #ff3333
+}
+A.charclass {
+	FONT-WEIGHT: bold; COLOR: #808080; TEXT-DECORATION: none
+}
+SPAN.name {
+	FONT-SIZE: 75%; TEXT-TRANSFORM: lowercase; FONT-VARIANT: small-caps
+}
+.bb {
+	PAGE-BREAK-BEFORE: always
+}
+.codeComment {
+	COLOR: #0000ff
+}
+.CKeyword {
+	COLOR: rgb(0,0,255)
+}
+.CComment {
+	COLOR: rgb(0,128,0)
+}
+.CCommand {
+	FONT-WEIGHT: bold; COLOR: rgb(255,0,0)
+}
+.changed {
+	BORDER-RIGHT: 1px dotted; BORDER-TOP: 1px dotted; BORDER-LEFT: 1px =
+dotted; BORDER-BOTTOM: 1px dotted; BACKGROUND-COLOR: #ffff00
+}
+.removed {
+	BORDER-RIGHT: 1px dotted; BORDER-TOP: 1px dotted; BORDER-LEFT: 1px =
+dotted; BORDER-BOTTOM: 1px dotted; BACKGROUND-COLOR: #ffff00; =
+TEXT-DECORATION: line-through
+}
+.changed2 {
+	BORDER-RIGHT: 1px dotted; BORDER-TOP: 1px dotted; BORDER-LEFT: 1px =
+dotted; BORDER-BOTTOM: 1px dotted; BACKGROUND-COLOR: #00ffff
+}
+.removed2 {
+	BORDER-RIGHT: 1px dotted; BORDER-TOP: 1px dotted; BORDER-LEFT: 1px =
+dotted; BORDER-BOTTOM: 1px dotted; BACKGROUND-COLOR: #00ffff; =
+TEXT-DECORATION: line-through
+}
+SPAN.changedspan {
+	BORDER-RIGHT: 1px dotted; BORDER-TOP: 1px dotted; BORDER-LEFT: 1px =
+dotted; BORDER-BOTTOM: 1px dotted; BACKGROUND-COLOR: #ffff00
+}
+SPAN.removedspan {
+	BORDER-RIGHT: 1px dotted; BORDER-TOP: 1px dotted; BORDER-LEFT: 1px =
+dotted; BORDER-BOTTOM: 1px dotted; BACKGROUND-COLOR: #ffff00; =
+TEXT-DECORATION: line-through
+}
+.reviewnote {
+	BORDER-RIGHT: 1px dashed; BORDER-TOP: 1px dashed; BORDER-LEFT: 1px =
+dashed; COLOR: #cc0000; BORDER-BOTTOM: 1px dashed; BACKGROUND-COLOR: =
+#ffff80
+}
+P.caption {
+	FONT-WEIGHT: bold; TEXT-ALIGN: center
+}
+TABLE.gray {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium =
+none; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse
+}
+TH.grayfirst {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 5.4pt; BORDER-TOP: gray 1.5pt =
+solid; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0in; BORDER-LEFT: medium =
+none; PADDING-TOP: 0in; BORDER-BOTTOM: gray 0.75pt solid
+}
+TD.grayfirst {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 5.4pt; BORDER-TOP: gray 1.5pt =
+solid; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0in; BORDER-LEFT: medium =
+none; PADDING-TOP: 0in; BORDER-BOTTOM: gray 0.75pt solid
+}
+TD.graymiddle {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium =
+none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0in; BORDER-LEFT: medium =
+none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none
+}
+TD.graymiddle {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium =
+none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0in; BORDER-LEFT: medium =
+none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none
+}
+TD.graylast {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium =
+none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0in; BORDER-LEFT: medium =
+none; PADDING-TOP: 0in; BORDER-BOTTOM: gray 1.5pt solid
+}
+TD.graylast {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 5.4pt; BORDER-TOP: medium =
+none; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0in; BORDER-LEFT: medium =
+none; PADDING-TOP: 0in; BORDER-BOTTOM: gray 1.5pt solid
+}
+UL.toc {
+	MARGIN-TOP: 0pt; LIST-STYLE-POSITION: outside; MARGIN-BOTTOM: 0pt; =
+MARGIN-LEFT: 1em; LINE-HEIGHT: 90%; LIST-STYLE-TYPE: none
+}
+OL.toc {
+	MARGIN-BOTTOM: 0pt; LIST-STYLE-TYPE: decimal
+}
+OL UL.toc {
+	MARGIN-TOP: 0pt; LIST-STYLE-POSITION: outside; MARGIN-BOTTOM: 0pt; =
+MARGIN-LEFT: 0em; LINE-HEIGHT: 90%; LIST-STYLE-TYPE: none
+}
+UL UL.toc {
+	MARGIN-TOP: 0pt; LIST-STYLE-POSITION: outside; MARGIN-BOTTOM: 0pt; =
+MARGIN-LEFT: 1.3em; LINE-HEIGHT: 90%; LIST-STYLE-TYPE: none
+}
+
+------=_NextPart_000_002F_01C634BF.40F51800--

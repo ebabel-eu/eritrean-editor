@@ -1,0 +1,5067 @@
+From: <Saved by Microsoft Internet Explorer 5>
+Subject: Eritrea Paper RVB-3
+Date: Sat, 18 Feb 2006 18:04:14 -0000
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.punchdown.org/rvb/papers/EriPaper3C.html
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.2180
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Eritrea Paper RVB-3</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-8859-1">
+<META content=3D"Robert Van Buskirk" name=3DAuthor>
+<META content=3D"MSHTML 6.00.2900.2802" name=3DGENERATOR></HEAD>
+<BODY>
+<H2>The use of international encoding standards for local language =
+computer=20
+software, documents and data.</H2><I>Authors: Marcus Wright, Computer =
+Science=20
+Department, Lynchburg College,</I> <BR><I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+William=20
+Briggs, Computer Science Department, Lynchburg College,</I>=20
+<BR><I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Robert Van Buskirk, Eritrea =
+Technical=20
+Exchange Project/ICSEE</I> <BR><I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and =
+Craig=20
+Harmer, Eritrea Technical Exchange Project/ICSEE</I>=20
+<CENTER>
+<H3>ABSTRACT</H3></CENTER>
+<P>Until recently Ge'ez computer documents in Eritrea utilized =
+non-standard=20
+encodings for characters. Since 1998, international standards for =
+the&nbsp;=20
+encoding of Ge'ez letters has been in existence. In this paper we =
+describe the=20
+international computer encoding standards for Ge'ez letters and the =
+recent=20
+development of software that allows computer users to create Ge'ez =
+documents=20
+that are standard-compliant.&nbsp;&nbsp; We also discuss software =
+property=20
+issues and the use of a public open-source license as a mechanism for =
+developing=20
+intellectual software property. We conclude with a discussion of plans =
+for=20
+future multi-lingual computer utility development plans. <BR>&nbsp;=20
+<H3>Introduction</H3>Making Eritreans more comfortable with computers =
+and=20
+computer-based information will be a crucial element of bringing the =
+benefits of=20
+the Internet and computers to the average Eritrean.=20
+<P>The purpose of this paper is to provide a detailed description, =
+background,=20
+and reference for recent efforts to standardize multi-lingual computer =
+use and=20
+software for Eritrea. During the past year we have created a standard =
+compliant=20
+Ge'ez software and conversion utility called UniGeez that is freely =
+available=20
+under an open source software license. This work has been sponsored by =
+the=20
+Eritrean Technical Exchange, a project of the 501(c)(3) non-profit =
+International=20
+Collaborative for Science Education and the Environment (ICSEE), and =
+performed=20
+in collaboration with the Computer Science Department of Lynchburg =
+College in=20
+Lynchburg, Virginia.=20
+<P>In this paper we first discuss some the motivation, demand, and need =
+for=20
+standard-compliant multi-lingual computer capabilities in Eritrea. We =
+follow=20
+with a discussion of the issues relevant to multi-lingual computer =
+use.&nbsp; We=20
+then discuss multi-lingual encodings and encoding standards.&nbsp; We =
+proceed to=20
+a presentation of the most popular Ge'ez transliteration standards and =
+schemes=20
+in Eritrea.&nbsp; We then provide a detailed discussion of the=20
+standard-compliant UniGeez solution for multi-lingual computer needs in=20
+Eritrea.&nbsp; We follow with a discussion of some of the software=20
+property/ownership issues.&nbsp; And we conclude with an outline of =
+plans and=20
+ideas regarding further development of multi-lingual computer =
+information&nbsp;=20
+capacity in Eritrea and the Eritrean diaspora.=20
+<H4>Motivation</H4>
+<P>Limited access to technology (and the enhanced productivity it =
+brings) is one=20
+of the main barriers to raising the standard of living and the value of =
+national=20
+economic production in Eritrea. The ease of computer access, and the =
+relevance=20
+of&nbsp; computer information will be a major element of rapidly =
+transferring=20
+and applying computer technologies to Eritrea's economic and productive=20
+activities.=20
+<P>The for-profit private sector development model for multi-lingual =
+computer=20
+infrastructure has failed Eritrea. First of all there are very few =
+multi-lingual=20
+software providers and developers in Eritrea (there are approximately =
+two), and=20
+the software that has been developed is expensive, uses non-standard =
+character=20
+encodings, and is mutually incompatible with other software in Eritrea =
+and=20
+Ethiopia. Prices for existing software range from $20 to $90 per copy =
+and there=20
+were no free versions of the software until UniGeez began free =
+distribution.=20
+This had lead to the contradiction that English-speaking people can use=20
+computers in their own language for free, while Tigrigna speakers (who =
+have a=20
+mean per-capital of $250/year) may have to pay $20 to use a computer in =
+their=20
+own language.=20
+<P>The large public benefits of multi-lingual computer access means that =
+basic=20
+utilities that provide easy multi-lingual computer access should be =
+public,=20
+rather than private property. A person trained and proficient in =
+computers has=20
+an earning potential of perhaps 2-10 times that of a person without =
+computer=20
+training. If free, public, multi-lingual computer utilities can =
+facilitate=20
+enhanced computer access for just 1000 more people, then the national =
+economic=20
+benefit can be as much as 1000 people*$1000/yr =3D $1 million/year. This =
+justifies=20
+significant public sector investment in the development of basic =
+multi-lingual=20
+computer infrastructure.=20
+<H4>Demand for multi-lingual capabilities</H4>Virtually all Eritreans =
+who use=20
+computers have the need to produce documents in Tigrigna and/or =
+Arabic.&nbsp;=20
+This market by now consists of tens of thousands of users who are =
+probably=20
+producing hundreds of thousands of documents each year.&nbsp; Up until =
+the year=20
+2000, this market was met by primarily two multi-lingual software =
+providers in=20
+Eritrea.&nbsp; Tfanus Enterprises (http://www.tfanus.com.er/) who =
+markets a=20
+program called Yada that provided the capability of writing documents in =
+both=20
+Ge'ez and Arabic, and Phonetic Systems (http://www.geezsoft.com/) which =
+provides=20
+the software Geez Gateway for producing documents in Tigrigna.&nbsp; =
+Both=20
+companies are rather small (less than 10 employees), and revenues from =
+software=20
+sales (though not known in detail) are probably only a few tens of =
+thousands of=20
+dollars per year.=20
+<P>But in spite of the rather limited software sales, demand for =
+multi-lingual=20
+computer services and systems is growing at a rapid pace that reflects =
+the rapid=20
+growth of the computer and technology sector in Eritrea.=20
+<H4>Infrastructure needs for multi-lingual software</H4>In Eritrea =
+documents are=20
+produced and maintained in English, Tigrigna, and Arabic (along with =
+other, less=20
+common languages).&nbsp; Most multi-lingual computer use consists of =
+routine=20
+word processing and document production as part of organizational =
+communication=20
+and administration activities.&nbsp; Another popular application of=20
+multi-lingual software is desktop publishing activities.&nbsp; As =
+Eritrea's=20
+computer sector gets more developed, the need for database applications, =
+website=20
+development and maintenance, and multi-lingual communication and =
+documentation=20
+services will grow.&nbsp; Eventually such multi-lingual computer =
+applications=20
+will have to follow international norms and standards in order to be=20
+sustainable.&nbsp; As Eritrea's computer infrastructure developes, =
+trained=20
+experts and support personnel will also have to provide a roughly =
+consistent and=20
+compatible implementation of multi-lingual features for the sake of =
+economic=20
+efficiency.&nbsp; Consistent, efficient information production and =
+document=20
+exchange is a basic infrastructure requirement of Eritrea's computer =
+systems and=20
+communications development.=20
+<H4>Why Standard Compliance?</H4>The efficiency and productivity of =
+computer=20
+communications depends directly on the speed and cost of transfering =
+information=20
+from one person or application to another. Currently, in the U.S. the =
+largest=20
+amount of time is spent in gettting information is not the network =
+transfer, but=20
+locating and reading the information. Perhaps it takes 15 seconds to go =
+to a=20
+search engine, a minute to find the page in the search engine results, =
+and=20
+another minute to read the information. If documents are not prepared in =
+a=20
+consistent encoding and format, then another step may have to be taken =
+to read=20
+or use information that is in Ge`ez because of the need to convert or =
+translate=20
+the character encoding between formats. That step, even if it takes less =
+than a=20
+minute, can increase the time of presenting or retrieving information by =
+up to=20
+30%. In addition, developers and content providers would have to spend =
+extra=20
+resources to provide translation and conversion facilities for different =
+types=20
+of Ge`ez. Even worse, after standards become dominant, the cumulative =
+archives=20
+of non-standard Ge`ez documents will have to be converted to be useful. =
+A&nbsp;=20
+reasonable estimate of the costs of conversion and conversion support in =
+a=20
+computer communications environment without standards is about 10% of =
+computer=20
+communications activity.=20
+<P>Current computer communications markets in Eritrea are running at =
+more than=20
+$300,000 per year and doubling at about 100%/year. The computer services =
+sector=20
+is probably 5 to ten times this amount. This means that the cost of=20
+non-compliance with standards can be tens to hundreds of thousands of =
+dollars=20
+per year in the near future. Mostly this cost is reflected in the lost=20
+opportunities of people using English letters and text when they would =
+be much=20
+happier and effective in using Ge`ez or Arabic if it was convenient and =
+readily=20
+available.=20
+<H3>Languages on the computer</H3>
+<H4>Language elements: encoding, glyphs/fonts, and keyboard =
+mapping/input=20
+method</H4>The representation of different written languages on a =
+computer has=20
+three elements:&nbsp; the encoding, the font, and the input =
+method.&nbsp; An=20
+optional fourth element is a transliteration scheme.=20
+<P>The language <EM>encoding</EM> indicates how the different letters =
+and=20
+symbols of a written language are represented in the computer's memory =
+as binary=20
+numbers.&nbsp; The binary numbers in a computer are usually represented =
+as bytes=20
+of data, where one byte is an 8-digit binary number that can range from =
+0 to=20
+255.&nbsp; The encoding method specifies how the different letters are =
+stored in=20
+one to several bytes of data.=20
+<P>The <EM>font maps</EM> a particular binary encoded character to an=20
+image.&nbsp; This means that the same encoded letters can have different =
+fonts=20
+or 'glyphs' that represent different artistic and typographic styles of=20
+representing the characters of a language.=20
+<P>The <EM>input method</EM> specifies how different combinations of =
+keystrokes=20
+from the keyboard will be translated into different characters.&nbsp; =
+For people=20
+who use English or American keyboards, it is often convenient to map the =
+English=20
+letters to letters of another language is a phonetic way that is easy to =
+
+remember.&nbsp; A systematic mapping from one languages characters to =
+another=20
+languages characters is called a transliteration scheme.=20
+<P>To write Ge'ez on a computer with Ge'ez characters all three elements =
+are=20
+necessary: an encoding, a font, and an input method.&nbsp; Until =
+recently in=20
+Eritrea, all three elements would be developed independently by =
+different=20
+developers of multi-lingual software.&nbsp; But in the last several =
+years=20
+international standards have been developed for the encoding scheme, =
+while a=20
+diversity of unrelated developers are starting to develop different =
+fonts based=20
+on the international encoding standard.=20
+<H3>Encodings for Ge'ez</H3>
+<H4>History and Background of Encoding Standards</H4>When computers were =
+
+initially developed in the U.S., the main concern was to encode the =
+various=20
+letters of the English alphabet and associated symbols as binary =
+numbers.&nbsp;=20
+The initial standard on encoding letters as digital numbers was referred =
+to as=20
+ASCII:&nbsp; The American Standard Code for Information Interchange, was =
+
+proposed by the American National Standards Institute in 1963, and =
+adopted=20
+as&nbsp; ANSI X3.4 in 1968 [Czyborra, 1998].&nbsp; ASCII is a seven-bit =
+(128=20
+character) encoding standard.&nbsp; In 1972 ASCII and different =
+non-English=20
+variants were incorporated as a more general standard that allowed =
+encoding for=20
+about 14 languages as&nbsp; ISO 646, and this was later extended as a =
+more=20
+general 8-bit western language encoding standard ISO-8859-1.=20
+<P>But the western encoding standard was obviously inadequate for many =
+of the=20
+world's non-western languages, and a completely universal international =
+encoding=20
+standard was developed:=20
+<BLOCKQUOTE>"The even wider Universal Character Set (UCS, Unicode) wants =
+to=20
+  simplify world-wide multilingual and multi-platform text exchange just =
+like=20
+  the ASCII standard simplified Latin text interchange and aims to =
+become=20
+  equally successful as the ultimate encoding standard and thus it was =
+numbered=20
+  ISO 10646 =3D ISO 646 + 10000. And the inevitable success seems to be =
+there: RFC=20
+  2070 internationalized the Internet's hypertext markup language HTML =
+and=20
+  declared ISO 10646 its new base charset. RFC 2277 recommends the use =
+of ISO=20
+  10646 to all new Internet protocols.</BLOCKQUOTE>
+<BLOCKQUOTE>"Unicode begins with US-ASCII and ISO-8859-1 but goes beyond =
+the=20
+  8bit barrier and encodes all the world's characters in a 16bit space =
+and a=20
+  20bit extension zone for everything that did not fit into the 16bit =
+space. The=20
+  ASCII-compatible Unicode transformation scheme UTF-8 lets all ASCII =
+characters=20
+  pass through transparently and encodes all other characters as =
+unambiguous=20
+  8bit character sequences." [Czyborra, 1998]</BLOCKQUOTE>The Unicode =
+standard=20
+provides for a "Universal Multiple-Octet Coded Character Set (UCS)"=20
+which--because it is using several bytes of data to encode the =
+characters--can=20
+include characters from essentially all languages.&nbsp; The Unicode =
+standards=20
+have been published and updated by the International Standards =
+Organziation=20
+(ISO).&nbsp; The Unicode standard has gone through several versions and =
+the=20
+Ge'ez characters were incorporated in October of 1998 as ISO =
+10646-1&nbsp;=20
+amendment 10.=20
+<P>The advantage of multi-byte characters is that they are large enough =
+to=20
+include all characters from almost all languages.&nbsp; One problem is =
+how to=20
+make such a scheme compatible with the older ASCII standard, and how to=20
+represent them in a way that makes it clear when one character ends and =
+the next=20
+begins (since now the characters have a variable length).&nbsp; This =
+second=20
+problem is solved with the UTF-8 encoding scheme which is part of the =
+Unicode=20
+standard.=20
+<H4>UTF-8</H4>What the UTF-8 encoding does is provide a means of =
+encoding both=20
+ASCII and Unicode characters using a representation of several 8-bit=20
+characters.&nbsp; The way it does this is by reserving the first bit of =
+the=20
+8-bit character as an unicode/ascii character indicator or switch.&nbsp; =
+If the=20
+first bit is a 0, the character is a 7-bit ASCII character, while if the =
+first=20
+bit is 1, the character will be interpreted as part of a unicode =
+character. And=20
+if the first bit is 1, then the second bit indicates whether or not the =
+byte is=20
+the first byte of a multi-byte UTF-8 unicode character, or if the =
+character is=20
+holding data for a multi-byte character.&nbsp;&nbsp; Essentially, in the =
+UTF-8=20
+standard, each 8-bit character acts as a data packet, and the initial =
+bits of=20
+the character act as flags for the type of binary data stored, and how =
+it is=20
+organized over several bytes.&nbsp; The following table is modified from =
+the=20
+Master's thesis of Roman Czyborra [Czyborra, 1998] and indicates the =
+lead bit=20
+patterns, and the data bit locations for character data storage under =
+the UTF-8=20
+standard.&nbsp; Under this standard character of up to 31 bits is =
+possible,=20
+though for Ge'ez, only 16 bits are used:=20
+<P>&nbsp;<TT>bytes | bits | representation</TT> =
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;=20
+1 |&nbsp;&nbsp;&nbsp; 7 | 0xxxxxxx</TT> <BR><TT>&nbsp;&nbsp;&nbsp;&nbsp; =
+2=20
+|&nbsp;&nbsp; 11 | 110xxxxx 10xxxxxx</TT> =
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp; 3=20
+|&nbsp;&nbsp; 16 | 1110xxxx 10xxxxxx 10xxxxxx</TT>=20
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp; 4 |&nbsp;&nbsp; 21 | 11110xxx 10xxxxxx =
+10xxxxxx=20
+10xxxxxx</TT> <BR><TT>&nbsp;&nbsp;&nbsp;&nbsp; 5 |&nbsp;&nbsp; 26 | =
+111110xx=20
+10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx</TT> =
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp; 6=20
+|&nbsp;&nbsp; 31 | 1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx=20
+10xxxxxx</TT><TT></TT>=20
+<P>For Ge'ez, the unicode encoding of the binary character data&nbsp; is =
+
+two-bytes or 16 bits per character, so in UTF-8 the character data is =
+stored in=20
+three 8-bit bytes where the first four bits of the first byte are 1110, =
+and the=20
+first two bits of the subsequent bytes are 10.=20
+<H4>Computer Application Support for UTF-8 and Unicode</H4>Since the =
+Unicode and=20
+UTF-8 encoding schemes are extensions of the old ASCII and Western =
+character=20
+encoding schemes, older applications and operating systems that were =
+developed=20
+only for ASCII and Western characters may not support the Unicode =
+standard and=20
+characters.&nbsp; This is one of the main barriers to using standard =
+compliant=20
+Ge'ez software at this time in Eritrea and in the Eritrean =
+community.&nbsp; But=20
+even though it is currently a barrier, over time more and more software, =
+
+applications and operating systems will be compliant with the Unicode =
+standard=20
+(ISO 10646-1).&nbsp; Currently almost all software and operating systems =
+with=20
+global distribution and with an age less than a few years old is =
+ISO-10646-1=20
+standard-compliant.=20
+<H4>Ge'ez Encodings in Eritrea</H4>We are hopeful that within a few =
+years there=20
+will be one major Ge'ez encoding scheme in Eritrea that complies--as =
+much as=20
+possible--with the international ISO-10646-1 standard.&nbsp; But between =
+the=20
+present and the time of standardized encodings, there will have to be a=20
+transition period where people convert from pre-Unicode encodings to the =
+Unicode=20
+standardized encodings.=20
+<P>Prior to the Unicode standard, Ge'ez program developers in Ethiopia =
+and=20
+Eritrea had to come up with their own alternatives to encoding Ge'ez=20
+characters.&nbsp; The majority of these developers simply changed the =
+fonts that=20
+they used for the Western ISO-8859-1 character set to replace the =
+European=20
+characters with Ge'ez characters.&nbsp; They then wrote programs that =
+would map=20
+the keyboard strokes to their particular character-based encoding, and =
+the Ge'ez=20
+letters would be displayed by choosing the appropriate font.=20
+<P>There were two major problems with the pre-Unicode scheme.&nbsp; The =
+first,=20
+and perhaps largest problem is that each developer has his own unique =
+encoding=20
+scheme.&nbsp; As a result, over 70 different encoding schemes were =
+developed for=20
+Eritrea and Ethiopia.=20
+<P>To try to overcome the confusion represented by the extreme diversity =
+of=20
+encoding schemes, the LibETH project attempted to produce nearly =
+univeral text=20
+conversion software that would work with most of the different =
+proprietary Ge'ez=20
+encodings [Yacob, 2001].&nbsp; But the LibETH project to date has not =
+had the=20
+resources to make user-friendly versions of this utility that could find =
+wide=20
+application in the Eritrean community and diaspora.&nbsp; While we have=20
+benefitted greatly from the technical work done by the LibETH project, =
+we hope=20
+that some of the need for the LibETH project also has been partially =
+supplanted=20
+by the development of standard-compliant Ge'ez software.&nbsp; We have =
+found=20
+development of accurate user-friendly software that converts between =
+just three=20
+encodings to require approximately six months of work to perfect, and =
+hope that=20
+we can avoid the amount of work that would be required to develop =
+user-friendly=20
+software for 70 different encoding systems.=20
+<P>The two Ge'ez software systems that found wide use in Eritrea were=20
+<I>GeezGate</I> by Phonetic Systems and <I>Yada </I>by Tfanus =
+enterprises.&nbsp;=20
+Both systems use non-standard fonts for Western ISO-8859-1 characters to =
+display=20
+Ge'ez.&nbsp; But since there are less than 255 characters in ISO-8859-1 =
+and=20
+about 318 characters and punctuation marks (more or less depending on =
+the=20
+inclusion of less common characters), both systems break characters into =
+a base=20
+character and re-usable character markings in order to fit all of the =
+necessary=20
+pieces of characters into less than 255 slots.&nbsp; This results in=20
+variable-length and sometimes multi-byte character encodings for the =
+Ge'ez=20
+characters.&nbsp; We provide tables of these variable-length multi-byte=20
+character encodings in an appendix. <BR>&nbsp;=20
+<H3>Keyboard mappings, Transliteration Schemes and Input =
+methods</H3>There are=20
+four transliteration schemes or keyboard mappings&nbsp; for Ge'ez that =
+are=20
+relevant to Eritrean applications. They consist of the "System for =
+Ethiopic=20
+Representation in ASCII'' (SERA), the Dehai g'z standard, the keyboard =
+mapping=20
+for Phonetic Systems' Geez Gateway, and the keyboard mapping for Tfanus=20
+Enterprise's Yada.=20
+<P>Both SERA and the Dehai g'z standard are transliteration =
+schemes.&nbsp; A=20
+transliteration scheme is a common-sense method for writing a language =
+with a=20
+non-latin script in latin characters in a way that is consitent, =
+unambigous, and=20
+roughly phonetic.=20
+<H4>SERA</H4>The SERA transliteration system is best described in its =
+originial=20
+on-line documentation:=20
+<BLOCKQUOTE>``SERA'' is an acronym for ``System for Ethiopic =
+Representation in=20
+  ASCII''. Most simply put -SERA is a way to write in Fidel script using =
+Latin=20
+  letters. More extendedly; SERA is a convention for transliteration of =
+Fidel=20
+  script into Latin that insures the integrity of the format and content =
+of the=20
+  original document, and that it be fully transportable across all =
+computer=20
+  mediums.</BLOCKQUOTE>We have initially used the SERA transliteration =
+scheme for=20
+our standard-compliant software because it was the best documented, =
+complete=20
+scheme relevant to the maximum number of characters for both Eritrean =
+and=20
+Ethiopian languages.&nbsp; In the next section we also provide an =
+extension of=20
+the Dehan g'z transliteration standard that may also be incorporated =
+into our=20
+multi-lingual software in the future.=20
+<P>We present the transliteration standard in the form of a table with =
+41 rows=20
+and 12 columns.&nbsp; Each row represents a different class of letters, =
+and each=20
+column represents a different form (e.g. he, hu, hi, ha, hie, h, ho), we =
+also=20
+include columns 8, 9, 10, 11, and 12 for the labiovelar forms that end =
+with the=20
+We, Wu, Wi, Wa, and Wie vowel sounds.&nbsp;&nbsp; We also include notes =
+in=20
+parentheses for the language in which the characters are used if it is =
+not a=20
+common Tigrigna character.=20
+<P>
+<HR width=3D"100%">
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;=20
+2&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; =
+4&nbsp;&nbsp;&nbsp;&nbsp;=20
+5&nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp;&nbsp;=20
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10&nbsp;&nbsp;&nbsp;&nbsp;=20
+11&nbsp;&nbsp;&nbsp;&nbsp; 12</TT> <BR><TT>&nbsp;&nbsp;&nbsp;&nbsp; =
+g`Iz&nbsp;=20
+ka`Ib sals&nbsp; rab`I hams&nbsp; sads&nbsp; sab`I&nbsp; diqala =
+--&gt;</TT>=20
+<P><TT>&nbsp;1&nbsp;&nbsp;&nbsp; he&nbsp;&nbsp;&nbsp; =
+hu&nbsp;&nbsp;&nbsp;=20
+hi&nbsp;&nbsp;&nbsp; ha&nbsp;&nbsp;&nbsp; hE&nbsp;&nbsp;&nbsp;=20
+h&nbsp;&nbsp;&nbsp;&nbsp; ho</TT> <BR><TT>&nbsp;2&nbsp;&nbsp;&nbsp;=20
+le&nbsp;&nbsp;&nbsp; lu&nbsp;&nbsp;&nbsp; li&nbsp;&nbsp;&nbsp;=20
+la&nbsp;&nbsp;&nbsp; lE&nbsp;&nbsp;&nbsp; l&nbsp;&nbsp;&nbsp;&nbsp;=20
+lo&nbsp;&nbsp;&nbsp; lW/lWa</TT> <BR><TT>&nbsp;3&nbsp;&nbsp;&nbsp;=20
+He&nbsp;&nbsp;&nbsp; Hu&nbsp;&nbsp;&nbsp; Hi&nbsp;&nbsp;&nbsp;=20
+Ha&nbsp;&nbsp;&nbsp; HE&nbsp;&nbsp;&nbsp; H&nbsp;&nbsp;&nbsp;&nbsp;=20
+Ho&nbsp;&nbsp;&nbsp; HW/HWa</TT> <BR><TT>&nbsp;4&nbsp;&nbsp;&nbsp;=20
+me&nbsp;&nbsp;&nbsp; mu&nbsp;&nbsp;&nbsp; mi&nbsp;&nbsp;&nbsp;=20
+ma&nbsp;&nbsp;&nbsp; mE&nbsp;&nbsp;&nbsp; m&nbsp;&nbsp;&nbsp;&nbsp;=20
+mo&nbsp;&nbsp;&nbsp; mW/mWa</TT> <BR><TT>&nbsp;5&nbsp;&nbsp; =
+`se&nbsp;&nbsp;=20
+`su&nbsp;&nbsp; `si&nbsp;&nbsp; `sa&nbsp;&nbsp; `sE&nbsp;&nbsp;=20
+`s&nbsp;&nbsp;&nbsp; `so&nbsp;&nbsp; `sW/`sWa</TT>=20
+<BR><TT>&nbsp;6&nbsp;&nbsp;&nbsp; re&nbsp;&nbsp;&nbsp; =
+ru&nbsp;&nbsp;&nbsp;=20
+ri&nbsp;&nbsp;&nbsp; ra&nbsp;&nbsp;&nbsp; rE&nbsp;&nbsp;&nbsp;=20
+r&nbsp;&nbsp;&nbsp;&nbsp; ro&nbsp;&nbsp;&nbsp; rW/rWa</TT>=20
+<BR><TT>&nbsp;7&nbsp;&nbsp;&nbsp; se&nbsp;&nbsp;&nbsp; =
+su&nbsp;&nbsp;&nbsp;=20
+si&nbsp;&nbsp;&nbsp; sa&nbsp;&nbsp;&nbsp; sE&nbsp;&nbsp;&nbsp;=20
+s&nbsp;&nbsp;&nbsp;&nbsp; so&nbsp;&nbsp;&nbsp; sW/sWa</TT>=20
+<BR><TT>&nbsp;8&nbsp;&nbsp;&nbsp; xe&nbsp;&nbsp;&nbsp; =
+xu&nbsp;&nbsp;&nbsp;=20
+xi&nbsp;&nbsp;&nbsp; xa&nbsp;&nbsp;&nbsp; xE&nbsp;&nbsp;&nbsp;=20
+x&nbsp;&nbsp;&nbsp;&nbsp; xo&nbsp;&nbsp;&nbsp; xW/xWa</TT>=20
+<BR><TT>&nbsp;9&nbsp;&nbsp;&nbsp; qe&nbsp;&nbsp;&nbsp; =
+qu&nbsp;&nbsp;&nbsp;=20
+qi&nbsp;&nbsp;&nbsp; qa&nbsp;&nbsp;&nbsp; qE&nbsp;&nbsp;&nbsp;=20
+q&nbsp;&nbsp;&nbsp;&nbsp; qo&nbsp;&nbsp;&nbsp;=20
+qWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; qW/qWu&nbsp;&nbsp;&nbsp;=20
+qWi&nbsp;&nbsp;&nbsp; qWa&nbsp;&nbsp;&nbsp; qWE</TT> =
+<BR><TT>&nbsp;10&nbsp;=20
+`qe&nbsp;&nbsp; `qu&nbsp;&nbsp; `qi&nbsp;&nbsp; `qa&nbsp;&nbsp; =
+`qE&nbsp;&nbsp;=20
+`q&nbsp;&nbsp;&nbsp;=20
+`qo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+(`q is Chaha)</TT> <BR><TT>&nbsp;11&nbsp;&nbsp; Qe&nbsp;&nbsp;&nbsp;=20
+Qu&nbsp;&nbsp;&nbsp; Qi&nbsp;&nbsp;&nbsp; Qa&nbsp;&nbsp;&nbsp;=20
+QE&nbsp;&nbsp;&nbsp; Q&nbsp;&nbsp;&nbsp;&nbsp; Qo&nbsp;&nbsp;&nbsp;=20
+QWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QW/QWu&nbsp;&nbsp;&nbsp;=20
+QWi&nbsp;&nbsp;&nbsp; QWa&nbsp;&nbsp;&nbsp; QWE</TT>=20
+<BR><TT>&nbsp;12&nbsp;&nbsp; be&nbsp;&nbsp;&nbsp; bu&nbsp;&nbsp;&nbsp;=20
+bi&nbsp;&nbsp;&nbsp; ba&nbsp;&nbsp;&nbsp; bE&nbsp;&nbsp;&nbsp;=20
+b&nbsp;&nbsp;&nbsp;&nbsp; bo&nbsp;&nbsp;&nbsp; bW/bWa</TT>=20
+<BR><TT>&nbsp;13&nbsp;&nbsp; ve&nbsp;&nbsp;&nbsp; vu&nbsp;&nbsp;&nbsp;=20
+vi&nbsp;&nbsp;&nbsp; va&nbsp;&nbsp;&nbsp; vE&nbsp;&nbsp;&nbsp;=20
+v&nbsp;&nbsp;&nbsp;&nbsp; vo&nbsp;&nbsp;&nbsp; vW/vWa</TT>=20
+<BR><TT>&nbsp;14&nbsp;&nbsp; te&nbsp;&nbsp;&nbsp; tu&nbsp;&nbsp;&nbsp;=20
+ti&nbsp;&nbsp;&nbsp; ta&nbsp;&nbsp;&nbsp; tE&nbsp;&nbsp;&nbsp;=20
+t&nbsp;&nbsp;&nbsp;&nbsp; to&nbsp;&nbsp;&nbsp; tW/tWa</TT>=20
+<BR><TT>&nbsp;15&nbsp;&nbsp; ce&nbsp;&nbsp;&nbsp; cu&nbsp;&nbsp;&nbsp;=20
+ci&nbsp;&nbsp;&nbsp; ca&nbsp;&nbsp;&nbsp; cE&nbsp;&nbsp;&nbsp;=20
+c&nbsp;&nbsp;&nbsp;&nbsp; co&nbsp;&nbsp;&nbsp; cW/cWa</TT>=20
+<BR><TT>&nbsp;16&nbsp; `he&nbsp;&nbsp; `hu&nbsp;&nbsp; `hi&nbsp;&nbsp;=20
+`ha&nbsp;&nbsp; `hE&nbsp;&nbsp; `h&nbsp;&nbsp;&nbsp; =
+`ho&nbsp;&nbsp;&nbsp;=20
+hWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hW/hWu&nbsp;&nbsp;&nbsp;=20
+hWi&nbsp;&nbsp;&nbsp; hWa&nbsp;&nbsp;&nbsp; hWE</TT>=20
+<BR><TT>&nbsp;17&nbsp;&nbsp; ne&nbsp;&nbsp;&nbsp; nu&nbsp;&nbsp;&nbsp;=20
+ni&nbsp;&nbsp;&nbsp; na&nbsp;&nbsp;&nbsp; nE&nbsp;&nbsp;&nbsp;=20
+n&nbsp;&nbsp;&nbsp;&nbsp; no&nbsp;&nbsp;&nbsp; nW/nWa</TT>=20
+<BR><TT>&nbsp;18&nbsp;&nbsp; Ne&nbsp;&nbsp;&nbsp; Nu&nbsp;&nbsp;&nbsp;=20
+Ni&nbsp;&nbsp;&nbsp; Na&nbsp;&nbsp;&nbsp; NE&nbsp;&nbsp;&nbsp;=20
+N&nbsp;&nbsp;&nbsp;&nbsp; No&nbsp;&nbsp;&nbsp; NW/NWa</TT>=20
+<BR><TT>&nbsp;19&nbsp;&nbsp;&nbsp; e&nbsp;&nbsp;&nbsp; =
+u&nbsp;&nbsp;&nbsp;&nbsp;=20
+i&nbsp;&nbsp;&nbsp;&nbsp; a&nbsp;&nbsp;&nbsp;&nbsp; =
+E&nbsp;&nbsp;&nbsp;&nbsp;=20
+I&nbsp;&nbsp;&nbsp;&nbsp; o&nbsp;&nbsp;&nbsp;&nbsp; ea</TT>=20
+<BR><TT>&nbsp;20&nbsp;&nbsp; ke&nbsp;&nbsp;&nbsp; ku&nbsp;&nbsp;&nbsp;=20
+ki&nbsp;&nbsp;&nbsp; ka&nbsp;&nbsp;&nbsp; kE&nbsp;&nbsp;&nbsp;=20
+k&nbsp;&nbsp;&nbsp;&nbsp; ko&nbsp;&nbsp;&nbsp;=20
+kWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kW/kWu&nbsp;&nbsp;&nbsp;=20
+kWi&nbsp;&nbsp;&nbsp; kWa&nbsp;&nbsp;&nbsp; kWE</TT> =
+<BR><TT>&nbsp;21&nbsp;=20
+`ke&nbsp;&nbsp; `ku&nbsp;&nbsp; `ki&nbsp;&nbsp; `ka&nbsp;&nbsp; =
+`kE&nbsp;&nbsp;=20
+`k&nbsp;&nbsp;&nbsp;=20
+`ko&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+(`k is Chaha)</TT> <BR><TT>&nbsp;22&nbsp;&nbsp; Ke&nbsp;&nbsp;&nbsp;=20
+Ku&nbsp;&nbsp;&nbsp; Ki&nbsp;&nbsp;&nbsp; Ka&nbsp;&nbsp;&nbsp;=20
+KE&nbsp;&nbsp;&nbsp; K&nbsp;&nbsp;&nbsp;&nbsp; Ko&nbsp;&nbsp;&nbsp;=20
+KWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KW/KWu&nbsp;&nbsp;&nbsp;=20
+KWi&nbsp;&nbsp;&nbsp; KWa&nbsp;&nbsp;&nbsp; KWE</TT>=20
+<BR><TT>&nbsp;23&nbsp;&nbsp; Xe&nbsp;&nbsp;&nbsp; Xu&nbsp;&nbsp;&nbsp;=20
+Xi&nbsp;&nbsp;&nbsp; Xa&nbsp;&nbsp;&nbsp; XE&nbsp;&nbsp;&nbsp;=20
+X&nbsp;&nbsp;&nbsp;&nbsp;=20
+Xo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+(X is Chaha )</TT> <BR><TT>&nbsp;24&nbsp;&nbsp; we&nbsp;&nbsp;&nbsp;=20
+wu&nbsp;&nbsp;&nbsp; wi&nbsp;&nbsp;&nbsp; wa&nbsp;&nbsp;&nbsp;=20
+wE&nbsp;&nbsp;&nbsp; w&nbsp;&nbsp;&nbsp;&nbsp; wo</TT>=20
+<BR><TT>&nbsp;25&nbsp;&nbsp; `e&nbsp;&nbsp;&nbsp; `u&nbsp;&nbsp;&nbsp;=20
+`i&nbsp;&nbsp;&nbsp; `a&nbsp;&nbsp;&nbsp; `E&nbsp;&nbsp;=20
+`I&nbsp;&nbsp;&nbsp;&nbsp; `o</TT> <BR><TT>&nbsp;26&nbsp;&nbsp;=20
+ze&nbsp;&nbsp;&nbsp; zu&nbsp;&nbsp;&nbsp; zi&nbsp;&nbsp;&nbsp;=20
+za&nbsp;&nbsp;&nbsp; zE&nbsp;&nbsp;&nbsp; z&nbsp;&nbsp;&nbsp;&nbsp;=20
+zo&nbsp;&nbsp;&nbsp; zW/zWa</TT> <BR><TT>&nbsp;27&nbsp;&nbsp;=20
+Ze&nbsp;&nbsp;&nbsp; Zu&nbsp;&nbsp;&nbsp; Zi&nbsp;&nbsp;&nbsp;=20
+Za&nbsp;&nbsp;&nbsp; ZE&nbsp;&nbsp;&nbsp; Z&nbsp;&nbsp;&nbsp;&nbsp;=20
+Zo&nbsp;&nbsp;&nbsp; ZW/ZWa</TT> <BR><TT>&nbsp;28&nbsp;&nbsp;=20
+ye&nbsp;&nbsp;&nbsp; yu&nbsp;&nbsp;&nbsp; yi&nbsp;&nbsp;&nbsp;=20
+ya&nbsp;&nbsp;&nbsp; yE&nbsp;&nbsp;&nbsp; y&nbsp;&nbsp;&nbsp;&nbsp;=20
+yo&nbsp;&nbsp;&nbsp; yW/yWa</TT> <BR><TT>&nbsp;29&nbsp;&nbsp;=20
+de&nbsp;&nbsp;&nbsp; du&nbsp;&nbsp;&nbsp; di&nbsp;&nbsp;&nbsp;=20
+da&nbsp;&nbsp;&nbsp; dE&nbsp;&nbsp;&nbsp; d&nbsp;&nbsp;&nbsp;&nbsp;=20
+do&nbsp;&nbsp;&nbsp; dW/dWa</TT> <BR><TT>&nbsp;30&nbsp;&nbsp;=20
+De&nbsp;&nbsp;&nbsp; Du&nbsp;&nbsp;&nbsp; Di&nbsp;&nbsp;&nbsp;=20
+Da&nbsp;&nbsp;&nbsp; DE&nbsp;&nbsp;&nbsp; D&nbsp;&nbsp;&nbsp;&nbsp;=20
+Do&nbsp;&nbsp;&nbsp; DW/DWa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (D =
+is=20
+Oromiffa)</TT> <BR><TT>&nbsp;31&nbsp;&nbsp; je&nbsp;&nbsp;&nbsp;=20
+ju&nbsp;&nbsp;&nbsp; ji&nbsp;&nbsp;&nbsp; ja&nbsp;&nbsp;&nbsp;=20
+jE&nbsp;&nbsp;&nbsp; j&nbsp;&nbsp;&nbsp;&nbsp; jo&nbsp;&nbsp;&nbsp; =
+jW/jWa</TT>=20
+<BR><TT>&nbsp;32&nbsp;&nbsp; ge&nbsp;&nbsp;&nbsp; gu&nbsp;&nbsp;&nbsp;=20
+gi&nbsp;&nbsp;&nbsp; ga&nbsp;&nbsp;&nbsp; gE&nbsp;&nbsp;&nbsp;=20
+g&nbsp;&nbsp;&nbsp;&nbsp; go&nbsp;&nbsp;&nbsp;=20
+gWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gW/gWu&nbsp;&nbsp;&nbsp;=20
+gWi&nbsp;&nbsp;&nbsp; gWa&nbsp;&nbsp;&nbsp; gWE</TT> =
+<BR><TT>&nbsp;33&nbsp;=20
+`ge&nbsp;&nbsp; `gu&nbsp;&nbsp; `gi&nbsp;&nbsp; `ga&nbsp;&nbsp; =
+`gE&nbsp;&nbsp;=20
+`g&nbsp;&nbsp;&nbsp;=20
+`go&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+(`g is Chaha)</TT> <BR><TT>&nbsp;34&nbsp;&nbsp; Ge&nbsp;&nbsp;&nbsp;=20
+Gu&nbsp;&nbsp;&nbsp; Gi&nbsp;&nbsp;&nbsp; Ga&nbsp;&nbsp;&nbsp;=20
+GE&nbsp;&nbsp;&nbsp; G&nbsp;&nbsp;&nbsp;&nbsp; Go&nbsp;&nbsp;&nbsp;=20
+GWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GW/GWu&nbsp;&nbsp;&nbsp;=20
+GWi&nbsp;&nbsp;&nbsp; GWa&nbsp;&nbsp;&nbsp; GWE</TT>=20
+<BR><TT>&nbsp;35&nbsp;&nbsp; Te&nbsp;&nbsp;&nbsp; Tu&nbsp;&nbsp;&nbsp;=20
+Ti&nbsp;&nbsp;&nbsp; Ta&nbsp;&nbsp;&nbsp; TE&nbsp;&nbsp;&nbsp;=20
+T&nbsp;&nbsp;&nbsp;&nbsp; To&nbsp;&nbsp;&nbsp;=20
+TW/TWa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (G is Bilin)</TT>=20
+<BR><TT>&nbsp;36&nbsp;&nbsp; Ce&nbsp;&nbsp;&nbsp; Cu&nbsp;&nbsp;&nbsp;=20
+Ci&nbsp;&nbsp;&nbsp; Ca&nbsp;&nbsp;&nbsp; CE&nbsp;&nbsp;&nbsp;=20
+C&nbsp;&nbsp;&nbsp;&nbsp; Co&nbsp;&nbsp;&nbsp; CW/CWa</TT>=20
+<BR><TT>&nbsp;37&nbsp;&nbsp; Pe&nbsp;&nbsp;&nbsp; Pu&nbsp;&nbsp;&nbsp;=20
+Pi&nbsp;&nbsp;&nbsp; Pa&nbsp;&nbsp;&nbsp; PE&nbsp;&nbsp;&nbsp;=20
+P&nbsp;&nbsp;&nbsp;&nbsp; Po&nbsp;&nbsp;&nbsp; PW/PWa</TT>=20
+<BR><TT>&nbsp;38&nbsp;&nbsp; Se&nbsp;&nbsp;&nbsp; Su&nbsp;&nbsp;&nbsp;=20
+Si&nbsp;&nbsp;&nbsp; Sa&nbsp;&nbsp;&nbsp; SE&nbsp;&nbsp;&nbsp;=20
+S&nbsp;&nbsp;&nbsp;&nbsp; So&nbsp;&nbsp;&nbsp; SW/SWa</TT>=20
+<BR><TT>&nbsp;39&nbsp; `Se&nbsp;&nbsp; `Su&nbsp;&nbsp; `Si&nbsp;&nbsp;=20
+`Sa&nbsp;&nbsp; `SE&nbsp;&nbsp; `S&nbsp;&nbsp;&nbsp; `So</TT>=20
+<BR><TT>&nbsp;40&nbsp;&nbsp; fe&nbsp;&nbsp;&nbsp; fu&nbsp;&nbsp;&nbsp;=20
+fi&nbsp;&nbsp;&nbsp; fa&nbsp;&nbsp;&nbsp; fE&nbsp;&nbsp;&nbsp;=20
+f&nbsp;&nbsp;&nbsp;&nbsp; fo&nbsp;&nbsp;&nbsp; fW/fWa</TT>=20
+<BR><TT>&nbsp;41&nbsp;&nbsp; pe&nbsp;&nbsp;&nbsp; pu&nbsp;&nbsp;&nbsp;=20
+pi&nbsp;&nbsp;&nbsp; pa&nbsp;&nbsp;&nbsp; pE&nbsp;&nbsp;&nbsp;=20
+p&nbsp;&nbsp;&nbsp;&nbsp; po&nbsp;&nbsp;&nbsp; pW/pWa</TT>=20
+<P><TT>Source: =
+http://www.abyssiniacybergateway.net/fidel/sera-faq_0.html</TT>=20
+<BR>
+<HR width=3D"100%">
+
+<H4>Extended Dehai</H4>One of the most popular transliteration standards =
+amongst=20
+the Eritrean community is the Dehai transliteration standard.&nbsp; This =
+
+standard chooses to use slightly longer strings of characters to =
+characterize=20
+the different letters of the Ge'ez syllabary.&nbsp; And it uses =
+capitalization=20
+to characterize laryngeal or plosive forms of the consonants or =
+sounds.&nbsp; We=20
+extend the dehai syllabary to include the SERA transliterations for the =
+Bilin,=20
+Chaha, and Oromiffa characters.=20
+<P>
+<HR width=3D"100%">
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;=20
+2&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; =
+4&nbsp;&nbsp;&nbsp;&nbsp;=20
+5&nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp;&nbsp;=20
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10&nbsp;&nbsp;&nbsp;&nbsp;=20
+11&nbsp;&nbsp;&nbsp;&nbsp; 12</TT> <BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;=20
+gEz&nbsp;&nbsp; kaEb&nbsp; sals&nbsp; rabE&nbsp; hams&nbsp; sads&nbsp;=20
+sabE&nbsp;&nbsp; diqala --&gt;</TT>=20
+<P><TT>&nbsp;1&nbsp;&nbsp;&nbsp; he&nbsp;&nbsp;&nbsp; =
+hu&nbsp;&nbsp;&nbsp;=20
+hi&nbsp;&nbsp;&nbsp; ha&nbsp;&nbsp;&nbsp; hie&nbsp;&nbsp;=20
+h&nbsp;&nbsp;&nbsp;&nbsp; ho</TT> <BR><TT>&nbsp;2&nbsp;&nbsp;&nbsp;=20
+le&nbsp;&nbsp;&nbsp; lu&nbsp;&nbsp;&nbsp; li&nbsp;&nbsp;&nbsp;=20
+la&nbsp;&nbsp;&nbsp; lie&nbsp;&nbsp; l&nbsp;&nbsp;&nbsp;&nbsp;=20
+lo&nbsp;&nbsp;&nbsp; lW/lWa</TT> <BR><TT>&nbsp;3&nbsp;&nbsp;&nbsp;=20
+He&nbsp;&nbsp;&nbsp; Hu&nbsp;&nbsp;&nbsp; Hi&nbsp;&nbsp;&nbsp;=20
+Ha&nbsp;&nbsp;&nbsp; Hie&nbsp;&nbsp; H&nbsp;&nbsp;&nbsp;&nbsp;=20
+Ho&nbsp;&nbsp;&nbsp; HW/HWa</TT> <BR><TT>&nbsp;4&nbsp;&nbsp;&nbsp;=20
+me&nbsp;&nbsp;&nbsp; mu&nbsp;&nbsp;&nbsp; mi&nbsp;&nbsp;&nbsp;=20
+ma&nbsp;&nbsp;&nbsp; mie&nbsp;&nbsp; m&nbsp;&nbsp;&nbsp;&nbsp;=20
+mo&nbsp;&nbsp;&nbsp; mW/mWa</TT> <BR><TT>&nbsp;5&nbsp;&nbsp; =
+`se&nbsp;&nbsp;=20
+`su&nbsp;&nbsp; `si&nbsp;&nbsp; `sa&nbsp;&nbsp; `sie&nbsp; =
+`s&nbsp;&nbsp;&nbsp;=20
+`so&nbsp;&nbsp; `sW/`sWa</TT> <BR><TT>&nbsp;6&nbsp;&nbsp;&nbsp;=20
+re&nbsp;&nbsp;&nbsp; ru&nbsp;&nbsp;&nbsp; ri&nbsp;&nbsp;&nbsp;=20
+ra&nbsp;&nbsp;&nbsp; rie&nbsp;&nbsp; r&nbsp;&nbsp;&nbsp;&nbsp;=20
+ro&nbsp;&nbsp;&nbsp; rW/rWa</TT> <BR><TT>&nbsp;7&nbsp;&nbsp;&nbsp;=20
+se&nbsp;&nbsp;&nbsp; su&nbsp;&nbsp;&nbsp; si&nbsp;&nbsp;&nbsp;=20
+sa&nbsp;&nbsp;&nbsp; sie&nbsp;&nbsp; s&nbsp;&nbsp;&nbsp;&nbsp;=20
+so&nbsp;&nbsp;&nbsp; sW/sWa</TT> <BR><TT>&nbsp;8&nbsp;&nbsp;&nbsp;=20
+she&nbsp;&nbsp; shu&nbsp;&nbsp; shi&nbsp;&nbsp; sha&nbsp;&nbsp; =
+shie&nbsp;=20
+sh&nbsp;&nbsp;&nbsp; sho&nbsp;&nbsp; shW/shWa</TT>=20
+<BR><TT>&nbsp;9&nbsp;&nbsp;&nbsp; qe&nbsp;&nbsp;&nbsp; =
+qu&nbsp;&nbsp;&nbsp;=20
+qi&nbsp;&nbsp;&nbsp; qa&nbsp;&nbsp;&nbsp; qie&nbsp;&nbsp;=20
+q&nbsp;&nbsp;&nbsp;&nbsp; qo&nbsp;&nbsp;&nbsp;=20
+qWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; qW/qWu&nbsp;&nbsp;&nbsp;=20
+qWi&nbsp;&nbsp;&nbsp; qWa&nbsp;&nbsp;&nbsp; qWie</TT> =
+<BR><TT>&nbsp;10&nbsp;=20
+`qe&nbsp;&nbsp; `qu&nbsp;&nbsp; `qi&nbsp;&nbsp; `qa&nbsp;&nbsp; =
+`qie&nbsp;=20
+`q&nbsp;&nbsp;&nbsp; `qo</TT> <BR><TT>&nbsp;11&nbsp;&nbsp; =
+Qe&nbsp;&nbsp;&nbsp;=20
+Qu&nbsp;&nbsp;&nbsp; Qi&nbsp;&nbsp;&nbsp; Qa&nbsp;&nbsp;&nbsp; =
+Qie&nbsp;&nbsp;=20
+Q&nbsp;&nbsp;&nbsp;&nbsp; Qo&nbsp;&nbsp;&nbsp;=20
+QWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QW/QWu&nbsp;&nbsp;&nbsp;=20
+QWi&nbsp;&nbsp;&nbsp; QWa&nbsp;&nbsp;&nbsp; QWie</TT>=20
+<BR><TT>&nbsp;12&nbsp;&nbsp; be&nbsp;&nbsp;&nbsp; bu&nbsp;&nbsp;&nbsp;=20
+bi&nbsp;&nbsp;&nbsp; ba&nbsp;&nbsp;&nbsp; bie&nbsp;&nbsp;=20
+b&nbsp;&nbsp;&nbsp;&nbsp; bo&nbsp;&nbsp;&nbsp; bW/bWa</TT>=20
+<BR><TT>&nbsp;13&nbsp;&nbsp; ve&nbsp;&nbsp;&nbsp; vu&nbsp;&nbsp;&nbsp;=20
+vi&nbsp;&nbsp;&nbsp; va&nbsp;&nbsp;&nbsp; vie&nbsp;&nbsp;=20
+v&nbsp;&nbsp;&nbsp;&nbsp; vo&nbsp;&nbsp;&nbsp; vW/vWa</TT>=20
+<BR><TT>&nbsp;14&nbsp;&nbsp; te&nbsp;&nbsp;&nbsp; tu&nbsp;&nbsp;&nbsp;=20
+ti&nbsp;&nbsp;&nbsp; ta&nbsp;&nbsp;&nbsp; tie&nbsp;&nbsp;=20
+t&nbsp;&nbsp;&nbsp;&nbsp; to&nbsp;&nbsp;&nbsp; tW/tWa</TT>=20
+<BR><TT>&nbsp;15&nbsp;&nbsp; che&nbsp;&nbsp; chu&nbsp;&nbsp; =
+chi&nbsp;&nbsp;=20
+cha&nbsp;&nbsp; chie&nbsp; ch&nbsp;&nbsp;&nbsp; cho&nbsp;&nbsp; =
+chW/chWa</TT>=20
+<BR><TT>&nbsp;16&nbsp; `he&nbsp;&nbsp; `hu&nbsp;&nbsp; `hi&nbsp;&nbsp;=20
+`ha&nbsp;&nbsp; `hie&nbsp; `h&nbsp;&nbsp;&nbsp; `ho&nbsp;&nbsp;&nbsp;=20
+hWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hW/hWu&nbsp;&nbsp;&nbsp;=20
+hWi&nbsp;&nbsp;&nbsp; hWa&nbsp;&nbsp;&nbsp; hWie</TT>=20
+<BR><TT>&nbsp;17&nbsp;&nbsp; ne&nbsp;&nbsp;&nbsp; nu&nbsp;&nbsp;&nbsp;=20
+ni&nbsp;&nbsp;&nbsp; na&nbsp;&nbsp;&nbsp; nie&nbsp;&nbsp;=20
+n&nbsp;&nbsp;&nbsp;&nbsp; no&nbsp;&nbsp;&nbsp; nW/nWa</TT>=20
+<BR><TT>&nbsp;18&nbsp;&nbsp; Ne&nbsp;&nbsp;&nbsp; Nu&nbsp;&nbsp;&nbsp;=20
+Ni&nbsp;&nbsp;&nbsp; Na&nbsp;&nbsp;&nbsp; Nie&nbsp;&nbsp;=20
+N&nbsp;&nbsp;&nbsp;&nbsp; No&nbsp;&nbsp;&nbsp; NW/NWa</TT>=20
+<BR><TT>&nbsp;19&nbsp;&nbsp; 'e&nbsp;&nbsp; 'u&nbsp;&nbsp;&nbsp;&nbsp;=20
+'i&nbsp;&nbsp;&nbsp; 'a&nbsp;&nbsp;&nbsp; 'ie&nbsp;&nbsp;=20
+'&nbsp;&nbsp;&nbsp;&nbsp; 'o&nbsp;&nbsp;&nbsp; 'ea</TT>=20
+<BR><TT>&nbsp;20&nbsp;&nbsp; ke&nbsp;&nbsp;&nbsp; ku&nbsp;&nbsp;&nbsp;=20
+ki&nbsp;&nbsp;&nbsp; ka&nbsp;&nbsp;&nbsp; kie&nbsp;&nbsp;=20
+k&nbsp;&nbsp;&nbsp;&nbsp; ko&nbsp;&nbsp;&nbsp;=20
+kWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kW/kWu&nbsp;&nbsp;&nbsp;=20
+kWi&nbsp;&nbsp;&nbsp; kWa&nbsp;&nbsp;&nbsp; kWie</TT> =
+<BR><TT>&nbsp;21&nbsp;=20
+`ke&nbsp;&nbsp; `ku&nbsp;&nbsp; `ki&nbsp;&nbsp; `ka&nbsp;&nbsp; =
+`kie&nbsp;=20
+`k&nbsp;&nbsp;&nbsp; `ko</TT> <BR><TT>&nbsp;22&nbsp;&nbsp; =
+Ke&nbsp;&nbsp;&nbsp;=20
+Ku&nbsp;&nbsp;&nbsp; Ki&nbsp;&nbsp;&nbsp; Ka&nbsp;&nbsp;&nbsp; =
+Kie&nbsp;&nbsp;=20
+K&nbsp;&nbsp;&nbsp;&nbsp; Ko&nbsp;&nbsp;&nbsp;=20
+KWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KW/KWu&nbsp;&nbsp;&nbsp;=20
+KWi&nbsp;&nbsp;&nbsp; KWa&nbsp;&nbsp;&nbsp; KWie</TT>=20
+<BR><TT>&nbsp;23&nbsp;&nbsp; She&nbsp;&nbsp; Shu&nbsp;&nbsp; =
+Shi&nbsp;&nbsp;=20
+Sha&nbsp;&nbsp; Shie&nbsp; Sh&nbsp;&nbsp;&nbsp; Sho</TT>=20
+<BR><TT>&nbsp;24&nbsp;&nbsp; we&nbsp;&nbsp;&nbsp; wu&nbsp;&nbsp;&nbsp;=20
+wi&nbsp;&nbsp;&nbsp; wa&nbsp;&nbsp;&nbsp; wie&nbsp;&nbsp;=20
+w&nbsp;&nbsp;&nbsp;&nbsp; wo</TT> <BR><TT>&nbsp;25&nbsp;&nbsp;=20
+Ae&nbsp;&nbsp;&nbsp; U&nbsp;&nbsp;&nbsp;&nbsp; I&nbsp;&nbsp;&nbsp;&nbsp; =
+
+A&nbsp;&nbsp;&nbsp;&nbsp; Aie&nbsp;&nbsp; E&nbsp;&nbsp;&nbsp;&nbsp; =
+O</TT>=20
+<BR><TT>&nbsp;26&nbsp;&nbsp; ze&nbsp;&nbsp;&nbsp; zu&nbsp;&nbsp;&nbsp;=20
+zi&nbsp;&nbsp;&nbsp; za&nbsp;&nbsp;&nbsp; zie&nbsp;&nbsp;=20
+z&nbsp;&nbsp;&nbsp;&nbsp; zo&nbsp;&nbsp;&nbsp; zW/zWa</TT>=20
+<BR><TT>&nbsp;27&nbsp;&nbsp; Ze&nbsp;&nbsp;&nbsp; Zu&nbsp;&nbsp;&nbsp;=20
+Zi&nbsp;&nbsp;&nbsp; Za&nbsp;&nbsp;&nbsp; Zie&nbsp;&nbsp;=20
+Z&nbsp;&nbsp;&nbsp;&nbsp; Zo&nbsp;&nbsp;&nbsp; ZW/ZWa</TT>=20
+<BR><TT>&nbsp;28&nbsp;&nbsp; ye&nbsp;&nbsp;&nbsp; yu&nbsp;&nbsp;&nbsp;=20
+yi&nbsp;&nbsp;&nbsp; ya&nbsp;&nbsp;&nbsp; yie&nbsp;&nbsp;=20
+y&nbsp;&nbsp;&nbsp;&nbsp; yo&nbsp;&nbsp;&nbsp; yW/yWa</TT>=20
+<BR><TT>&nbsp;29&nbsp;&nbsp; de&nbsp;&nbsp;&nbsp; du&nbsp;&nbsp;&nbsp;=20
+di&nbsp;&nbsp;&nbsp; da&nbsp;&nbsp;&nbsp; die&nbsp;&nbsp;=20
+d&nbsp;&nbsp;&nbsp;&nbsp; do&nbsp;&nbsp;&nbsp; dW/dWa</TT>=20
+<BR><TT>&nbsp;30&nbsp;&nbsp; De&nbsp;&nbsp;&nbsp; Du&nbsp;&nbsp;&nbsp;=20
+Di&nbsp;&nbsp;&nbsp; Da&nbsp;&nbsp;&nbsp; Die&nbsp;&nbsp;=20
+D&nbsp;&nbsp;&nbsp;&nbsp; Do&nbsp;&nbsp;&nbsp; DW/DWa</TT>=20
+<BR><TT>&nbsp;31&nbsp;&nbsp; je&nbsp;&nbsp;&nbsp; ju&nbsp;&nbsp;&nbsp;=20
+ji&nbsp;&nbsp;&nbsp; ja&nbsp;&nbsp;&nbsp; jie&nbsp;&nbsp;=20
+j&nbsp;&nbsp;&nbsp;&nbsp; jo&nbsp;&nbsp;&nbsp; jW/jWa</TT>=20
+<BR><TT>&nbsp;32&nbsp;&nbsp; ge&nbsp;&nbsp;&nbsp; gu&nbsp;&nbsp;&nbsp;=20
+gi&nbsp;&nbsp;&nbsp; ga&nbsp;&nbsp;&nbsp; gie&nbsp;&nbsp;=20
+g&nbsp;&nbsp;&nbsp;&nbsp; go&nbsp;&nbsp;&nbsp;=20
+gWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gW/gWu&nbsp;&nbsp;&nbsp;=20
+gWi&nbsp;&nbsp;&nbsp; gWa&nbsp;&nbsp;&nbsp; gWie</TT> =
+<BR><TT>&nbsp;33&nbsp;=20
+`ge&nbsp;&nbsp; `gu&nbsp;&nbsp; `gi&nbsp;&nbsp; `ga&nbsp;&nbsp; =
+`gie&nbsp;=20
+`g&nbsp;&nbsp;&nbsp; `go</TT> <BR><TT>&nbsp;34&nbsp;&nbsp; =
+Ge&nbsp;&nbsp;&nbsp;=20
+Gu&nbsp;&nbsp;&nbsp; Gi&nbsp;&nbsp;&nbsp; Ga&nbsp;&nbsp;&nbsp; =
+Gie&nbsp;&nbsp;=20
+G&nbsp;&nbsp;&nbsp;&nbsp; Go&nbsp;&nbsp;&nbsp;=20
+GWe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GW/GWu&nbsp;&nbsp;&nbsp;=20
+GWi&nbsp;&nbsp;&nbsp; GWa&nbsp;&nbsp;&nbsp; GWie</TT>=20
+<BR><TT>&nbsp;35&nbsp;&nbsp; Te&nbsp;&nbsp;&nbsp; Tu&nbsp;&nbsp;&nbsp;=20
+Ti&nbsp;&nbsp;&nbsp; Ta&nbsp;&nbsp;&nbsp; Tie&nbsp;&nbsp;=20
+T&nbsp;&nbsp;&nbsp;&nbsp; To&nbsp;&nbsp;&nbsp; TW/TWa</TT>=20
+<BR><TT>&nbsp;36&nbsp;&nbsp; Che&nbsp;&nbsp; Chu&nbsp;&nbsp; =
+Chi&nbsp;&nbsp;=20
+Cha&nbsp;&nbsp; Chie&nbsp; Ch&nbsp;&nbsp;&nbsp; Cho&nbsp;&nbsp; =
+ChW/ChWa</TT>=20
+<BR><TT>&nbsp;37&nbsp;&nbsp; Pe&nbsp;&nbsp;&nbsp; Pu&nbsp;&nbsp;&nbsp;=20
+Pi&nbsp;&nbsp;&nbsp; Pa&nbsp;&nbsp;&nbsp; Pie&nbsp;&nbsp;=20
+P&nbsp;&nbsp;&nbsp;&nbsp; Po&nbsp;&nbsp;&nbsp; PW/PWa</TT>=20
+<BR><TT>&nbsp;38&nbsp;&nbsp; Se&nbsp;&nbsp;&nbsp; Su&nbsp;&nbsp;&nbsp;=20
+Si&nbsp;&nbsp;&nbsp; Sa&nbsp;&nbsp;&nbsp; Sie&nbsp;&nbsp;=20
+S&nbsp;&nbsp;&nbsp;&nbsp; So&nbsp;&nbsp;&nbsp; SW/SWa</TT>=20
+<BR><TT>&nbsp;39&nbsp; `Se&nbsp;&nbsp; `Su&nbsp;&nbsp; `Si&nbsp;&nbsp;=20
+`Sa&nbsp;&nbsp; `Sie&nbsp; `S&nbsp;&nbsp;&nbsp; `So</TT>=20
+<BR><TT>&nbsp;40&nbsp;&nbsp; fe&nbsp;&nbsp;&nbsp; fu&nbsp;&nbsp;&nbsp;=20
+fi&nbsp;&nbsp;&nbsp; fa&nbsp;&nbsp;&nbsp; fie&nbsp;&nbsp;=20
+f&nbsp;&nbsp;&nbsp;&nbsp; fo&nbsp;&nbsp;&nbsp; fW/fWa</TT>=20
+<BR><TT>&nbsp;41&nbsp;&nbsp; pe&nbsp;&nbsp;&nbsp; pu&nbsp;&nbsp;&nbsp;=20
+pi&nbsp;&nbsp;&nbsp; pa&nbsp;&nbsp;&nbsp; pie&nbsp;&nbsp;=20
+p&nbsp;&nbsp;&nbsp;&nbsp; po&nbsp;&nbsp;&nbsp; pW/pWa</TT>=20
+<P><TT>Source:=20
+http://www.primenet.com/~ephrem2/languages/tigre/dehaistan.html</TT>=20
+<BR><TT>with modifications by the authors</TT> <BR>
+<HR width=3D"100%">
+<BR>&nbsp;=20
+<H4>Tfanus</H4>
+<P>The Tfanus keyboard mapping is in some ways the most distinct of all =
+of the=20
+schemes, with some of the logic driven by the ease of typing more than =
+the=20
+phonetic connection to the Ge'ez syllables. Note for example that for =
+the 'ie'=20
+sound the Tfanus/Yada keyboard uses a lower case 'v' rather than the =
+upper case=20
+'E' of SERA or the two-stroke 'ie' of the Dehai standard and Phonetic =
+Systems.=20
+<HR width=3D"100%">
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;=20
+2&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; =
+4&nbsp;&nbsp;&nbsp;&nbsp;=20
+5&nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp;&nbsp;=20
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10&nbsp;&nbsp;&nbsp;&nbsp;=20
+11&nbsp;&nbsp;&nbsp;&nbsp; 12</TT> <BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;=20
+gEz&nbsp;&nbsp; kaEb&nbsp; sals&nbsp; rabE&nbsp; hams&nbsp; sads&nbsp;=20
+sabE&nbsp;&nbsp; diqala --&gt;</TT>=20
+<P><TT>&nbsp;1&nbsp;&nbsp;&nbsp; he&nbsp;&nbsp;&nbsp; =
+hu&nbsp;&nbsp;&nbsp;=20
+hi&nbsp;&nbsp;&nbsp; ha&nbsp;&nbsp;&nbsp; hv&nbsp;&nbsp;=20
+h&nbsp;&nbsp;&nbsp;&nbsp; ho</TT> <BR><TT>&nbsp;2&nbsp;&nbsp;&nbsp;=20
+le&nbsp;&nbsp;&nbsp; lu&nbsp;&nbsp;&nbsp; li&nbsp;&nbsp;&nbsp;=20
+la&nbsp;&nbsp;&nbsp; lv&nbsp;&nbsp; l&nbsp;&nbsp;&nbsp;&nbsp;=20
+lo&nbsp;&nbsp;&nbsp; lA</TT> <BR><TT>&nbsp;3&nbsp;&nbsp;&nbsp;=20
+He&nbsp;&nbsp;&nbsp; Hu&nbsp;&nbsp;&nbsp; Hi&nbsp;&nbsp;&nbsp;=20
+Ha&nbsp;&nbsp;&nbsp; Hv&nbsp;&nbsp; H&nbsp;&nbsp;&nbsp;&nbsp;=20
+Ho&nbsp;&nbsp;&nbsp; HA</TT> <BR><TT>&nbsp;4&nbsp;&nbsp;&nbsp;=20
+me&nbsp;&nbsp;&nbsp; mu&nbsp;&nbsp;&nbsp; mi&nbsp;&nbsp;&nbsp;=20
+ma&nbsp;&nbsp;&nbsp; mv&nbsp;&nbsp; m&nbsp;&nbsp;&nbsp;&nbsp;=20
+mo&nbsp;&nbsp;&nbsp; mA</TT> <BR><TT>&nbsp;5&nbsp;&nbsp;&nbsp;=20
+We&nbsp;&nbsp;&nbsp; Wu&nbsp;&nbsp;&nbsp; Wi&nbsp;&nbsp;=20
+&nbsp;Wa&nbsp;&nbsp;&nbsp; Wv&nbsp;&nbsp; W&nbsp;&nbsp;&nbsp;&nbsp;=20
+Wo&nbsp;&nbsp;&nbsp; WA</TT> <BR><TT>&nbsp;6&nbsp;&nbsp;&nbsp;=20
+re&nbsp;&nbsp;&nbsp; ru&nbsp;&nbsp;&nbsp; ri&nbsp;&nbsp;&nbsp;=20
+ra&nbsp;&nbsp;&nbsp; rv&nbsp;&nbsp; r&nbsp;&nbsp;&nbsp;&nbsp;=20
+ro&nbsp;&nbsp;&nbsp; rA</TT> <BR><TT>&nbsp;7&nbsp;&nbsp;&nbsp;=20
+se&nbsp;&nbsp;&nbsp; su&nbsp;&nbsp;&nbsp; si&nbsp;&nbsp;&nbsp;=20
+sa&nbsp;&nbsp;&nbsp; sv&nbsp;&nbsp; s&nbsp;&nbsp;&nbsp;&nbsp;=20
+so&nbsp;&nbsp;&nbsp; sA</TT> <BR><TT>&nbsp;8&nbsp;&nbsp;&nbsp;=20
+Se&nbsp;&nbsp;&nbsp; Su&nbsp;&nbsp;&nbsp; Si&nbsp;&nbsp;=20
+&nbsp;Sa&nbsp;&nbsp;&nbsp; Sv&nbsp;&nbsp; S&nbsp;&nbsp;&nbsp;&nbsp;=20
+So&nbsp;&nbsp;&nbsp; SA</TT> <BR><TT>&nbsp;9&nbsp;&nbsp;&nbsp;=20
+qe&nbsp;&nbsp;&nbsp; qu&nbsp;&nbsp;&nbsp; qi&nbsp;&nbsp;&nbsp;=20
+qa&nbsp;&nbsp;&nbsp; qv&nbsp;&nbsp; q&nbsp;&nbsp;&nbsp;&nbsp;=20
+qo&nbsp;&nbsp;&nbsp; qO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+qI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; qI&nbsp;&nbsp;&nbsp;&nbsp;=20
+qA&nbsp;&nbsp;&nbsp;&nbsp; qV</TT> <BR><TT>&nbsp;10</TT>=20
+<BR><TT>&nbsp;11&nbsp;&nbsp; Qe&nbsp;&nbsp;&nbsp; Qu&nbsp;&nbsp;&nbsp;=20
+Qi&nbsp;&nbsp;&nbsp; Qa&nbsp;&nbsp;&nbsp; Qv&nbsp;&nbsp;=20
+Q&nbsp;&nbsp;&nbsp;&nbsp; Qo&nbsp;&nbsp;&nbsp;=20
+QO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+QI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QI&nbsp;&nbsp;&nbsp;&nbsp;=20
+QA&nbsp;&nbsp;&nbsp;&nbsp; QV</TT> <BR><TT>&nbsp;12&nbsp;&nbsp;=20
+be&nbsp;&nbsp;&nbsp; bu&nbsp;&nbsp;&nbsp; bi&nbsp;&nbsp;&nbsp;=20
+ba&nbsp;&nbsp;&nbsp; bv&nbsp;&nbsp; b&nbsp;&nbsp;&nbsp;&nbsp;=20
+bo&nbsp;&nbsp;&nbsp; bA</TT> <BR><TT>&nbsp;13&nbsp;&nbsp; =
+Be&nbsp;&nbsp;&nbsp;=20
+Bu&nbsp;&nbsp;&nbsp; Bi&nbsp;&nbsp;&nbsp; Ba&nbsp;&nbsp;&nbsp; =
+Bv&nbsp;&nbsp;=20
+B&nbsp;&nbsp;&nbsp;&nbsp; Bo&nbsp;&nbsp;&nbsp; BA</TT>=20
+<BR><TT>&nbsp;14&nbsp;&nbsp; te&nbsp;&nbsp;&nbsp; tu&nbsp;&nbsp;&nbsp;=20
+ti&nbsp;&nbsp;&nbsp; ta&nbsp;&nbsp;&nbsp; tv&nbsp;&nbsp;=20
+t&nbsp;&nbsp;&nbsp;&nbsp; to&nbsp;&nbsp;&nbsp; tA</TT>=20
+<BR><TT>&nbsp;15&nbsp;&nbsp; Ce&nbsp;&nbsp;&nbsp; Cu&nbsp;&nbsp;&nbsp;=20
+Ci&nbsp;&nbsp; &nbsp;Ca&nbsp;&nbsp;&nbsp; Cv&nbsp;&nbsp;=20
+C&nbsp;&nbsp;&nbsp;&nbsp; Co&nbsp;&nbsp;&nbsp; CA</TT>=20
+<BR><TT>&nbsp;16&nbsp;&nbsp; Ue&nbsp;&nbsp;&nbsp; Uu&nbsp;&nbsp;&nbsp;=20
+Ui&nbsp;&nbsp; &nbsp;Ua&nbsp;&nbsp;&nbsp; Uv&nbsp;&nbsp;=20
+U&nbsp;&nbsp;&nbsp;&nbsp; Uo&nbsp;&nbsp;&nbsp;=20
+hO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+hI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hI&nbsp;&nbsp;&nbsp;&nbsp;=20
+hA&nbsp;&nbsp;&nbsp;&nbsp; hV</TT> <BR><TT>&nbsp;17&nbsp;&nbsp;=20
+ne&nbsp;&nbsp;&nbsp; nu&nbsp;&nbsp;&nbsp; ni&nbsp;&nbsp;&nbsp;=20
+na&nbsp;&nbsp;&nbsp; nv&nbsp;&nbsp; n&nbsp;&nbsp;&nbsp;&nbsp;=20
+no&nbsp;&nbsp;&nbsp; nA</TT> <BR><TT>&nbsp;18&nbsp;&nbsp; =
+Ne&nbsp;&nbsp;&nbsp;=20
+Nu&nbsp;&nbsp;&nbsp; Ni&nbsp;&nbsp;&nbsp; Na&nbsp;&nbsp;&nbsp; =
+Nv&nbsp;&nbsp;=20
+N&nbsp;&nbsp;&nbsp;&nbsp; No&nbsp;&nbsp;&nbsp; NA</TT>=20
+<BR><TT>&nbsp;19&nbsp;&nbsp; Ee&nbsp;&nbsp;&nbsp; Eu&nbsp;&nbsp;&nbsp;=20
+Ei&nbsp;&nbsp;&nbsp; Ea&nbsp;&nbsp;&nbsp; Ev&nbsp;&nbsp;=20
+E&nbsp;&nbsp;&nbsp;&nbsp; Eo&nbsp;&nbsp;&nbsp; =
+</TT><BR><TT>&nbsp;20&nbsp;&nbsp;=20
+ke&nbsp;&nbsp;&nbsp; ku&nbsp;&nbsp;&nbsp; ki&nbsp;&nbsp;&nbsp;=20
+ka&nbsp;&nbsp;&nbsp; kv&nbsp;&nbsp; k&nbsp;&nbsp;&nbsp;&nbsp;=20
+ko&nbsp;&nbsp;&nbsp; kO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+kI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kI&nbsp;&nbsp;&nbsp;&nbsp;=20
+kA&nbsp;&nbsp;&nbsp;&nbsp; kV</TT> <BR><TT>&nbsp;21&nbsp;=20
+</TT><BR><TT>&nbsp;22&nbsp;&nbsp; Ke&nbsp;&nbsp;&nbsp; =
+Ku&nbsp;&nbsp;&nbsp;=20
+Ki&nbsp;&nbsp;&nbsp; Ka&nbsp;&nbsp;&nbsp; Kv&nbsp;&nbsp;=20
+K&nbsp;&nbsp;&nbsp;&nbsp; Ko&nbsp;&nbsp;&nbsp;=20
+KO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+KI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KI&nbsp;&nbsp;&nbsp;&nbsp;=20
+KA&nbsp;&nbsp;&nbsp;&nbsp; KV</TT> <BR><TT>&nbsp;23&nbsp;&nbsp;</TT>=20
+<BR><TT>&nbsp;24&nbsp;&nbsp; we&nbsp;&nbsp;&nbsp; wu&nbsp;&nbsp;&nbsp;=20
+wi&nbsp;&nbsp;&nbsp; wa&nbsp;&nbsp;&nbsp; wv&nbsp;&nbsp;=20
+w&nbsp;&nbsp;&nbsp;&nbsp; wo</TT> <BR><TT>&nbsp;25&nbsp;&nbsp;=20
+[e&nbsp;&nbsp;&nbsp; [u&nbsp;&nbsp;&nbsp; [i&nbsp;&nbsp;&nbsp;=20
+[a&nbsp;&nbsp;&nbsp; [v&nbsp;&nbsp; [&nbsp;&nbsp;&nbsp;&nbsp; [o</TT>=20
+<BR><TT>&nbsp;26&nbsp;&nbsp; ze&nbsp;&nbsp;&nbsp; zu&nbsp;&nbsp;&nbsp;=20
+zi&nbsp;&nbsp;&nbsp; za&nbsp;&nbsp;&nbsp; zv&nbsp;&nbsp;=20
+z&nbsp;&nbsp;&nbsp;&nbsp; zo&nbsp;&nbsp;&nbsp; zA</TT>=20
+<BR><TT>&nbsp;27&nbsp;&nbsp; Ze&nbsp;&nbsp;&nbsp; Zu&nbsp;&nbsp;&nbsp;=20
+Zi&nbsp;&nbsp;&nbsp; Za&nbsp;&nbsp;&nbsp; Zv&nbsp;&nbsp;=20
+Z&nbsp;&nbsp;&nbsp;&nbsp; Zo&nbsp;&nbsp;&nbsp; ZA</TT>=20
+<BR><TT>&nbsp;28&nbsp;&nbsp; ye&nbsp;&nbsp;&nbsp; yu&nbsp;&nbsp;&nbsp;=20
+yi&nbsp;&nbsp;&nbsp; ya&nbsp;&nbsp;&nbsp; yv&nbsp;&nbsp;=20
+y&nbsp;&nbsp;&nbsp;&nbsp; yo&nbsp;&nbsp;&nbsp; yA</TT>=20
+<BR><TT>&nbsp;29&nbsp;&nbsp; de&nbsp;&nbsp;&nbsp; du&nbsp;&nbsp;&nbsp;=20
+di&nbsp;&nbsp;&nbsp; da&nbsp;&nbsp;&nbsp; dv&nbsp;&nbsp;=20
+d&nbsp;&nbsp;&nbsp;&nbsp; do&nbsp;&nbsp;&nbsp; dA</TT>=20
+<BR><TT>&nbsp;30&nbsp;&nbsp;</TT> <BR><TT>&nbsp;31&nbsp;&nbsp;=20
+je&nbsp;&nbsp;&nbsp; ju&nbsp;&nbsp;&nbsp; ji&nbsp;&nbsp;&nbsp;=20
+ja&nbsp;&nbsp;&nbsp; jv&nbsp;&nbsp; j&nbsp;&nbsp;&nbsp;&nbsp;=20
+jo&nbsp;&nbsp;&nbsp; jA</TT> <BR><TT>&nbsp;32&nbsp;&nbsp; =
+ge&nbsp;&nbsp;&nbsp;=20
+gu&nbsp;&nbsp;&nbsp; gi&nbsp;&nbsp;&nbsp; ga&nbsp;&nbsp;&nbsp; =
+gv&nbsp;&nbsp;=20
+g&nbsp;&nbsp;&nbsp;&nbsp; go&nbsp;&nbsp;&nbsp;=20
+gO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+gI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gI&nbsp;&nbsp;&nbsp;&nbsp;=20
+gA&nbsp;&nbsp;&nbsp;&nbsp; gV</TT> <BR><TT>&nbsp;33&nbsp;</TT>=20
+<BR><TT>&nbsp;34&nbsp;&nbsp;</TT> <BR><TT>&nbsp;35&nbsp;&nbsp;=20
+Te&nbsp;&nbsp;&nbsp; Tu&nbsp;&nbsp;&nbsp; Ti&nbsp;&nbsp;&nbsp;=20
+Ta&nbsp;&nbsp;&nbsp; Tv&nbsp;&nbsp; T&nbsp;&nbsp;&nbsp;&nbsp;=20
+To&nbsp;&nbsp;&nbsp; TA</TT> <BR><TT>&nbsp;36&nbsp;&nbsp; =
+Ce&nbsp;&nbsp;&nbsp;=20
+Cu&nbsp;&nbsp;&nbsp; Ci&nbsp;&nbsp; &nbsp;Ca&nbsp;&nbsp;&nbsp; =
+Cv&nbsp;&nbsp;=20
+C&nbsp;&nbsp;&nbsp;&nbsp; Co&nbsp;&nbsp;&nbsp; CA</TT>=20
+<BR><TT>&nbsp;37&nbsp;&nbsp; Pe&nbsp;&nbsp;&nbsp; Pu&nbsp;&nbsp;&nbsp;=20
+Pi&nbsp;&nbsp;&nbsp; Pa&nbsp;&nbsp;&nbsp; Pv&nbsp;&nbsp;=20
+P&nbsp;&nbsp;&nbsp;&nbsp; Po&nbsp;&nbsp;&nbsp; PA</TT>=20
+<BR><TT>&nbsp;38&nbsp;&nbsp; Se&nbsp;&nbsp;&nbsp; Su&nbsp;&nbsp;&nbsp;=20
+Si&nbsp;&nbsp;&nbsp; Sa&nbsp;&nbsp;&nbsp; Sv&nbsp;&nbsp;=20
+S&nbsp;&nbsp;&nbsp;&nbsp; So&nbsp;&nbsp;&nbsp; SA</TT>=20
+<BR><TT>&nbsp;39&nbsp;&nbsp; Xe&nbsp;&nbsp;&nbsp; Xu&nbsp;&nbsp;&nbsp;=20
+Xi&nbsp;&nbsp;&nbsp; Xa&nbsp;&nbsp;&nbsp; Xv&nbsp;&nbsp;=20
+X&nbsp;&nbsp;&nbsp;&nbsp; Xo</TT> <BR><TT>&nbsp;40&nbsp;&nbsp;=20
+fe&nbsp;&nbsp;&nbsp; fu&nbsp;&nbsp;&nbsp; fi&nbsp;&nbsp;&nbsp;=20
+fa&nbsp;&nbsp;&nbsp; fv&nbsp;&nbsp; f&nbsp;&nbsp;&nbsp;&nbsp;=20
+fo&nbsp;&nbsp;&nbsp; fA</TT> <BR><TT>&nbsp;41&nbsp;&nbsp; =
+pe&nbsp;&nbsp;&nbsp;=20
+pu&nbsp;&nbsp;&nbsp; pi&nbsp;&nbsp;&nbsp; pa&nbsp;&nbsp;&nbsp; =
+pv&nbsp;&nbsp;=20
+p&nbsp;&nbsp;&nbsp;&nbsp; po&nbsp;&nbsp;&nbsp; pA</TT>=20
+<P>
+<HR width=3D"100%">
+
+<H4>Phonetic Systems</H4>The phonetic systems keyboard or =
+transliteration system=20
+provides mappings for only the characters in Tigrigna, Amharic, and =
+Ge'ez.&nbsp;=20
+It is similar to the Deha method, except it uses 'ua' instead of Wa and =
+an=20
+apostrophe after a vowel to for the various labiovelor forms.&nbsp; Also =
+it uses=20
+brackets for some of the less common characters.=20
+<P>
+<HR width=3D"100%">
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;=20
+2&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; =
+4&nbsp;&nbsp;&nbsp;&nbsp;=20
+5&nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp;&nbsp;=20
+7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10&nbsp;&nbsp;&nbsp;&nbsp;=20
+11&nbsp;&nbsp;&nbsp;&nbsp; 12</TT> <BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;=20
+gOz&nbsp;&nbsp; kaOb&nbsp; sals&nbsp; rabO&nbsp; hams&nbsp; sads&nbsp;=20
+sabO&nbsp;&nbsp; diqala --&gt;</TT>=20
+<P><TT>&nbsp;1&nbsp;&nbsp;&nbsp; he&nbsp;&nbsp;&nbsp; =
+hu&nbsp;&nbsp;&nbsp;=20
+hi&nbsp;&nbsp;&nbsp; ha&nbsp;&nbsp;&nbsp; hie&nbsp;&nbsp;=20
+h&nbsp;&nbsp;&nbsp;&nbsp; ho</TT> <BR><TT>&nbsp;2&nbsp;&nbsp;&nbsp;=20
+le&nbsp;&nbsp;&nbsp; lu&nbsp;&nbsp;&nbsp; li&nbsp;&nbsp;&nbsp;=20
+la&nbsp;&nbsp;&nbsp; lie&nbsp;&nbsp; l&nbsp;&nbsp;&nbsp;&nbsp;=20
+lo&nbsp;&nbsp;&nbsp; lua</TT> <BR><TT>&nbsp;3&nbsp;&nbsp;&nbsp;=20
+He&nbsp;&nbsp;&nbsp; Hu&nbsp;&nbsp;&nbsp; Hi&nbsp;&nbsp;&nbsp;=20
+Ha&nbsp;&nbsp;&nbsp; Hie&nbsp;&nbsp; H&nbsp;&nbsp;&nbsp;&nbsp; Ho</TT>=20
+<BR><TT>&nbsp;4&nbsp;&nbsp;&nbsp; me&nbsp;&nbsp;&nbsp; =
+mu&nbsp;&nbsp;&nbsp;=20
+mi&nbsp;&nbsp;&nbsp; ma&nbsp;&nbsp;&nbsp; mie&nbsp;&nbsp;=20
+m&nbsp;&nbsp;&nbsp;&nbsp; mo&nbsp;&nbsp;&nbsp; mua</TT>=20
+<BR><TT>&nbsp;5&nbsp;&nbsp;&nbsp; [e&nbsp;&nbsp;&nbsp; =
+[u&nbsp;&nbsp;&nbsp;=20
+[i&nbsp;&nbsp;&nbsp; [a&nbsp;&nbsp;&nbsp; [ie&nbsp;&nbsp;=20
+[&nbsp;&nbsp;&nbsp;&nbsp; [o&nbsp;&nbsp;&nbsp; [ua</TT>=20
+<BR><TT>&nbsp;6&nbsp;&nbsp;&nbsp; re&nbsp;&nbsp;&nbsp; =
+ru&nbsp;&nbsp;&nbsp;=20
+ri&nbsp;&nbsp;&nbsp; ra&nbsp;&nbsp;&nbsp; rie&nbsp;&nbsp;=20
+r&nbsp;&nbsp;&nbsp;&nbsp; ro&nbsp;&nbsp;&nbsp; rua</TT>=20
+<BR><TT>&nbsp;7&nbsp;&nbsp;&nbsp; se&nbsp;&nbsp;&nbsp; =
+su&nbsp;&nbsp;&nbsp;=20
+si&nbsp;&nbsp;&nbsp; sa&nbsp;&nbsp;&nbsp; sie&nbsp;&nbsp;=20
+s&nbsp;&nbsp;&nbsp;&nbsp; so&nbsp;&nbsp;&nbsp; sua</TT>=20
+<BR><TT>&nbsp;8&nbsp;&nbsp;&nbsp; Se&nbsp;&nbsp;&nbsp; =
+Su&nbsp;&nbsp;&nbsp;=20
+Si&nbsp;&nbsp;&nbsp; Sa&nbsp;&nbsp;&nbsp; Sie&nbsp;&nbsp;=20
+S&nbsp;&nbsp;&nbsp;&nbsp; So&nbsp;&nbsp;&nbsp; Sua</TT>=20
+<BR><TT>&nbsp;9&nbsp;&nbsp;&nbsp; qe&nbsp;&nbsp;&nbsp; =
+qu&nbsp;&nbsp;&nbsp;=20
+qi&nbsp;&nbsp;&nbsp; qa&nbsp;&nbsp;&nbsp; qie&nbsp;&nbsp;=20
+q&nbsp;&nbsp;&nbsp;&nbsp; qo&nbsp;&nbsp;&nbsp;=20
+qe'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+q'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; qi'&nbsp;&nbsp;&nbsp;=20
+qa'&nbsp;&nbsp;&nbsp; qie'</TT> <BR><TT>&nbsp;10</TT>=20
+<BR><TT>&nbsp;11&nbsp;&nbsp; Qe&nbsp;&nbsp;&nbsp; Qu&nbsp;&nbsp;&nbsp;=20
+Qi&nbsp;&nbsp;&nbsp; Qa&nbsp;&nbsp;&nbsp; Qie&nbsp;&nbsp;=20
+Q&nbsp;&nbsp;&nbsp;&nbsp; Qo&nbsp;&nbsp;&nbsp;=20
+Qe'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+Q'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qi'&nbsp;&nbsp;&nbsp;=20
+Qa'&nbsp;&nbsp;&nbsp; Qie'</TT> <BR><TT>&nbsp;12&nbsp;&nbsp;=20
+be&nbsp;&nbsp;&nbsp; bu&nbsp;&nbsp;&nbsp; bi&nbsp;&nbsp;&nbsp;=20
+ba&nbsp;&nbsp;&nbsp; bie&nbsp;&nbsp; b&nbsp;&nbsp;&nbsp;&nbsp;=20
+bo&nbsp;&nbsp;&nbsp; bua</TT> <BR><TT>&nbsp;13&nbsp;&nbsp; =
+ve&nbsp;&nbsp;&nbsp;=20
+vu&nbsp;&nbsp;&nbsp; vi&nbsp;&nbsp;&nbsp; va&nbsp;&nbsp;&nbsp; =
+vie&nbsp;&nbsp;=20
+v&nbsp;&nbsp;&nbsp;&nbsp; vo</TT> <BR><TT>&nbsp;14&nbsp;&nbsp;=20
+te&nbsp;&nbsp;&nbsp; tu&nbsp;&nbsp;&nbsp; ti&nbsp;&nbsp;&nbsp;=20
+ta&nbsp;&nbsp;&nbsp; tie&nbsp;&nbsp; t&nbsp;&nbsp;&nbsp;&nbsp;=20
+to&nbsp;&nbsp;&nbsp; tua</TT> <BR><TT>&nbsp;15&nbsp;&nbsp; =
+ce&nbsp;&nbsp;&nbsp;=20
+cu&nbsp;&nbsp;&nbsp; ci&nbsp;&nbsp;&nbsp; ca&nbsp;&nbsp;&nbsp; =
+cie&nbsp;&nbsp;=20
+c&nbsp;&nbsp;&nbsp;&nbsp; co&nbsp;&nbsp;&nbsp; cua</TT>=20
+<BR><TT>&nbsp;16&nbsp;&nbsp; ]e&nbsp;&nbsp;&nbsp; ]u&nbsp;&nbsp;&nbsp;=20
+]i&nbsp;&nbsp;&nbsp; ]a&nbsp;&nbsp;&nbsp; ]ie&nbsp;&nbsp;=20
+]&nbsp;&nbsp;&nbsp;&nbsp; ]o&nbsp;&nbsp;&nbsp;=20
+]e'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+]'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]i'&nbsp;&nbsp;&nbsp;=20
+]a'&nbsp;&nbsp;&nbsp; ]ie'</TT> <BR><TT>&nbsp;17&nbsp;&nbsp;=20
+ne&nbsp;&nbsp;&nbsp; nu&nbsp;&nbsp;&nbsp; ni&nbsp;&nbsp;&nbsp;=20
+na&nbsp;&nbsp;&nbsp; nie&nbsp;&nbsp; n&nbsp;&nbsp;&nbsp;&nbsp;=20
+no&nbsp;&nbsp;&nbsp; nua</TT> <BR><TT>&nbsp;18&nbsp;&nbsp; =
+Ne&nbsp;&nbsp;&nbsp;=20
+Nu&nbsp;&nbsp;&nbsp; Ni&nbsp;&nbsp;&nbsp; Na&nbsp;&nbsp;&nbsp; =
+Nie&nbsp;&nbsp;=20
+N&nbsp;&nbsp;&nbsp;&nbsp; No&nbsp;&nbsp;&nbsp; Nua</TT>=20
+<BR><TT>&nbsp;19&nbsp;&nbsp; e&nbsp;&nbsp;&nbsp;&nbsp; =
+u&nbsp;&nbsp;&nbsp;&nbsp;=20
+i&nbsp;&nbsp;&nbsp;&nbsp; a&nbsp;&nbsp;&nbsp;&nbsp; Aie&nbsp;&nbsp;=20
+A&nbsp;&nbsp;&nbsp;&nbsp; o</TT> <BR><TT>&nbsp;20&nbsp;&nbsp;=20
+ke&nbsp;&nbsp;&nbsp; ku&nbsp;&nbsp;&nbsp; ki&nbsp;&nbsp;&nbsp;=20
+ka&nbsp;&nbsp;&nbsp; kie&nbsp;&nbsp; k&nbsp;&nbsp;&nbsp;&nbsp;=20
+ko&nbsp;&nbsp;&nbsp; ke'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+k'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ki'&nbsp;&nbsp;&nbsp;=20
+ka'&nbsp;&nbsp;&nbsp; kie'</TT> <BR><TT>&nbsp;21</TT>=20
+<BR><TT>&nbsp;22&nbsp;&nbsp; Ke&nbsp;&nbsp;&nbsp; Ku&nbsp;&nbsp;&nbsp;=20
+Ki&nbsp;&nbsp;&nbsp; Ka&nbsp;&nbsp;&nbsp; Kie&nbsp;&nbsp;=20
+K&nbsp;&nbsp;&nbsp;&nbsp; Ko&nbsp;&nbsp;&nbsp;=20
+Ke'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+K'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ki'&nbsp;&nbsp;&nbsp;=20
+Ka'&nbsp;&nbsp;&nbsp; Kie'</TT> <BR><TT>&nbsp;23</TT>=20
+<BR><TT>&nbsp;24&nbsp;&nbsp; we&nbsp;&nbsp;&nbsp; wu&nbsp;&nbsp;&nbsp;=20
+wi&nbsp;&nbsp;&nbsp; wa&nbsp;&nbsp;&nbsp; wie&nbsp;&nbsp;=20
+w&nbsp;&nbsp;&nbsp;&nbsp; wo</TT> <BR><TT>&nbsp;25&nbsp;&nbsp;=20
+Oe&nbsp;&nbsp;&nbsp; Ou&nbsp;&nbsp;&nbsp; Oi&nbsp;&nbsp;&nbsp;=20
+Oa&nbsp;&nbsp;&nbsp; Oie&nbsp;&nbsp; O&nbsp;&nbsp;&nbsp;&nbsp; Oo</TT>=20
+<BR><TT>&nbsp;26&nbsp;&nbsp; ze&nbsp;&nbsp;&nbsp; zu&nbsp;&nbsp;&nbsp;=20
+zi&nbsp;&nbsp;&nbsp; za&nbsp;&nbsp;&nbsp; zie&nbsp;&nbsp;=20
+z&nbsp;&nbsp;&nbsp;&nbsp; zo&nbsp;&nbsp;&nbsp; zua</TT>=20
+<BR><TT>&nbsp;27&nbsp;&nbsp; Ze&nbsp;&nbsp;&nbsp; Zu&nbsp;&nbsp;&nbsp;=20
+Zi&nbsp;&nbsp;&nbsp; Za&nbsp;&nbsp;&nbsp; Zie&nbsp;&nbsp;=20
+Z&nbsp;&nbsp;&nbsp;&nbsp; Zo&nbsp;&nbsp;&nbsp; Zua</TT>=20
+<BR><TT>&nbsp;28&nbsp;&nbsp; ye&nbsp;&nbsp;&nbsp; yu&nbsp;&nbsp;&nbsp;=20
+yi&nbsp;&nbsp;&nbsp; ya&nbsp;&nbsp;&nbsp; yie&nbsp;&nbsp;=20
+y&nbsp;&nbsp;&nbsp;&nbsp; yo</TT> <BR><TT>&nbsp;29&nbsp;&nbsp;=20
+de&nbsp;&nbsp;&nbsp; du&nbsp;&nbsp;&nbsp; di&nbsp;&nbsp;&nbsp;=20
+da&nbsp;&nbsp;&nbsp; die&nbsp;&nbsp; d&nbsp;&nbsp;&nbsp;&nbsp;=20
+do&nbsp;&nbsp;&nbsp; dua</TT> <BR><TT>&nbsp;30</TT> =
+<BR><TT>&nbsp;31&nbsp;&nbsp;=20
+je&nbsp;&nbsp;&nbsp; ju&nbsp;&nbsp;&nbsp; ji&nbsp;&nbsp;&nbsp;=20
+ja&nbsp;&nbsp;&nbsp; jie&nbsp;&nbsp; j&nbsp;&nbsp;&nbsp;&nbsp;=20
+jo&nbsp;&nbsp;&nbsp; jua</TT> <BR><TT>&nbsp;32&nbsp;&nbsp; =
+ge&nbsp;&nbsp;&nbsp;=20
+gu&nbsp;&nbsp;&nbsp; gi&nbsp;&nbsp;&nbsp; ga&nbsp;&nbsp;&nbsp; =
+gie&nbsp;&nbsp;=20
+g&nbsp;&nbsp;&nbsp;&nbsp; go&nbsp;&nbsp;&nbsp;=20
+ge'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+g'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gi'&nbsp;&nbsp;&nbsp;=20
+ga'&nbsp;&nbsp;&nbsp; gie'</TT> <BR><TT>&nbsp;33</TT> =
+<BR><TT>&nbsp;34</TT>=20
+<BR><TT>&nbsp;35&nbsp;&nbsp; Te&nbsp;&nbsp;&nbsp; Tu&nbsp;&nbsp;&nbsp;=20
+Ti&nbsp;&nbsp;&nbsp; Ta&nbsp;&nbsp;&nbsp; Tie&nbsp;&nbsp;=20
+T&nbsp;&nbsp;&nbsp;&nbsp; To&nbsp;&nbsp;&nbsp; Tua</TT>=20
+<BR><TT>&nbsp;36&nbsp;&nbsp; Ce&nbsp;&nbsp;&nbsp; Cu&nbsp;&nbsp;&nbsp;=20
+Ci&nbsp;&nbsp;&nbsp; Ca&nbsp;&nbsp;&nbsp; Cie&nbsp;&nbsp;=20
+C&nbsp;&nbsp;&nbsp;&nbsp; Co&nbsp;&nbsp;&nbsp; Cua</TT>=20
+<BR><TT>&nbsp;37&nbsp;&nbsp; Pe&nbsp;&nbsp;&nbsp; Pu&nbsp;&nbsp;&nbsp;=20
+Pi&nbsp;&nbsp;&nbsp; Pa&nbsp;&nbsp;&nbsp; Pie&nbsp;&nbsp;=20
+P&nbsp;&nbsp;&nbsp;&nbsp; Po&nbsp;&nbsp;&nbsp; Pua</TT>=20
+<BR><TT>&nbsp;38&nbsp;&nbsp; xe&nbsp;&nbsp;&nbsp; xu&nbsp;&nbsp;&nbsp;=20
+xi&nbsp;&nbsp;&nbsp; xa&nbsp;&nbsp;&nbsp; xie&nbsp;&nbsp;=20
+x&nbsp;&nbsp;&nbsp;&nbsp; xo&nbsp;&nbsp;&nbsp; xua</TT>=20
+<BR><TT>&nbsp;39&nbsp;&nbsp; Xe&nbsp;&nbsp;&nbsp; Xu&nbsp;&nbsp;&nbsp;=20
+Xi&nbsp;&nbsp;&nbsp; Xa&nbsp;&nbsp;&nbsp; Xie&nbsp;&nbsp;=20
+X&nbsp;&nbsp;&nbsp;&nbsp; Xo</TT> <BR><TT>&nbsp;40&nbsp;&nbsp;=20
+fe&nbsp;&nbsp;&nbsp; fu&nbsp;&nbsp;&nbsp; fi&nbsp;&nbsp;&nbsp;=20
+fa&nbsp;&nbsp;&nbsp; fie&nbsp;&nbsp; f&nbsp;&nbsp;&nbsp;&nbsp;=20
+fo&nbsp;&nbsp;&nbsp; fua</TT> <BR><TT>&nbsp;41&nbsp;&nbsp; =
+pe&nbsp;&nbsp;&nbsp;=20
+pu&nbsp;&nbsp;&nbsp; pi&nbsp;&nbsp;&nbsp; pa&nbsp;&nbsp;&nbsp; =
+pie&nbsp;&nbsp;=20
+p&nbsp;&nbsp;&nbsp;&nbsp; po&nbsp;&nbsp;&nbsp; pua</TT>=20
+<P><TT>Source: http://www.geezsoft.com/gg2man/Table.htm</TT>=20
+<P>
+<HR width=3D"100%">
+
+<H3>Available Fonts</H3>One of the advantages of having standards for =
+the=20
+encoding of Ge'ez letters is that fonts from a diversity of unrelated =
+font=20
+developers can all be used with the standard encoding systems. Since the =
+Unicode=20
+standards for Ge'ez are still fairly new there are only a few fonts =
+available,=20
+but more are in development. Currently available Unicode compliant fonts =
+
+include:=20
+<OL>
+  <LI>GF Zemen Unicode, URL:=20
+  ftp://ftp.ethiopic.org/pub/fonts/TrueType/gfzemenu.ttf=20
+  <LI>Ethiopia Jiret, URL:=20
+  http://www.senamirmir.com/projects/ethiopic/ethiopic.html=20
+  <LI>Code2000, URL: http://home.att.net/~jameskass/ </LI></OL>For =
+Tfanus/Yada the=20
+font that is used is GeezTimesNew, while the main font for Phonetic=20
+Systems/GeezGate is GeezTypeNet (at URL: =
+http://www.geezsoft.com/geeztnet.ttf)=20
+<H3>Software Design</H3>
+<H4>Background:&nbsp; Non-language Specific</H4>Windows 2000 is designed =
+from=20
+the ground up to internally handle Unicode strings.&nbsp; All of the =
+core=20
+functions for creating windows, displaying text, manipulating strings, =
+and so=20
+forth are implemented using Unicode.&nbsp; This is not the case in =
+Windows 95=20
+and 98, where almost every function uses ANSI strings.&nbsp; There are =
+some=20
+functions such as TextOutW and MessageBoxW that are capable of handling =
+Unicode=20
+in Windows 9x.&nbsp; However, the few functions that do handle Unicode =
+are not=20
+reliable.&nbsp; Some of them do not work with certain fonts, some of =
+them=20
+corrupt the heap, and some of them crash printer drivers (Richter =
+1999).&nbsp;=20
+It is possible to design one=92s own Unicode text editor using the =
+TextOutW=20
+function, but because of the limited number of operable Unicode =
+functions for=20
+Win9x, overall functionality would probably be severely limited.&nbsp; A =
+good=20
+solution to the problem of getting Unicode input into Windows 95 and 98 =
+would be=20
+to have a program intercept keyboard input, transform that input to =
+Unicode=20
+characters, and then pass those characters on to the destination =
+application=20
+such as Microsoft Word.&nbsp; That brings us to two important =
+issues:&nbsp; How=20
+do we intercept keystrokes and how do we change them to Unicode?=20
+<P>Before answering these questions, we need a little background in the =
+Windows=20
+Operating System architecture.&nbsp; In Windows programming, practically =
+
+everything that we deal with is an object.&nbsp; Programs are comprised =
+of=20
+windows, windows within windows, buttons, scroll bars, controls, and =
+menus to=20
+name a few.&nbsp; All of these objects need to communicate back in forth =
+with=20
+each other, with the user, and with the operating system.&nbsp; The=20
+communication system of Windows programming is orchestrated through the =
+sending=20
+and receiving of messages asynchronously.&nbsp; Every Windows program =
+contains a=20
+main message loop that runs continuously through the execution of the =
+code to=20
+receive, translate, and dispatch messages.&nbsp; These messages could be =
+coming=20
+from other processes, from the operating system, or from the process=20
+itself.&nbsp; The messages that are routed from window to window are =
+nothing=20
+more than integers that have been defined to have special meaning in the =
+Windows=20
+OS.&nbsp; When a window is created in a program, that window is assigned =
+a=20
+unique identifier, called a handle.&nbsp; In order to send a message to =
+a=20
+specific window, one specifies that window=92s handle.&nbsp; For =
+example, when a=20
+user clicks on the close button of a window to end that application, a =
+WM_CLOSE=20
+message is sent to that window=92s message loop.&nbsp; The application =
+can choose=20
+to process that message and call a function to end the program or it can =
+ignore=20
+the message.&nbsp; Any messages that are not explicitly handled by a =
+process are=20
+passed on to its default message loop for final processing.&nbsp; =
+Continuing=20
+with the example, if a process did not process the WM_CLOSE message, =
+then the=20
+application would still end, because the default message procedure =
+receives the=20
+message and calls a function to end the process itself.=20
+<P>This brings us to an interesting question:&nbsp; Can we modify the =
+way in=20
+which the default message loop processes certain messages, and the =
+answer is=20
+yes!&nbsp; Normally, if we wanted to create a text editor, then we would =
+create=20
+a window that is an edit control, and the edit control window would =
+handle the=20
+displaying of text without any work on our part.&nbsp; Every time a user =
+presses=20
+a key while running the editor, a WM_CHAR message would be processed by =
+the=20
+default message procedure causing that character to appear in the text =
+editor=92s=20
+window.&nbsp; However, by using a technique known as subclassing, we can =
+
+intercept and process messages sent to a particular window before the =
+window has=20
+a chance to process them.&nbsp; Subclassing basically tells the main =
+message=20
+loop to pass certain messages to a programmer-defined message loop for=20
+processing, which in turn passes them on to the default message =
+procedure.&nbsp;=20
+If we were to subclass the main message loop of the editor, then when a =
+user=20
+pressed a key, we would get a WM_CHAR message in our own message =
+loop.&nbsp; We=20
+could, at this point, change the character code to 88 (ASCII =91X=92) =
+from whatever=20
+it was before, and then pass that on to the default message procedure, =
+so that=20
+every time the user pressed any key, an ASCII =91X=92 would be =
+outputted.&nbsp; Here=20
+is where the distinction between Windows 2000 and 9x comes to =
+bare.&nbsp; In=20
+Windows 2000, instead of changing any character code to =91X=92, it =
+could be changed=20
+to any 16-bit Unicode value, since Windows 2000 is designed to =
+internally handle=20
+Unicode.&nbsp; However, in Windows 9x this is not the case.&nbsp; =
+Changing the=20
+=91X=92 to Unicode in 9x does not result in the output of Unicode, but =
+in two=20
+separate bytes if multi-byte characters are defined or a single byte if =
+they are=20
+not defined. This identifies the problem of getting Unicode characters =
+into=20
+Windows 95 and 98, but how do we resolve it?=20
+<P>Fortunately, as early as Windows 95, Unicode support was built into =
+the=20
+clipboard=97that mechanism whereby we can copy, cut, and paste data from =
+one=20
+application to another.&nbsp; If one was editing in Microsoft Word and =
+copied a=20
+paragraph of text, that text goes to the clipboard in some sixteen =
+different=20
+formats, one of which is the CF_UNICODETEXT format.&nbsp; The reason for =
+the=20
+numerous clipboard formats is to allow the widest possible selection of =
+formats=20
+for other applications to choose from when we attempt to paste that text =
+
+somewhere else.&nbsp; Each application determines what clipboard formats =
+it will=20
+read, and each determines what formats they will use for placement of =
+their data=20
+on the clipboard.&nbsp; One can copy text from Word and paste that text =
+into=20
+Notepad because Word formatted that text with the CF_TEXT format and =
+Notepad is=20
+capable of reading that same format.&nbsp; If Word had only formatted =
+that text=20
+with the HTML format, then it would not have pasted into Notepad, since =
+Notepad=20
+cannot read the HTML format.&nbsp; We have not yet discovered how we =
+intercept=20
+keystrokes, but we have answered the question of how we are able to =
+achieve=20
+Unicode input into Windows 95 and 98=97through the clipboard.&nbsp; This =
+is a good=20
+place to note that many applications in Windows 95 and some in 98 do not =
+read=20
+the CF_UNICODETEXT format, and many of these same applications do not =
+read=20
+Unicode text at all if formatted in either the HTML or RTF =
+formats.&nbsp; It is=20
+up to the individual application to support Unicode in order for Unicode =
+text to=20
+be pasted into that application via the clipboard.=20
+<P>This brings us to the following question:&nbsp; If a user is typing =
+in=20
+Microsoft Word, how do we intercept their keystrokes and paste in =
+Unicode text=20
+from the clipboard instead?&nbsp; The answer is a hook.&nbsp; In the =
+Windows OS,=20
+each process gets its own private address space so that the failure of =
+one=20
+process does not cause other processes to crash.&nbsp; But situations do =
+arise=20
+where it is necessary to break through the process boundary walls to =
+access the=20
+address space of some other process (Richter 1999), and intercepting =
+keystrokes=20
+bound for another process is the perfect example.&nbsp; A hook is a =
+Win32 API=20
+function defined by Windows that allows one to intercept messages bound =
+for the=20
+default message procedure in the address space of a process other than =
+your=20
+own.&nbsp; It is like the subclassing example mentioned afore, only it =
+takes=20
+place not in your own address space, but in another=92s.&nbsp; In order =
+for a hook=20
+to work, it must reside in a DLL (Dynamic-Link Library).&nbsp; A DLL =
+usually=20
+consists of a set of autonomous functions that any application can =
+use.&nbsp;=20
+Before an application can call functions in a DLL, the DLL=92s file =
+image must be=20
+mapped into the calling process=92s address space.&nbsp; This is known =
+as DLL=20
+injection.&nbsp; To the process in which the DLL=92s code and data =
+resides, it=20
+merely looks like additional information that happens to be in the =
+process=92s=20
+address space(Richter 1999). <BR>&nbsp;=20
+<H4>Language-Specific Implementation</H4>
+<P><BR>&nbsp;The UniGeez user interface window provides a means to map =
+the=20
+UniGeezTransliterator DLL=92s file image into the address space of all =
+processes=20
+currently running in the system.&nbsp; By pressing the =91ON=92 button, =
+the user=20
+interface references functions contained in the DLL, which causes the =
+loader to=20
+implicitly load (and link) the DLL into the address space of all current =
+
+processes.&nbsp; Likewise, by pressing the =91OFF=92 button, the DLL is =
+unloaded=20
+from all the same address spaces.&nbsp; Once the DLL has been injected =
+into the=20
+address space of all processes, then no matter which application a user =
+may be=20
+using, the hook code contained within the DLL, and thus within the =
+application,=20
+is filtering the messages that will be processed by that process=92s =
+message=20
+loop.&nbsp; By using the WH_GETMESSAGE hook, not only can we look at the =
+
+messages that produce characters, we can also modify them.&nbsp; Again, =
+it is=20
+like the subclassing example, where we have our own message loop caught =
+between=20
+the main message loop and the default message loop.&nbsp; At this point, =
+we can=20
+prevent messages from being processed at all by setting them equal to=20
+zero.&nbsp; Quit a powerful little tool!&nbsp; Let it be noted, however, =
+that=20
+system hooks are draining on system resources, and they can be =
+potentially=20
+harmful if not properly utilized.&nbsp; Furthermore, hooks are not =
+capable of=20
+intercepting all messages.&nbsp; Different types of hooks can intercept=20
+different messages, and some can modify messages while others can only =
+look at=20
+them.&nbsp; The WH_GETMESSAGE hook can intercept and modifying character =
+
+messages such as WM_KEYDOWN, WM_KEYUP, and WM_CHAR.=20
+<P>Before jumping into a full discussion on Unicode input in Windows 9x, =
+we need=20
+to talk about the raw input thread (RIT).&nbsp; When the Windows OS =
+initializes,=20
+it creates a special thread known as the raw input thread.&nbsp; It also =
+creates=20
+a queue called the system hardware input queue (SHIQ).&nbsp; The RIT and =
+SHIQ=20
+together form the heart of the hardware input model.&nbsp; When a user =
+presses=20
+and releases a key, a mouse button, or moves the mouse, the device =
+driver for=20
+the hardware device adds the event to the SHIQ.&nbsp; The SHIQ in turn, =
+wakes up=20
+the RIT, and the RIT extracts the event from the SHIQ and translates the =
+event=20
+into the appropriate message.&nbsp; The translated message is then =
+appended to=20
+the appropriate thread=92s virtualized input queue (VIQ), and the RIT =
+goes back to=20
+wait for more messages to appear in the SHIQ.&nbsp; For mouse events, =
+the RIT=20
+appends messages to the VIQ of the window under the mouse cursor.&nbsp; =
+Keyboard=20
+messages are appended to the VIQ of the foreground thread.&nbsp; The =
+foreground=20
+thread belongs to the window that the user is interacting with, and this =
+window=20
+is in the foreground with respect to the other windows that may be=20
+opened(Richter 1999).=20
+<P>All this is mentioned for two reasons.&nbsp; One, even though we are =
+running=20
+a system wide hook, since we are only seeking out character messages, we =
+are=20
+basically only dealing with the foreground window at any one time. =
+However, the=20
+system hook is necessary, so that when the foreground window changes, we =
+can=20
+immediately start intercepting the messages of the new foreground window =
+as=20
+well.&nbsp; Two, in order to achieve Unicode output in Windows 9x, it is =
+
+necessary to synthesis keystrokes in the keyboard driver to affect =
+Unicode=20
+output.&nbsp; Understanding how keystrokes are routed as messages to the =
+
+foreground window is a good basis for the notion of synthesizing =
+keystrokes.=20
+<P>With the ground work laid, let us proceed with an example of how =
+Ge'ez=20
+Unicode output is achieved in existing applications in the Windows=20
+environment.&nbsp; A user starts by running the UniGeez executable and =
+pressing=20
+the =91ON=92 button.&nbsp; Then Word is opened (or could have already =
+been open),=20
+and they type the =91h=92 character.&nbsp; The DLL=92s code is now =
+inside of Word=92s=20
+address space, and since the RIT is connected to the window with cursor =
+focus,=20
+the =91h=92 message is routed to Word=92s main message loop.&nbsp; At =
+this point, the=20
+DLL=92s code (the hook) intercepts the character message and processes =
+it.&nbsp;=20
+The DLL utilizes a finite state machine that begins in a nothing state, =
+and then=20
+changes to a state that says it just received an =91h=92.&nbsp; It =
+determines that=20
+=91h=92 has a Unicode Ge'ez equivalent (0x1205), it formats that Unicode =
+character=20
+using RTF, it places that format on the clipboard, and it synthesizes =
+CTRL-V in=20
+the keyboard driver.&nbsp; The paste sequence is synthesized by saying =
+the=20
+CTRL-key went down, the V-key went down, the V-key went up, and the =
+CTRL-key=20
+went up.&nbsp; This past message is routed to Word because it is the =
+foreground=20
+window, and Word carries out the paste message as if the user had =
+pressed=20
+CTRL-V.&nbsp; Word looks to the clipboard, reads the one Unicode =
+character=20
+formatted in RTF, and pastes that Ge'ez Unicode character into its =
+window next=20
+to the cursor.&nbsp; Word and WordPad use the RTF clipboard format; =
+Excel,=20
+PowerPoint, and Access use the Unicode clipboard format; and FrontPage =
+uses the=20
+HTML clipboard format.&nbsp; Basically, all three formats, RTF, HTML, =
+and=20
+Unicode are capable of formatting Unicode characters for the clipboard, =
+but=20
+different applications work best with specific clipboard formats.=20
+<P>So, now we have the Ge'ez Unicode character, 0x1205, in Word=92s =
+window, and=20
+the finite state machine is in the =91h=92 state.&nbsp; Next the user =
+types=20
+=91a=92.&nbsp; The state machine enters the =91ha=92 state (the last =
+character was a =91h=92=20
+and the current character is =91a=92).&nbsp; By virtue of the fact that =
+we are in=20
+the =91ha=92 state as opposed to the =91nothing=92 state, we know that =
+the last glyph=20
+printed to screen was 0x1205.&nbsp; Since =91ha=92 is a different glyph =
+from =91h=92, a=20
+flag is set to force a backspace.&nbsp; This means that we emulate a =
+keystroke=20
+for the backspace event in the keyboard driver so that the previous =
+=91h=92 (0x1205)=20
+is erased.&nbsp; Then, =91ha=92 (0x1203) is formatted for the clipboard, =
+placed on=20
+the clipboard, and a paste sequence is issued to output the Unicode =
+glyph=20
+0x1203.&nbsp; The finite state machine recognizes that =91ha=92 is the =
+end of a=20
+state and its state becomes =91nothing=92, waiting for more input.&nbsp; =
+Recapping=20
+what has taken place, the user typed =91h=92 and 0x1205 was pasted in; =
+the user=20
+typed =91a=92 and a backspace erased 0x1205, and 0x1203 was pasted in =
+from the=20
+clipboard in its place.&nbsp; The same process continues for all the =
+other Ge'ez=20
+glyphs.&nbsp; Therefore, by DLL injection/API hooking and pasting =
+Unicode text=20
+from the clipboard, Unicode output is achievable in Windows 95 and 98, =
+provided=20
+that the destination application supports Unicode.&nbsp; The same method =
+also=20
+works in Windows NT and 2000, though is not altogether necessary because =
+of=20
+their already existing support of Unicode.=20
+<H4>Converting Non-Standard Files to Unicode</H4>Before the advent of =
+Unicode,=20
+languages that had in excess of the standard 256 ASCII characters had to =
+rely on=20
+other methods to get all of their glyphs to display.&nbsp; Keyboard =
+layouts were=20
+developed for certain languages, language specific versions of the =
+Windows OS=20
+were marketed, multi-byte code pages were implemented in the Windows=20
+architecture, and now even TrueType fonts are used as a means to map out =
+the=20
+keyboard beyond the standard Latin code page.&nbsp; Unfortunately, =
+though, for=20
+the Ge'ez language, there are no keyboard layouts or multi-byte code =
+pages=20
+defined that would provide a consistent way to encode their =
+glyphs.&nbsp;=20
+Various companies and individuals set out with the best of intentions to =
+design=20
+software that would be capable of producing all of the Ge'ez glyphs for =
+various=20
+platforms.&nbsp; However, no uniform standard was applied, and so today, =
+there=20
+exists some seventy different encoding standards for the Ge'ez =
+alphabet.&nbsp;=20
+Naturally, it follows then, that since we have the Unicode standard and =
+since we=20
+have a method for inputting its glyphs in Windows, that we would want to =
+convert=20
+files from non-standard encoding to Unicode.=20
+<P>Two of the more popular and widely used encodings, Tfanus and =
+Phonetic, were=20
+targeted for conversion to Unicode.&nbsp; The first hurdle that had to =
+be=20
+crossed was coming up with conversion tables for converting Tfanus and =
+Phonetic=20
+to Unicode.&nbsp; The Libeth project had initially provided many of the=20
+conversion sequences, but some were simply out-dated or incorrect.&nbsp; =
+The=20
+second obstacle was coming up with a way to parse the various file =
+formats used=20
+by Microsoft (doc, xls, ppt, mdb, rtf, htm, and txt).&nbsp; It would be =
+simple=20
+enough to parse rtf, htm, and txt files, but how about the others, and =
+in=20
+particular, Word=92s doc files and Excel=92s xls files.&nbsp; =
+Microsoft=92s file=20
+formats are proprietary, and though many have attempted to reverse =
+engineer=20
+them, the attempts were either largely unsuccessful, or became =
+proprietary=20
+themselves.&nbsp; Once again, we looked to the clipboard for a solution. =
+
+<P>Even though Microsoft may annoy us from time to time, there is a lot =
+of=20
+robustness and functionality built into their design of the OS (some of =
+it=20
+probably unintentional), so that if you work hard enough and think about =
+it long=20
+enough, you will find a solution.&nbsp; The clipboard is one of those =
+seemingly=20
+little features that we often take for granted, but it is an extremely =
+powerful=20
+tool.&nbsp; As mentioned earlier, whenever you copied data from an =
+application,=20
+it goes to the clipboard in numerous different formats, such as HTML, =
+RTF,=20
+Unicode, plain text, bitmaps, metafiles, and many more.&nbsp; In all of=20
+Microsoft=92s Office products (except FrontPage), when you copy text =
+from one of=20
+their applications, it is exported to the clipboard as RTF along with =
+other=20
+formats.&nbsp; So, even though one might be word processing in Word and =
+that=20
+file will probably be save as a doc file, if one copies that text to the =
+
+clipboard, it could be viewed as RTF.&nbsp; The same holds true for =
+spreadsheets=20
+in Excel, tables in Access, and slides in PowerPoint.=20
+<P>To this end, a conversion utility was developed that would run in =
+conjunction=20
+with the UniGeez Transliterator to convert Tfanus and Phonetic files to=20
+Unicode.&nbsp; It also supports converting back from Unicode to either =
+Tfanus or=20
+Phonetic.&nbsp; Even though Unicode may be the best solution to language =
+
+modernization in the realm of binary data transmission, people are still =
+
+reluctant to switch from the old to the new, so backwards compatibility =
+was=20
+considered important to support as many users as possible.&nbsp; The =
+best way to=20
+describe how the conversion utility works is probably to walk through an =
+
+example.=20
+<P>The user starts by running the UniGeez Transliterator and pressing =
+the =91ON=92=20
+button.&nbsp; Then they can go to Word to convert doc, rtf, html, and =
+txt=20
+files.&nbsp; After opening a Tfanus or Phonetic file (or combination of =
+both),=20
+they simply press F6.&nbsp; Since the hook is running inside of Word, we =
+can=20
+synthesis a CTRL-A (select-all) and CTRL-C (copy) message in the =
+keyboard=20
+driver, so that the entire file is selected and copied to the =
+clipboard.&nbsp;=20
+Another option is for the user to manually highlight portions of text =
+and press=20
+SHIFT + F6, which simply issues a CTRL-C sequence to copy just that =
+selected=20
+portion to the clipboard.&nbsp; All the user ever sees is their file =
+being=20
+highlighted, and then a blink-of-the-eye later, the appropriate portions =
+of the=20
+file are in Unicode!=20
+<P>Behind the scenes, after the user has pressed F6, the file is =
+retrieved from=20
+the clipboard in the RTF format.&nbsp; If the user is word-processing in =
+either=20
+Word or WordPad, then the converted file will be pasted back using the =
+RTF=20
+format, otherwise the Unicode clipboard format is used.&nbsp; But for =
+this=20
+example, let=92s consider that the user is in Word.&nbsp; By parsing the =
+RTF=20
+format, we can isolate actual text from formatting information.&nbsp; =
+The=20
+fonttbl keyword in RTF signifies the font definitions group, and inside =
+that=20
+group, =91f=92 plus some number followed by a font name creates a =
+mapping between=20
+the font and numeric value.&nbsp; For example, {\fonttbl{\f12 Times New =
+Roman}},=20
+establishes a relationship between f12 and Times New Roman.&nbsp; When =
+the f12=20
+keyword is encountered outside of the =91fonttbl=92 group, it means that =
+all the=20
+text within its group, or until another =91f=92 keyword is encountered, =
+should be=20
+displayed using the Times New Roman font.&nbsp; In terms of converting =
+Phonetic=20
+and Tfanus to Unicode, the RTF parser seeks out GeezTypeNet and =
+GeezTimesNew in=20
+the font definition group and changes them to GF Zemen Unicode.&nbsp; Of =
+course,=20
+this is not enough to convert to Unicode.&nbsp; The parser also seeks =
+out those=20
+groups that correspond to those two fonts and changes the actual =
+encoding from=20
+one to three byte sequences to 16-bit Unicode values.=20
+<P>The conversion tables for converting Tfanus and Phonetic to Unicode =
+are=20
+stored as Excel files for easy manipulation, reading, and =
+presentation.&nbsp;=20
+The Excel files can then be saved as tab-delimited text, where each =
+column is=20
+separated by a tab, and then that text file is feed to a program for=20
+parsing.&nbsp; The program navigates the rows by the tabs that separate =
+each=20
+column and produces a file of tokens for the lex scanner.=20
+<P>Example from the Phonetic conversion table in Excel format:=20
+<P>hu&nbsp;&nbsp; 0x1201 40 e9=20
+<P>Result after running through program for parsing into a lex token:=20
+<P>&lt;PHONETIC&gt;[\x40][\xe9] { return hu; }=20
+<P>With =91hu=92 enumerated to equal 0x1201, the lex statement =
+reads:&nbsp; for=20
+Phonetic, 0x40 followed by 0xE9 converts to 0x1201.&nbsp; So, as you =
+have=20
+already guessed, the conversion process is handled by the lex scanner, =
+based on=20
+the conversion tables.&nbsp; The whole process is automated to promote=20
+efficiency.&nbsp; To make a change in how the utility converts text, one =
+simply=20
+updates the Excel file, saves it as tab-delimited text, runs it through =
+the=20
+program, runs the product of the program through the lex executable, =
+takes the=20
+lex.yy.c file and places it with the conversion utility, and =
+recompiles.&nbsp;=20
+In less than a minute, the conversion utility can work off of any number =
+of new=20
+definitions in either the Phonetic or Tfanus conversion tables.=20
+<P>Therefore, after changing the font definition mapping and after =
+running the=20
+corresponding text through lex, we have a new RTF format to place on the =
+
+clipboard.&nbsp; Finally, a CTRL-V event is created in the keyboard =
+driver, and=20
+the converted data is pasted back into the application from which it was =
+
+copied.&nbsp; Because the user is working in Word (or WordPad), the =
+converted=20
+file can be pasted back in using the RTF format and all text formatting =
+is=20
+preserved.&nbsp; When you have text that is in a different font size or =
+when you=20
+have text that is bold, italic, underlined, etc., after that text is =
+converted=20
+to Unicode, it retains those formatting properties.&nbsp; Back =
+converting from=20
+Unicode to either Phonetic or Tfanus, happens in much the same =
+fashion.&nbsp;=20
+The definitions still come from the same conversion tables as before, =
+and,=20
+instead of using lex, direct access arrays are used to map Unicode to =
+multiple=20
+byte sequences.=20
+<P>There is a little =93twist=94 to the conversion process.&nbsp; =
+Whereas Word can=20
+import and export text using the RTF format, Excel, PowerPoint, and =
+Access can=20
+only export text as RTF; they cannot import text as RTF.&nbsp; In order =
+to get=20
+Unicode characters into these applications, text must be pasted using =
+the=20
+CF_UNICODETEXT format.&nbsp; The conversion process start off by =
+detecting which=20
+application the user is currently in.&nbsp; If the user is in Word or =
+WordPad,=20
+then the afore mentioned process is followed ending in the RTF =
+paste.&nbsp;=20
+Otherwise, a slightly different approach is taken.&nbsp; The basic =
+premise=20
+behind the alternative approach is this:&nbsp; regardless of the file =
+format, if=20
+just the text is extracted from two different formats, then there should =
+be a=20
+one-to-one correspondence between the bytes from each of the two files =
+(same=20
+data, different formats).&nbsp; Let=92s apply that premise to converting =
+a Excel=20
+file.=20
+<P>The user has UniGeez =91ON=92, opens a Tfanus file in Excel, presses =
+F6, and the=20
+entire file is copied to the clipboard.&nbsp; We retrieve the file with =
+the RTF=20
+format and start parsing.&nbsp; However, since we are dealing with a =
+Excel file=20
+that requires a Unicode paste, we only parse the RTF to map out what =
+bytes needs=20
+converting.&nbsp; If you look at the section were the actual data =
+resides in=20
+RTF, that section can be divided into groups based on the font that the =
+group is=20
+using.&nbsp; When the RTF is parsed for creating a Unicode map, small =
+lists of=20
+information are stored in a data structure.&nbsp; Each list tells how =
+many bytes=20
+are in the group, whether the group requires conversion, and what font =
+is=20
+associated with the group.&nbsp; We said previously that we copied the =
+RTF=20
+format from the clipboard, but actually, at the same time we also =
+retrieved the=20
+Unicode format from the clipboard.&nbsp; Keep in mind that Unicode for =
+the ASCII=20
+characters uses the same ASCII codes, so that if we look at the Unicode =
+version=20
+of the Phonetic encoding it is exactly the same as if we had looked at =
+its text=20
+version, since the high-byte is set to zero.&nbsp; It is important to =
+note that=20
+the Unicode clipboard format contains no formatting information.&nbsp; =
+That is,=20
+if a cell contains characters that are in boldface, copying the contents =
+of that=20
+cell to the clipboard and viewing it as Unicode only reveals the =
+character=20
+codes=97the Unicode has no idea that it is boldface.=20
+<P>The next step in converting the Excel file is to apply the RTF map to =
+the=20
+Unicode format.&nbsp; It will probably be best to work from an =
+example.&nbsp;=20
+Let us suppose that row 1 has 25 bytes in the Arial font, row 2 has 21 =
+bytes in=20
+the GeezTimesNew font, and row 3 has 7 bytes in Times New Roman.&nbsp; =
+The RTF=20
+map for this would resemble the following:=20
+<P>map[0]:&nbsp; 25 bytes, do not convert, Arial <BR>map[1]:&nbsp; 21 =
+bytes,=20
+convert, GeezTimesNew <BR>map[2]:&nbsp; 7&nbsp;&nbsp; bytes, do not =
+convert,=20
+Times New Roman=20
+<P>The RTF map says that we have a total of 53 bytes, so the Unicode =
+format=20
+should also have 53 pairs (remember Unicode is always 2 bytes, and by =
+pairs I=20
+mean one low byte and one high byte).&nbsp; The first 25 pairs from the =
+Unicode=20
+format are skipped over.&nbsp; Starting with pair 26, we recognize that =
+this=20
+pair along with the next 20 pairs need converting.&nbsp; So, all 21 =
+pairs are=20
+passed through the lex scanner, and a lesser number of Unicode values is =
+the=20
+result.&nbsp; The Unicode output from lex is then used to replace the =
+entire=20
+second group.&nbsp; The last 7 bytes do not require conversion, so they =
+are left=20
+alone.&nbsp; Now we have a new Unicode format with the first and last =
+group left=20
+alone, but with the middle group converted from Tfanus to Unicode.&nbsp; =
+Back=20
+converting is even easier; no RTF map is even needed!&nbsp; We simply =
+seek out=20
+those Unicode values that are within the Ge'ez range (0x1200 =96 =
+0x137C), and=20
+convert them to either Tfanus or Phonetic through a direct access =
+array.&nbsp;=20
+Although with a Unicode paste we cannot do anything about the =
+formatting, we can=20
+pick out the right characters to convert.=20
+<P>FrontPage does not use the RTF format; it uses HTML.&nbsp; Since HTML =
+files=20
+can be opened in Word, that is probably the best place to convert =
+them.&nbsp;=20
+The conversion utility can convert files without the RTF map, and it =
+does so in=20
+FrontPage and NotePad based on user settings.&nbsp; See the help files =
+for the=20
+conversion utility for more detailed information about converting =
+specific file=20
+types or about converting files in specific applications. <BR>&nbsp;=20
+<H3>Software Licensing</H3>We felt it was important to make the UniGeez =
+software=20
+and fonts available as widely as possible, while insuring that =
+incompatible=20
+proprietary variants are not created.&nbsp; Therefore we decided release =
+the=20
+code as Open Source under the GNU General Public License, the Open =
+Source=20
+License used by Linux (see &lt;<A=20
+href=3D"http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft=
+/gpl.html</A>&gt;).=20
+
+<P>The license grants a lot of rights to the posessor of the software, =
+but also=20
+imposes certain restrictions.&nbsp; Anyone in posession of the software =
+can use=20
+it, copy it, study it, modify it, sell it, or give it away for =
+free.&nbsp; (In=20
+full compliance with this license there is at least one computer company =
+in=20
+Eritrea copying and selling the software, as well as charging for =
+installations=20
+and support.)=20
+<P>However, the license does require that the complete source code for =
+the=20
+software (and any modifications to it) be supplied with each copy *and* =
+that an=20
+unchanged copy of the license agreement accompany the software.=20
+<P>This means that a business or individual cannot appropriate our work =
+by=20
+incorporating the software into a program and then adding proprietary =
+extensions=20
+that are incompatible with other versions of the code (the infamous =
+Microsoft=20
+strategy of "embrace and extend", used to create proprietary versions of =
+public=20
+domain software and protocols).&nbsp; While anyone is free to enhance or =
+extend=20
+the software (even in a fashion incompatible with our release of the =
+software),=20
+they cannot prevent others from incorporating those extensions.&nbsp; =
+Thus, if=20
+the extensions are useful and valuable they can be incorporated into =
+our, or=20
+others, release of the software.=20
+<P>There is a certain tension between our goals.&nbsp; If the software =
+were=20
+placed in the public domain, such that anyone was free to do what they =
+wanted=20
+with it including incorporating it into propietary programs (such as a =
+popular=20
+text editor) then the software would likely be more widely =
+distributed.&nbsp;=20
+But there would be a real risk of the proprietary software making =
+non-standard=20
+and proprietary modifications/extensions to our software or character =
+encodings=20
+that would limit the ability of user to freely exchange documents that =
+use the=20
+encodings.&nbsp; So we chose to adopt an approach that we hope will =
+maximize the=20
+distribution and usefulness of the software.=20
+<P>While it's unlikely that a license agreement based on U.S. Copyright =
+Law=20
+would be enforced by a court in Eritrea, the intent of the license is=20
+plain.&nbsp; And if any infringing software or use of the fonts was =
+brought to=20
+the U.S., than U.S. courts could be involved.=20
+<P>For a more general discussion of software licensing and Free Software =
+can be=20
+found at the GNU website: &lt;<A=20
+href=3D"http://www.gnu.org/philosophy/free-sw.html">http://www.gnu.org/ph=
+ilosophy/free-sw.html</A>&gt;.=20
+
+<H3>Conclusions</H3>As Eritrea's computer information and communications =
+
+infrastructure develops, it is necessary to strive for continuing =
+improvement in=20
+efficiency, productivity, and accessibility. Initially multi-lingual =
+computer=20
+applications in Eritrea provided Tigrigna language and Ge'ez =
+capabilities by=20
+replacing Western glyphs with Ge'ez glyphs using non-standard encodings =
+designed=20
+by individual software developers. But since October 1998, an =
+international=20
+standard for Ge'ez characters has been in effect, while the software and =
+
+facilities for standard-compliant Ge'ez has lagged. The Eritrean =
+Technical=20
+Exchange Project in collaboration with the Computer Science Department =
+of=20
+Lynchburge College has filled the need for standard-compliant Ge'ez =
+software by=20
+developing UniGeez, keyboard input software that runs under Windows. The =
+
+software runs with virtually all applications that support the Unicode =
+standard=20
+and the UTF-8 character encoding scheme. The software has been developed =
+under=20
+an open-source license in order to make it transparent and so that =
+others may=20
+make improved variants. We believe standard compliant Ge'ez will be =
+dominant in=20
+Eritrea and Ethiopia over the long term, and hope that UniGeez will make =
+the=20
+transition to standard compliant easier and more rapid. Future plans for =
+UniGeez=20
+development include several elements:=20
+<UL>
+  <LI>Inclusion and testing of conversion utilities that can convert =
+documents=20
+  between Unicode, Phonetic Systems, and Tfanus encodings.=20
+  <LI>Inclusion of standard compliant Arabic capabilities.=20
+  <LI>Allowance for a choice of keyboard mappings or input schemes.=20
+  <LI>Development of a greater diversity and variety of fonts.=20
+  <LI>Enhanced training in multi-lingual computer use and improved =
+distribution=20
+  of UniGeez or improved variants.=20
+  <LI>Expansion of multi-lingual capabilities to a diversity of =
+operating=20
+  systems and Internet applications (e.g. database applications). =
+</LI></UL>We=20
+hope that eventually the continued development and improvement of =
+standard=20
+compliant multi-lingual computer capabilities will be taken over more =
+completely=20
+by the private sector and the growing community of Eritrean computer=20
+professionals. We also seek private/non-profit partnerships to further =
+develop=20
+multi-lingual computer infrastucture in the optimum Eritrean public =
+interest. We=20
+believe that with the enhanced, productivity, accessibility, and =
+efficiency that=20
+comes with high quality standard compliant multi-lingual infrastructure, =
+
+Eritrea's economic development will be greatly enhanced.=20
+<H3>REFERENCES</H3>Czyborra, Roman, <B><I>The Global Character Set =
+Unicode in=20
+the Unix Operating System</I></B>,&nbsp; Draft Master's Thesis, November =
+30,=20
+1998, URL: http://czyborra.com/diplom/abgabe.html=20
+<P>Richter, Jeffrey, <B><I>Programming Applications for Microsoft=20
+Windows</B></I>, 4th edition, Microsoft Press, 1999.=20
+<P>Unicode Inc., <B><I>Unicode Standard 3.0</I></B>, Ethiopic, Range =
+1200 -=20
+137F, URL: http://www.unicode.org/charts/PDF/U1200.pdf=20
+<P>Yacob, Daniel, <B><I>LibETH Project Homepage</I></B>, January 31, =
+2001, URL:=20
+http://libeth.sourceforge.net/=20
+<P>Yacob, Daniel, <B><I>Frequently asked questions about SERA</I></B>, =
+Abyssinia=20
+Cybergateway, December 24, 1996, <BR>URL:=20
+http://www.abyssiniacybergateway.net/fidel/sera-faq.html=20
+<H3>APPENDIX: Encoding and Font Tables</H3>
+<H3>Table of SERA Transliterations</H3>
+<TABLE border=3D1>
+  <TBODY>
+  <TR>
+    <TD>
+    <TD>1
+    <TD>2
+    <TD>3
+    <TD>4
+    <TD>5
+    <TD>6
+    <TD>7
+    <TD>8
+    <TD>9
+    <TD>10
+    <TD>11
+    <TD>12=20
+  <TR>
+    <TD>1
+    <TD>he
+    <TD>hu
+    <TD>hi
+    <TD>ha
+    <TD>hE
+    <TD>h
+    <TD>ho
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>2
+    <TD>le
+    <TD>lu
+    <TD>li
+    <TD>la
+    <TD>lE
+    <TD>l
+    <TD>lo
+    <TD>lWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>3
+    <TD>He
+    <TD>Hu
+    <TD>Hi
+    <TD>Ha
+    <TD>HE
+    <TD>H
+    <TD>Ho
+    <TD>HWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>4
+    <TD>me
+    <TD>mu
+    <TD>mi
+    <TD>ma
+    <TD>mE
+    <TD>m
+    <TD>mo
+    <TD>mWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>5
+    <TD>`se
+    <TD>`su
+    <TD>`si
+    <TD>`sa
+    <TD>`sE
+    <TD>`s
+    <TD>`so
+    <TD>`sWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>6
+    <TD>re
+    <TD>ru
+    <TD>ri
+    <TD>ra
+    <TD>rE
+    <TD>r
+    <TD>ro
+    <TD>rWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>7
+    <TD>se
+    <TD>su
+    <TD>si
+    <TD>sa
+    <TD>sE
+    <TD>s
+    <TD>so
+    <TD>sWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>8
+    <TD>xe
+    <TD>xu
+    <TD>xi
+    <TD>xa
+    <TD>xE
+    <TD>x
+    <TD>xo
+    <TD>xWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>9
+    <TD>qe
+    <TD>qu
+    <TD>qi
+    <TD>qa
+    <TD>qE
+    <TD>q
+    <TD>qo
+    <TD>qWe
+    <TD>qW
+    <TD>qWi
+    <TD>qWa
+    <TD>qWE=20
+  <TR>
+    <TD>10
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>11
+    <TD>Qe
+    <TD>Qu
+    <TD>Qi
+    <TD>Qa
+    <TD>QE
+    <TD>Q
+    <TD>Qo
+    <TD>QWe
+    <TD>QW
+    <TD>QWi
+    <TD>QWa
+    <TD>QWE=20
+  <TR>
+    <TD>12
+    <TD>be
+    <TD>bu
+    <TD>bi
+    <TD>ba
+    <TD>bE
+    <TD>b
+    <TD>bo
+    <TD>bWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>13
+    <TD>ve
+    <TD>vu
+    <TD>vi
+    <TD>va
+    <TD>vE
+    <TD>v
+    <TD>vo
+    <TD>vWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>14
+    <TD>te
+    <TD>tu
+    <TD>ti
+    <TD>ta
+    <TD>tE
+    <TD>t
+    <TD>to
+    <TD>tWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>15
+    <TD>ce
+    <TD>cu
+    <TD>ci
+    <TD>ca
+    <TD>cE
+    <TD>c
+    <TD>co
+    <TD>cWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>16
+    <TD>`he
+    <TD>`hu
+    <TD>`hi
+    <TD>`ha
+    <TD>`hE
+    <TD>`h
+    <TD>`ho
+    <TD>hWe
+    <TD>hW
+    <TD>hWi
+    <TD>hWa
+    <TD>hWE=20
+  <TR>
+    <TD>17
+    <TD>ne
+    <TD>nu
+    <TD>ni
+    <TD>na
+    <TD>nE
+    <TD>n
+    <TD>no
+    <TD>nWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>18
+    <TD>Ne
+    <TD>Nu
+    <TD>Ni
+    <TD>Na
+    <TD>NE
+    <TD>N
+    <TD>No
+    <TD>NWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>19
+    <TD>e
+    <TD>u
+    <TD>i
+    <TD>a
+    <TD>E
+    <TD>I
+    <TD>o
+    <TD>ea
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>20
+    <TD>ke
+    <TD>ku
+    <TD>ki
+    <TD>ka
+    <TD>kE
+    <TD>k
+    <TD>ko
+    <TD>kWe
+    <TD>kW
+    <TD>kWi
+    <TD>kWa
+    <TD>kWE=20
+  <TR>
+    <TD>21
+    <TD>Ke
+    <TD>Ku
+    <TD>Ki
+    <TD>Ka
+    <TD>KE
+    <TD>K
+    <TD>Ko
+    <TD>KWe
+    <TD>KW
+    <TD>KWi
+    <TD>KWa
+    <TD>KWE=20
+  <TR>
+    <TD>22
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>23
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>24
+    <TD>we
+    <TD>wu
+    <TD>wi
+    <TD>wa
+    <TD>wE
+    <TD>w
+    <TD>wo
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>25
+    <TD>`e
+    <TD>`u
+    <TD>`i
+    <TD>`a
+    <TD>`E
+    <TD>`I
+    <TD>`o
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>26
+    <TD>ze
+    <TD>zu
+    <TD>zi
+    <TD>za
+    <TD>zE
+    <TD>z
+    <TD>zo
+    <TD>zWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>27
+    <TD>Ze
+    <TD>Zu
+    <TD>Zi
+    <TD>Za
+    <TD>ZE
+    <TD>Z
+    <TD>Zo
+    <TD>ZWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>28
+    <TD>ye
+    <TD>yu
+    <TD>yi
+    <TD>ya
+    <TD>yE
+    <TD>y
+    <TD>yo
+    <TD>yWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>29
+    <TD>de
+    <TD>du
+    <TD>di
+    <TD>da
+    <TD>dE
+    <TD>d
+    <TD>do
+    <TD>dWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>30
+    <TD>De
+    <TD>Du
+    <TD>Di
+    <TD>Da
+    <TD>DE
+    <TD>D
+    <TD>Do
+    <TD>DWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>31
+    <TD>je
+    <TD>ju
+    <TD>ji
+    <TD>ja
+    <TD>jE
+    <TD>j
+    <TD>jo
+    <TD>jWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>32
+    <TD>ge
+    <TD>gu
+    <TD>gi
+    <TD>ga
+    <TD>gE
+    <TD>g
+    <TD>go
+    <TD>gWe
+    <TD>gW
+    <TD>gWi
+    <TD>gWa
+    <TD>gWE=20
+  <TR>
+    <TD>33
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>34
+    <TD>Ge
+    <TD>Gu
+    <TD>Gi
+    <TD>Ga
+    <TD>GE
+    <TD>G
+    <TD>Go
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>35
+    <TD>Te
+    <TD>Tu
+    <TD>Ti
+    <TD>Ta
+    <TD>TE
+    <TD>T
+    <TD>To
+    <TD>TWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>36
+    <TD>Ce
+    <TD>Cu
+    <TD>Ci
+    <TD>Ca
+    <TD>CE
+    <TD>C
+    <TD>Co
+    <TD>CWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>37
+    <TD>Pe
+    <TD>Pu
+    <TD>Pi
+    <TD>Pa
+    <TD>PE
+    <TD>P
+    <TD>Po
+    <TD>PWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>38
+    <TD>Se
+    <TD>Su
+    <TD>Si
+    <TD>Sa
+    <TD>SE
+    <TD>S
+    <TD>So
+    <TD>SWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>39
+    <TD>`Se
+    <TD>`Su
+    <TD>`Si
+    <TD>`Sa
+    <TD>`SE
+    <TD>`S
+    <TD>`So
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>40
+    <TD>fe
+    <TD>fu
+    <TD>fi
+    <TD>fa
+    <TD>fE
+    <TD>f
+    <TD>fo
+    <TD>fWa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>41
+    <TD>pe
+    <TD>pu
+    <TD>pi
+    <TD>pa
+    <TD>pE
+    <TD>p
+    <TD>po
+    <TD>pWa
+    <TD>
+    <TD>
+    <TD>
+    <TD></TR></TBODY></TABLE><BR><BR>
+<H3>Table of Phonetic Systems (GeezGate) Character Encodings (in=20
+Hexidecimal)</H3><BR>
+<TABLE border=3D1>
+  <TBODY>
+  <TR>
+    <TD>
+    <TD>1
+    <TD>2
+    <TD>3
+    <TD>4
+    <TD>5
+    <TD>6
+    <TD>7
+    <TD>8
+    <TD>9
+    <TD>10
+    <TD>11
+    <TD>12=20
+  <TR>
+    <TD>1
+    <TD>\x40
+    <TD>\x40\xe9
+    <TD>\x41\xf0
+    <TD>\x41
+    <TD>\x41\xf4
+    <TD>\x42
+    <TD>\x43
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>2
+    <TD>\x44
+    <TD>\x44\xea
+    <TD>\x44\xef
+    <TD>\x45
+    <TD>\x44\xed
+    <TD>\x46
+    <TD>\x44\xf7
+    <TD>\x45\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>3
+    <TD>\x47
+    <TD>\x47\xea
+    <TD>\x47\xef
+    <TD>\x48
+    <TD>\x47\xed
+    <TD>\x49
+    <TD>\x4a
+    <TD>\x48\xfa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>4
+    <TD>\x4b
+    <TD>\x4b\xe9
+    <TD>\x4c\xf0
+    <TD>\x4c
+    <TD>\x4c\xf4
+    <TD>\x4d
+    <TD>\x4e
+    <TD>\x4c\xfc
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>5
+    <TD>\x4f
+    <TD>\x4f\xe9
+    <TD>\x50\xf0
+    <TD>\x50
+    <TD>\x50\xf4
+    <TD>\x51
+    <TD>\x52
+    <TD>\x50\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>6
+    <TD>\x53
+    <TD>\x54
+    <TD>\x55
+    <TD>\x56
+    <TD>\x57
+    <TD>\x58
+    <TD>\x59
+    <TD>\x5a
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>7
+    <TD>\x5b
+    <TD>\x5b\xe9
+    <TD>\x5b\xef
+    <TD>\x5c
+    <TD>\x5b\xf2
+    <TD>\x5d
+    <TD>\x5e
+    <TD>\x5c\xfa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>8
+    <TD>\x5f
+    <TD>\x5f\xec
+    <TD>\x5f\xf0
+    <TD>\x60
+    <TD>\x5f\xf4
+    <TD>\x61
+    <TD>\x62
+    <TD>\x60\xfc
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>9
+    <TD>\x63
+    <TD>\x63\xeb
+    <TD>\x63\xf1
+    <TD>\x64
+    <TD>\x63\xf5
+    <TD>\x65
+    <TD>\x66
+    <TD>\x63\xf8
+    <TD>\x63\xff
+    <TD>\x63\xf9
+    <TD>\x63\xfc
+    <TD>\x63\xfe=20
+  <TR>
+    <TD>10
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>11
+    <TD>\x63\x68
+    <TD>\x63\x68\xeb
+    <TD>\x63\x68\xf1
+    <TD>\x64\x68
+    <TD>\x63\x68\xf5
+    <TD>\x69
+    <TD>\x6a
+    <TD>\x63\x68\xf8
+    <TD>\x63\x68\xe8
+    <TD>\x63\x68\xf9
+    <TD>\x63\x68\xfc
+    <TD>\x63\x68\xfe=20
+  <TR>
+    <TD>12
+    <TD>\x6b
+    <TD>\x6b\xe9
+    <TD>\x6b\xef
+    <TD>\x6c
+    <TD>\x6b\xf2
+    <TD>\x6d\x6b
+    <TD>\x6e
+    <TD>\x6c\xfa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>13
+    <TD>\x6b\x7a
+    <TD>\x6b\x7a\xea
+    <TD>\x6b\x7a\xef
+    <TD>\x6c\x7a
+    <TD>\x6b\x7a\xf2
+    <TD>\x6d\x6b\x7a
+    <TD>\x6e\x7a
+    <TD>\x6c\x7a\xfa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>14
+    <TD>\x6f
+    <TD>\x6f\xeb
+    <TD>\x6f\xf1
+    <TD>\x70
+    <TD>\x6f\xf5
+    <TD>\x71
+    <TD>\x72
+    <TD>\x6f\xfc
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>15
+    <TD>\x6f\x68
+    <TD>\x6f\x68\xeb
+    <TD>\x6f\x68\xf1
+    <TD>\x70\x68
+    <TD>\x6f\x68\xf5
+    <TD>\x75
+    <TD>\x76
+    <TD>\x6f\x68\xfc
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>16
+    <TD>\x77
+    <TD>\x77\xea
+    <TD>\x77\xf0
+    <TD>\x78
+    <TD>\x77\xf3
+    <TD>\x79
+    <TD>\x6d\x7e
+    <TD>\x77\xf7
+    <TD>\x77\xff
+    <TD>\x77\xf9
+    <TD>\x77\xfb
+    <TD>\x77\xfd=20
+  <TR>
+    <TD>17
+    <TD>\x7b
+    <TD>\x7b\xea
+    <TD>\x7b\xf0
+    <TD>\x7c
+    <TD>\x7b\xf3
+    <TD>\x7d
+    <TD>\x7e
+    <TD>\x7c\xfc
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>18
+    <TD>\x8f
+    <TD>\x8f\xec
+    <TD>\x8f\xf1
+    <TD>\x81
+    <TD>\x8f\xf5
+    <TD>\x82
+    <TD>\x83
+    <TD>\x81\xfc
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>19
+    <TD>\x84
+    <TD>\x84\xea
+    <TD>\x84\xef
+    <TD>\x85
+    <TD>\x84\xed
+    <TD>\x86
+    <TD>\x87
+    <TD>\x88
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>20
+    <TD>\x89
+    <TD>\x89\xea
+    <TD>\x89\xef
+    <TD>\x8a
+    <TD>\x89\xf2
+    <TD>\x8b
+    <TD>\x8c
+    <TD>\x89\xf7
+    <TD>\x89\xe8
+    <TD>\x89\xf9
+    <TD>\x8a\xfa
+    <TD>\x89\xfd=20
+  <TR>
+    <TD>21
+    <TD>\x89\x8d
+    <TD>\x89\x8d\xea
+    <TD>\x89\x8d\xef
+    <TD>\x8a\x8d
+    <TD>\x89\x8d\xf2
+    <TD>\x8b\x8d
+    <TD>\x8c\x8d
+    <TD>\x89\x8d\xf7
+    <TD>\x89\x8d\xe8
+    <TD>\x89\x8d\xf9
+    <TD>\x8a\x8d\xfa
+    <TD>\x89\x8d\xfd=20
+  <TR>
+    <TD>22
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>23
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>24
+    <TD>\x91
+    <TD>\x92
+    <TD>\x67\xf1
+    <TD>\x67
+    <TD>\x67\xf5
+    <TD>\x91\xe9
+    <TD>\xc8
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>25
+    <TD>\x95
+    <TD>\x95\xea
+    <TD>\x96\xf0
+    <TD>\x96
+    <TD>\x96\xf3
+    <TD>\x97
+    <TD>\x98
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>26
+    <TD>\x73
+    <TD>\x73\xea
+    <TD>\x73\xef
+    <TD>\x9a
+    <TD>\x73\xf2
+    <TD>\x9b
+    <TD>\x9c
+    <TD>\x9a\xfa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>27
+    <TD>\x9d
+    <TD>\x9d\xee
+    <TD>\x9d\xf1
+    <TD>\x90
+    <TD>\x9d\xf5
+    <TD>\x9f
+    <TD>\xa1
+    <TD>\x90\xfc
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>28
+    <TD>\xa2
+    <TD>\xa3
+    <TD>\xa4
+    <TD>\xa5
+    <TD>\xa6
+    <TD>\xa7
+    <TD>\xa8
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>29
+    <TD>\xa9
+    <TD>\xaa\xea
+    <TD>\xaa\xef
+    <TD>\xaa
+    <TD>\xab
+    <TD>\xa9\xf6
+    <TD>\xac
+    <TD>\xa9\xfa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>30
+    <TD>\xa9\xc2
+    <TD>\xaa\xc2\xea
+    <TD>\xaa\xc2\xf0
+    <TD>\xaa\xc2
+    <TD>\xab\xc2
+    <TD>\xa9\xc2\xf6
+    <TD>\xac\xc2
+    <TD>\xa9\xc2\xfa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>31
+    <TD>\xad
+    <TD>\xae\xec
+    <TD>\xae\xf0
+    <TD>\xae
+    <TD>\xaf
+    <TD>\xb0
+    <TD>\xb1
+    <TD>\xad\xfa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>32
+    <TD>\xb2
+    <TD>\xb2\xe9
+    <TD>\xb2\xef
+    <TD>\xb3
+    <TD>\xb2\xf3
+    <TD>\xb4
+    <TD>\xb5
+    <TD>\xb2\xf7
+    <TD>\xb2\xe8
+    <TD>\xb2\xf9
+    <TD>\xb6
+    <TD>\xb2\xfd=20
+  <TR>
+    <TD>33
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>34
+    <TD>\xb2\x7a
+    <TD>\xb2\x7a\xe9
+    <TD>\xb2\x7a\xef
+    <TD>\xb3\x7a
+    <TD>\xb2\x7a\xf3
+    <TD>\xb4\x7a
+    <TD>\xb5\x7a
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>35
+    <TD>\xb7
+    <TD>\xb7\xea
+    <TD>\xb7\xef
+    <TD>\xb8
+    <TD>\xb7\xf2
+    <TD>\xb9
+    <TD>\xba
+    <TD>\xb8\xfa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>36
+    <TD>\xbb
+    <TD>\xbb\xec
+    <TD>\xbc
+    <TD>\xbd
+    <TD>\xbe
+    <TD>\xbf
+    <TD>\xc0
+    <TD>\xc1
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>37
+    <TD>\xc3\xc2
+    <TD>\xc3\xc2\xea
+    <TD>\xc3\xc2\xef
+    <TD>\xc4\xc2
+    <TD>\xc3\xc2\xed
+    <TD>\xc3\xc2\xf6
+    <TD>\xc5\xc2
+    <TD>\xc4\xc2\xfa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>38
+    <TD>\xc3
+    <TD>\xc3\xea
+    <TD>\xc3\xef
+    <TD>\xc4
+    <TD>\xc3\xed
+    <TD>\xc3\xf6
+    <TD>\xc5
+    <TD>\xc4\xfa
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>39
+    <TD>\x95\xc6
+    <TD>\x95\xc6\xea
+    <TD>\xc7\xef
+    <TD>\xc7
+    <TD>\xc7\xf3
+    <TD>\x97\xc6
+    <TD>\xc9
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>40
+    <TD>\xca
+    <TD>\xcb
+    <TD>\xcc
+    <TD>\xcd
+    <TD>\xce
+    <TD>\xcf
+    <TD>\xd0
+    <TD>\xcd\xfc
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>41
+    <TD>\xd1
+    <TD>\xd1\xee
+    <TD>\xd1\xf1
+    <TD>\xd2
+    <TD>\xd1\xf5
+    <TD>\xd3
+    <TD>\xd4
+    <TD>\xd1\xfc
+    <TD>
+    <TD>
+    <TD>
+    <TD></TR></TBODY></TABLE><BR><BR>
+<H3>Table of Tfanus (Yada) Character Encodings (in Hexidecimal)</H3>
+<TABLE border=3D1>
+  <TBODY>
+  <TR>
+    <TD>
+    <TD>1
+    <TD>2
+    <TD>3
+    <TD>4
+    <TD>5
+    <TD>6
+    <TD>7
+    <TD>8
+    <TD>9
+    <TD>10
+    <TD>11
+    <TD>12=20
+  <TR>
+    <TD>1
+    <TD>\xc0
+    <TD>\xc0\xf1
+    <TD>\x40\xda
+    <TD>\x40
+    <TD>\x40\xdd
+    <TD>\x41
+    <TD>\x42
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>2
+    <TD>\xc1
+    <TD>\xc1\xf1
+    <TD>\xc1\xf2
+    <TD>\x43
+    <TD>\xc1\xf4
+    <TD>\x44
+    <TD>\xc1\xf8
+    <TD>\x43\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>3
+    <TD>\xc2
+    <TD>\xc2\xf1
+    <TD>\xc2\xf2
+    <TD>\x45
+    <TD>\xc2\xf4
+    <TD>\x46
+    <TD>\x47
+    <TD>\x46\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>4
+    <TD>\xc3
+    <TD>\xc3\xf1
+    <TD>\x48\xf2
+    <TD>\x48
+    <TD>\x48\xf4
+    <TD>\x49
+    <TD>\x4a
+    <TD>\x48\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>5
+    <TD>\xc4
+    <TD>\xc4\xf1
+    <TD>\x4b\xf2
+    <TD>\x4b
+    <TD>\x4b\xf4
+    <TD>\x4c
+    <TD>\x4d
+    <TD>\x4b\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>6
+    <TD>\xc5
+    <TD>\x4e
+    <TD>\x4f
+    <TD>\x50
+    <TD>\x51
+    <TD>\x52
+    <TD>\x53
+    <TD>\x50\xbf
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>7
+    <TD>\xc6
+    <TD>\xc6\xf1
+    <TD>\xc6\xf2
+    <TD>\x54
+    <TD>\xc6\xf4
+    <TD>\x55
+    <TD>\x56
+    <TD>\x54\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>8
+    <TD>\xc7
+    <TD>\xc7\xf1
+    <TD>\xc7\xf2
+    <TD>\x57
+    <TD>\xc7\xf4
+    <TD>\x58
+    <TD>\x59
+    <TD>\x57\xf0
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>9
+    <TD>\xc8
+    <TD>\xc8\x23
+    <TD>\xc8\xda
+    <TD>\x5a
+    <TD>\xc8\xdd
+    <TD>\x5b
+    <TD>\x5c
+    <TD>\xc8\x3e
+    <TD>\xc8\xfa
+    <TD>\xc8\xfa
+    <TD>\xc8\xf0
+    <TD>\xc8\xf7=20
+  <TR>
+    <TD>10
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>11
+    <TD>\xc9
+    <TD>\xc9\x23
+    <TD>\xc9\xda
+    <TD>\x5d
+    <TD>\xc9\xdd
+    <TD>\x5e
+    <TD>\x5f
+    <TD>\xc9\x3e
+    <TD>\xc9\xfa
+    <TD>\xc9\xfa
+    <TD>\xc9\xf0
+    <TD>\xc9\xf7=20
+  <TR>
+    <TD>12
+    <TD>\xca
+    <TD>\xca\xf1
+    <TD>\xca\xf2
+    <TD>\x60
+    <TD>\xca\xf4
+    <TD>\x61
+    <TD>\x62
+    <TD>\x60\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>13
+    <TD>\xcb
+    <TD>\xcb\xf1
+    <TD>\xcb\xf2
+    <TD>\x63
+    <TD>\xcb\xf4
+    <TD>\x64
+    <TD>\x65
+    <TD>\x63\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>14
+    <TD>\xcc
+    <TD>\xcc\x23
+    <TD>\xcc\xda
+    <TD>\x66
+    <TD>\xcc\xdd
+    <TD>\x67
+    <TD>\x68
+    <TD>\xcc\xf0
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>15
+    <TD>\xcd
+    <TD>\xcd\x23
+    <TD>\xcd\xda
+    <TD>\x69
+    <TD>\xcd\xdd
+    <TD>\x6a
+    <TD>\x6b
+    <TD>\xcd\xf0
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>16
+    <TD>\xce
+    <TD>\xce\xf1
+    <TD>\xce\xf2
+    <TD>\x6c
+    <TD>\xce\xf4
+    <TD>\x6d
+    <TD>\x6e
+    <TD>\xce\xf8
+    <TD>\xce\xfa
+    <TD>\xce\xfa
+    <TD>\x6f
+    <TD>\xce\xfc=20
+  <TR>
+    <TD>17
+    <TD>\xcf
+    <TD>\xcf\xf1
+    <TD>\xcf\xf2
+    <TD>\x70
+    <TD>\xcf\xf4
+    <TD>\x71
+    <TD>\x72
+    <TD>\x70\xf0
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>18
+    <TD>\xd0
+    <TD>\xd0\x23
+    <TD>\xd0\xda
+    <TD>\x73
+    <TD>\xd0\xdd
+    <TD>\x74
+    <TD>\x75
+    <TD>\x73\xf0
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>19
+    <TD>\xd1
+    <TD>\xd1\xf1
+    <TD>\xd1\xf2
+    <TD>\x76
+    <TD>\xd1\xf4
+    <TD>\x77
+    <TD>\x78
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>20
+    <TD>\xd2
+    <TD>\xd2\xf1
+    <TD>\xd2\xf2
+    <TD>\x79
+    <TD>\xd2\xf4
+    <TD>\x7a
+    <TD>\x7b
+    <TD>\xd2\xf8
+    <TD>\xd2\xfa
+    <TD>\xd2\xfa
+    <TD>\x79\xfb
+    <TD>\xd2\xfc=20
+  <TR>
+    <TD>21
+    <TD>\xd3
+    <TD>\xd3\xf1
+    <TD>\xd3\xf2
+    <TD>\x7c
+    <TD>\xd3\xf4
+    <TD>\x7d
+    <TD>\x7e
+    <TD>\xd3\xf8
+    <TD>\xd3\xfa
+    <TD>\xd3\xfa
+    <TD>\x7c\xfb
+    <TD>\xd3\xfc=20
+  <TR>
+    <TD>22
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>23
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>24
+    <TD>\xd4
+    <TD>\xd4\xf1
+    <TD>\xf5\xda
+    <TD>\xf5
+    <TD>\xf5\xdd
+    <TD>\x80
+    <TD>\x81
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>25
+    <TD>\xd5
+    <TD>\xd5\xf1
+    <TD>\x82\xda
+    <TD>\x82
+    <TD>\x82\xdd
+    <TD>\x83
+    <TD>\x84
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>26
+    <TD>\xd6
+    <TD>\xd6\xf1
+    <TD>\xd6\xf2
+    <TD>\x85
+    <TD>\xd6\xf4
+    <TD>\x86
+    <TD>\x87
+    <TD>\x85\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>27
+    <TD>\xd7
+    <TD>\xd7\x23
+    <TD>\xd7\xda
+    <TD>\x88
+    <TD>\xd7\xdd
+    <TD>\x89
+    <TD>\x8a
+    <TD>\x88\xf0
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>28
+    <TD>\xd8
+    <TD>\xd8\x23
+    <TD>\x8b
+    <TD>\x8c
+    <TD>\xd8\x3e
+    <TD>\x8d
+    <TD>\x8e
+    <TD>\xd8\xf0
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>29
+    <TD>\xd9
+    <TD>\x8f\xf1
+    <TD>\x8f\xf2
+    <TD>\x8f
+    <TD>\x8f\xf4
+    <TD>\x90
+    <TD>\x91
+    <TD>\x8f\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>30
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>31
+    <TD>\xdb
+    <TD>\x92\xf1
+    <TD>\x92\xf2
+    <TD>\x92
+    <TD>\x92\xf4
+    <TD>\x93
+    <TD>\x94
+    <TD>\x92\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>32
+    <TD>\xdc
+    <TD>\xdc\xf1
+    <TD>\xdc\xf2
+    <TD>\x95
+    <TD>\xdc\xf4
+    <TD>\x96
+    <TD>\x97
+    <TD>\xdc\xf8
+    <TD>\xdc\xfa
+    <TD>\xdc\xfa
+    <TD>\x98
+    <TD>\xdc\xfc=20
+  <TR>
+    <TD>33
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>34
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>35
+    <TD>\xde
+    <TD>\xde\xf1
+    <TD>\xde\xf2
+    <TD>\x99
+    <TD>\xde\xf4
+    <TD>\x9a
+    <TD>\x9b
+    <TD>\x99\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>36
+    <TD>\xdf
+    <TD>\x9c
+    <TD>\x9d
+    <TD>\x9e
+    <TD>\x9f
+    <TD>\xbc
+    <TD>\xbd
+    <TD>\xbe
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>37
+    <TD>\xe0
+    <TD>\xe0\xf1
+    <TD>\xe0\xf2
+    <TD>\xe8
+    <TD>\xe0\xf4
+    <TD>\xe9
+    <TD>\xea
+    <TD>\xe8\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>38
+    <TD>\xe1
+    <TD>\xe1\xf1
+    <TD>\xe1\xf2
+    <TD>\xeb
+    <TD>\xe1\xf4
+    <TD>\xec
+    <TD>\xed
+    <TD>\xeb\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>39
+    <TD>\xe2
+    <TD>\xe2\xf1
+    <TD>\xee\xf2
+    <TD>\xee
+    <TD>\xee\xf4
+    <TD>\xef
+    <TD>\xfd
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>40
+    <TD>\xe3
+    <TD>\xfe
+    <TD>\xff
+    <TD>\x26
+    <TD>\x3a
+    <TD>\x3b
+    <TD>\x3c
+    <TD>\x26\xf0
+    <TD>
+    <TD>
+    <TD>
+    <TD>
+  <TR>
+    <TD>41
+    <TD>\xe4
+    <TD>\xe4\x23
+    <TD>\xe4\xda
+    <TD>\xe5
+    <TD>\xe4\xdd
+    <TD>\xe6
+    <TD>\xe7
+    <TD>\xe6\xfb
+    <TD>
+    <TD>
+    <TD>
+    <TD></TR></TBODY></TABLE>
+<H3>Table of Phonetic Systems/GeezGate Glyphs</H3>
+<TABLE border=3D1>
+  <TBODY>
+  <TR>
+    <TD>
+    <TD>1
+    <TD>2
+    <TD>3
+    <TD>4
+    <TD>5
+    <TD>6
+    <TD>7
+    <TD>8
+    <TD>9
+    <TD>10
+    <TD>11
+    <TD>12=20
+  <TR>
+    <TD>1
+    <TD><FONT face=3DGeezTypeNet>@</FONT>
+    <TD><FONT face=3DGeezTypeNet>@=E9</FONT>
+    <TD><FONT face=3DGeezTypeNet>A=F0</FONT>
+    <TD><FONT face=3DGeezTypeNet>A</FONT>
+    <TD><FONT face=3DGeezTypeNet>A=F4</FONT>
+    <TD><FONT face=3DGeezTypeNet>B</FONT>
+    <TD><FONT face=3DGeezTypeNet>C</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>2
+    <TD><FONT face=3DGeezTypeNet>D</FONT>
+    <TD><FONT face=3DGeezTypeNet>D=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>D=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>E</FONT>
+    <TD><FONT face=3DGeezTypeNet>D=ED</FONT>
+    <TD><FONT face=3DGeezTypeNet>F</FONT>
+    <TD><FONT face=3DGeezTypeNet>D=F7</FONT>
+    <TD><FONT face=3DGeezTypeNet>E=FB</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>3
+    <TD><FONT face=3DGeezTypeNet>G</FONT>
+    <TD><FONT face=3DGeezTypeNet>G=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>G=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>H</FONT>
+    <TD><FONT face=3DGeezTypeNet>G=ED</FONT>
+    <TD><FONT face=3DGeezTypeNet>I</FONT>
+    <TD><FONT face=3DGeezTypeNet>J</FONT>
+    <TD><FONT face=3DGeezTypeNet>H=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>4
+    <TD><FONT face=3DGeezTypeNet>K</FONT>
+    <TD><FONT face=3DGeezTypeNet>K=E9</FONT>
+    <TD><FONT face=3DGeezTypeNet>L=F0</FONT>
+    <TD><FONT face=3DGeezTypeNet>L</FONT>
+    <TD><FONT face=3DGeezTypeNet>L=F4</FONT>
+    <TD><FONT face=3DGeezTypeNet>M</FONT>
+    <TD><FONT face=3DGeezTypeNet>N</FONT>
+    <TD><FONT face=3DGeezTypeNet>L=FC</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>5
+    <TD><FONT face=3DGeezTypeNet>O</FONT>
+    <TD><FONT face=3DGeezTypeNet>O=E9</FONT>
+    <TD><FONT face=3DGeezTypeNet>P=F0</FONT>
+    <TD><FONT face=3DGeezTypeNet>P</FONT>
+    <TD><FONT face=3DGeezTypeNet>P=F4</FONT>
+    <TD><FONT face=3DGeezTypeNet>Q</FONT>
+    <TD><FONT face=3DGeezTypeNet>R</FONT>
+    <TD><FONT face=3DGeezTypeNet>P=FB</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>6
+    <TD><FONT face=3DGeezTypeNet>S</FONT>
+    <TD><FONT face=3DGeezTypeNet>T</FONT>
+    <TD><FONT face=3DGeezTypeNet>U</FONT>
+    <TD><FONT face=3DGeezTypeNet>V</FONT>
+    <TD><FONT face=3DGeezTypeNet>W</FONT>
+    <TD><FONT face=3DGeezTypeNet>X</FONT>
+    <TD><FONT face=3DGeezTypeNet>Y</FONT>
+    <TD><FONT face=3DGeezTypeNet>Z</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>7
+    <TD><FONT face=3DGeezTypeNet>[</FONT>
+    <TD><FONT face=3DGeezTypeNet>[=E9</FONT>
+    <TD><FONT face=3DGeezTypeNet>[=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>\</FONT>
+    <TD><FONT face=3DGeezTypeNet>[=F2</FONT>
+    <TD><FONT face=3DGeezTypeNet>]</FONT>
+    <TD><FONT face=3DGeezTypeNet>^</FONT>
+    <TD><FONT face=3DGeezTypeNet>\=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>8
+    <TD><FONT face=3DGeezTypeNet>_</FONT>
+    <TD><FONT face=3DGeezTypeNet>_=EC</FONT>
+    <TD><FONT face=3DGeezTypeNet>_=F0</FONT>
+    <TD><FONT face=3DGeezTypeNet>`</FONT>
+    <TD><FONT face=3DGeezTypeNet>_=F4</FONT>
+    <TD><FONT face=3DGeezTypeNet>a</FONT>
+    <TD><FONT face=3DGeezTypeNet>b</FONT>
+    <TD><FONT face=3DGeezTypeNet>`=FC</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>9
+    <TD><FONT face=3DGeezTypeNet>c</FONT>
+    <TD><FONT face=3DGeezTypeNet>c=EB</FONT>
+    <TD><FONT face=3DGeezTypeNet>c=F1</FONT>
+    <TD><FONT face=3DGeezTypeNet>d</FONT>
+    <TD><FONT face=3DGeezTypeNet>c=F5</FONT>
+    <TD><FONT face=3DGeezTypeNet>e</FONT>
+    <TD><FONT face=3DGeezTypeNet>f</FONT>
+    <TD><FONT face=3DGeezTypeNet>c=F8</FONT>
+    <TD><FONT face=3DGeezTypeNet>c=FF</FONT>
+    <TD><FONT face=3DGeezTypeNet>c=F9</FONT>
+    <TD><FONT face=3DGeezTypeNet>c=FC</FONT>
+    <TD><FONT face=3DGeezTypeNet>c=FE </FONT>
+  <TR>
+    <TD>10
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>11
+    <TD><FONT face=3DGeezTypeNet>ch</FONT>
+    <TD><FONT face=3DGeezTypeNet>ch=EB</FONT>
+    <TD><FONT face=3DGeezTypeNet>ch=F1</FONT>
+    <TD><FONT face=3DGeezTypeNet>dh</FONT>
+    <TD><FONT face=3DGeezTypeNet>ch=F5</FONT>
+    <TD><FONT face=3DGeezTypeNet>i</FONT>
+    <TD><FONT face=3DGeezTypeNet>j</FONT>
+    <TD><FONT face=3DGeezTypeNet>ch=F8</FONT>
+    <TD><FONT face=3DGeezTypeNet>ch=E8</FONT>
+    <TD><FONT face=3DGeezTypeNet>ch=F9</FONT>
+    <TD><FONT face=3DGeezTypeNet>ch=FC</FONT>
+    <TD><FONT face=3DGeezTypeNet>ch=FE </FONT>
+  <TR>
+    <TD>12
+    <TD><FONT face=3DGeezTypeNet>k</FONT>
+    <TD><FONT face=3DGeezTypeNet>k=E9</FONT>
+    <TD><FONT face=3DGeezTypeNet>k=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>l</FONT>
+    <TD><FONT face=3DGeezTypeNet>k=F2</FONT>
+    <TD><FONT face=3DGeezTypeNet>mk</FONT>
+    <TD><FONT face=3DGeezTypeNet>n</FONT>
+    <TD><FONT face=3DGeezTypeNet>l=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>13
+    <TD><FONT face=3DGeezTypeNet>kz</FONT>
+    <TD><FONT face=3DGeezTypeNet>kz=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>kz=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>lz</FONT>
+    <TD><FONT face=3DGeezTypeNet>kz=F2</FONT>
+    <TD><FONT face=3DGeezTypeNet>mkz</FONT>
+    <TD><FONT face=3DGeezTypeNet>nz</FONT>
+    <TD><FONT face=3DGeezTypeNet>lz=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>14
+    <TD><FONT face=3DGeezTypeNet>o</FONT>
+    <TD><FONT face=3DGeezTypeNet>o=EB</FONT>
+    <TD><FONT face=3DGeezTypeNet>o=F1</FONT>
+    <TD><FONT face=3DGeezTypeNet>p</FONT>
+    <TD><FONT face=3DGeezTypeNet>o=F5</FONT>
+    <TD><FONT face=3DGeezTypeNet>q</FONT>
+    <TD><FONT face=3DGeezTypeNet>r</FONT>
+    <TD><FONT face=3DGeezTypeNet>o=FC</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>15
+    <TD><FONT face=3DGeezTypeNet>oh</FONT>
+    <TD><FONT face=3DGeezTypeNet>oh=EB</FONT>
+    <TD><FONT face=3DGeezTypeNet>oh=F1</FONT>
+    <TD><FONT face=3DGeezTypeNet>ph</FONT>
+    <TD><FONT face=3DGeezTypeNet>oh=F5</FONT>
+    <TD><FONT face=3DGeezTypeNet>u</FONT>
+    <TD><FONT face=3DGeezTypeNet>v</FONT>
+    <TD><FONT face=3DGeezTypeNet>oh=FC</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>16
+    <TD><FONT face=3DGeezTypeNet>w</FONT>
+    <TD><FONT face=3DGeezTypeNet>w=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>w=F0</FONT>
+    <TD><FONT face=3DGeezTypeNet>x</FONT>
+    <TD><FONT face=3DGeezTypeNet>w=F3</FONT>
+    <TD><FONT face=3DGeezTypeNet>y</FONT>
+    <TD><FONT face=3DGeezTypeNet>m~</FONT>
+    <TD><FONT face=3DGeezTypeNet>w=F7</FONT>
+    <TD><FONT face=3DGeezTypeNet>w=FF</FONT>
+    <TD><FONT face=3DGeezTypeNet>w=F9</FONT>
+    <TD><FONT face=3DGeezTypeNet>w=FB</FONT>
+    <TD><FONT face=3DGeezTypeNet>w=FD </FONT>
+  <TR>
+    <TD>17
+    <TD><FONT face=3DGeezTypeNet>{</FONT>
+    <TD><FONT face=3DGeezTypeNet>{=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>{=F0</FONT>
+    <TD><FONT face=3DGeezTypeNet>|</FONT>
+    <TD><FONT face=3DGeezTypeNet>{=F3</FONT>
+    <TD><FONT face=3DGeezTypeNet>}</FONT>
+    <TD><FONT face=3DGeezTypeNet>~</FONT>
+    <TD><FONT face=3DGeezTypeNet>|=FC</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>18
+    <TD><FONT face=3DGeezTypeNet>=8F</FONT>
+    <TD><FONT face=3DGeezTypeNet>=8F=EC</FONT>
+    <TD><FONT face=3DGeezTypeNet>=8F=F1</FONT>
+    <TD><FONT face=3DGeezTypeNet>=81</FONT>
+    <TD><FONT face=3DGeezTypeNet>=8F=F5</FONT>
+    <TD><FONT face=3DGeezTypeNet>=82</FONT>
+    <TD><FONT face=3DGeezTypeNet>=83</FONT>
+    <TD><FONT face=3DGeezTypeNet>=81=FC</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>19
+    <TD><FONT face=3DGeezTypeNet>=84</FONT>
+    <TD><FONT face=3DGeezTypeNet>=84=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=84=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=85</FONT>
+    <TD><FONT face=3DGeezTypeNet>=84=ED</FONT>
+    <TD><FONT face=3DGeezTypeNet>=86</FONT>
+    <TD><FONT face=3DGeezTypeNet>=87</FONT>
+    <TD><FONT face=3DGeezTypeNet>=88</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>20
+    <TD><FONT face=3DGeezTypeNet>=89</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=8A</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=F2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=8B</FONT>
+    <TD><FONT face=3DGeezTypeNet>=8C</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=F7</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=E8</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=F9</FONT>
+    <TD><FONT face=3DGeezTypeNet>=8A=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=FD </FONT>
+  <TR>
+    <TD>21
+    <TD><FONT face=3DGeezTypeNet>=89=8D</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=8D=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=8D=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=8A=8D</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=8D=F2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=8B=8D</FONT>
+    <TD><FONT face=3DGeezTypeNet>=8C=8D</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=8D=F7</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=8D=E8</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=8D=F9</FONT>
+    <TD><FONT face=3DGeezTypeNet>=8A=8D=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=89=8D=FD </FONT>
+  <TR>
+    <TD>22
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>23
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>24
+    <TD><FONT face=3DGeezTypeNet>=91</FONT>
+    <TD><FONT face=3DGeezTypeNet>=92</FONT>
+    <TD><FONT face=3DGeezTypeNet>g=F1</FONT>
+    <TD><FONT face=3DGeezTypeNet>g</FONT>
+    <TD><FONT face=3DGeezTypeNet>g=F5</FONT>
+    <TD><FONT face=3DGeezTypeNet>=91=E9</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C8</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>25
+    <TD><FONT face=3DGeezTypeNet>=95</FONT>
+    <TD><FONT face=3DGeezTypeNet>=95=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=96=F0</FONT>
+    <TD><FONT face=3DGeezTypeNet>=96</FONT>
+    <TD><FONT face=3DGeezTypeNet>=96=F3</FONT>
+    <TD><FONT face=3DGeezTypeNet>=97</FONT>
+    <TD><FONT face=3DGeezTypeNet>=98</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>26
+    <TD><FONT face=3DGeezTypeNet>s</FONT>
+    <TD><FONT face=3DGeezTypeNet>s=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>s=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=9A</FONT>
+    <TD><FONT face=3DGeezTypeNet>s=F2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=9B</FONT>
+    <TD><FONT face=3DGeezTypeNet>=9C</FONT>
+    <TD><FONT face=3DGeezTypeNet>=9A=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>27
+    <TD><FONT face=3DGeezTypeNet>=9D</FONT>
+    <TD><FONT face=3DGeezTypeNet>=9D=EE</FONT>
+    <TD><FONT face=3DGeezTypeNet>=9D=F1</FONT>
+    <TD><FONT face=3DGeezTypeNet>=90</FONT>
+    <TD><FONT face=3DGeezTypeNet>=9D=F5</FONT>
+    <TD><FONT face=3DGeezTypeNet>=9F</FONT>
+    <TD><FONT face=3DGeezTypeNet>=A1</FONT>
+    <TD><FONT face=3DGeezTypeNet>=90=FC</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>28
+    <TD><FONT face=3DGeezTypeNet>=A2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=A3</FONT>
+    <TD><FONT face=3DGeezTypeNet>=A4</FONT>
+    <TD><FONT face=3DGeezTypeNet>=A5</FONT>
+    <TD><FONT face=3DGeezTypeNet>=A6</FONT>
+    <TD><FONT face=3DGeezTypeNet>=A7</FONT>
+    <TD><FONT face=3DGeezTypeNet>=A8</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>29
+    <TD><FONT face=3DGeezTypeNet>=A9</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AA=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AA=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AB</FONT>
+    <TD><FONT face=3DGeezTypeNet>=A9=F6</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AC</FONT>
+    <TD><FONT face=3DGeezTypeNet>=A9=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>30
+    <TD><FONT face=3DGeezTypeNet>=A9=C2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AA=C2=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AA=C2=F0</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AA=C2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AB=C2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=A9=C2=F6</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AC=C2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=A9=C2=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>31
+    <TD><FONT face=3DGeezTypeNet>&shy;</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AE=EC</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AE=F0</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AE</FONT>
+    <TD><FONT face=3DGeezTypeNet>=AF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B0</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B1</FONT>
+    <TD><FONT face=3DGeezTypeNet>&shy;=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>32
+    <TD><FONT face=3DGeezTypeNet>=B2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B2=E9</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B2=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B3</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B2=F3</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B4</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B5</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B2=F7</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B2=E8</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B2=F9</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B6</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B2=FD </FONT>
+  <TR>
+    <TD>33
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>34
+    <TD><FONT face=3DGeezTypeNet>=B2z</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B2z=E9</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B2z=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B3z</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B2z=F3</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B4z</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B5z</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>35
+    <TD><FONT face=3DGeezTypeNet>=B7</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B7=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B7=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B8</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B7=F2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B9</FONT>
+    <TD><FONT face=3DGeezTypeNet>=BA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=B8=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>36
+    <TD><FONT face=3DGeezTypeNet>=BB</FONT>
+    <TD><FONT face=3DGeezTypeNet>=BB=EC</FONT>
+    <TD><FONT face=3DGeezTypeNet>=BC</FONT>
+    <TD><FONT face=3DGeezTypeNet>=BD</FONT>
+    <TD><FONT face=3DGeezTypeNet>=BE</FONT>
+    <TD><FONT face=3DGeezTypeNet>=BF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C0</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C1</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>37
+    <TD><FONT face=3DGeezTypeNet>=C3=C2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C3=C2=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C3=C2=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C4=C2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C3=C2=ED</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C3=C2=F6</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C5=C2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C4=C2=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>38
+    <TD><FONT face=3DGeezTypeNet>=C3</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C3=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C3=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C4</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C3=ED</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C3=F6</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C5</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C4=FA</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>39
+    <TD><FONT face=3DGeezTypeNet>=95=C6</FONT>
+    <TD><FONT face=3DGeezTypeNet>=95=C6=EA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C7=EF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C7</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C7=F3</FONT>
+    <TD><FONT face=3DGeezTypeNet>=97=C6</FONT>
+    <TD><FONT face=3DGeezTypeNet>=C9</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>40
+    <TD><FONT face=3DGeezTypeNet>=CA</FONT>
+    <TD><FONT face=3DGeezTypeNet>=CB</FONT>
+    <TD><FONT face=3DGeezTypeNet>=CC</FONT>
+    <TD><FONT face=3DGeezTypeNet>=CD</FONT>
+    <TD><FONT face=3DGeezTypeNet>=CE</FONT>
+    <TD><FONT face=3DGeezTypeNet>=CF</FONT>
+    <TD><FONT face=3DGeezTypeNet>=D0</FONT>
+    <TD><FONT face=3DGeezTypeNet>=CD=FC</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+  <TR>
+    <TD>41
+    <TD><FONT face=3DGeezTypeNet>=D1</FONT>
+    <TD><FONT face=3DGeezTypeNet>=D1=EE</FONT>
+    <TD><FONT face=3DGeezTypeNet>=D1=F1</FONT>
+    <TD><FONT face=3DGeezTypeNet>=D2</FONT>
+    <TD><FONT face=3DGeezTypeNet>=D1=F5</FONT>
+    <TD><FONT face=3DGeezTypeNet>=D3</FONT>
+    <TD><FONT face=3DGeezTypeNet>=D4</FONT>
+    <TD><FONT face=3DGeezTypeNet>=D1=FC</FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT>
+    <TD><FONT face=3DGeezTypeNet></FONT></TR></TBODY></TABLE>
+<H3>Table of Tfanus/Yada Glyphs</H3>
+<TABLE border=3D1>
+  <TBODY>
+  <TR>
+    <TD>
+    <TD>1
+    <TD>2
+    <TD>3
+    <TD>4
+    <TD>5
+    <TD>6
+    <TD>7
+    <TD>8
+    <TD>9
+    <TD>10
+    <TD>11
+    <TD>12=20
+  <TR>
+    <TD>1
+    <TD><FONT face=3DGeezTimesNew>=C0</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C0=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>@=DA</FONT>
+    <TD><FONT face=3DGeezTimesNew>@</FONT>
+    <TD><FONT face=3DGeezTimesNew>@=DD</FONT>
+    <TD><FONT face=3DGeezTimesNew>A</FONT>
+    <TD><FONT face=3DGeezTimesNew>B</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>2
+    <TD><FONT face=3DGeezTimesNew>=C1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C1=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C1=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>C</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C1=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>D</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C1=F8</FONT>
+    <TD><FONT face=3DGeezTimesNew>C=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>3
+    <TD><FONT face=3DGeezTimesNew>=C2</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C2=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C2=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>E</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C2=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>F</FONT>
+    <TD><FONT face=3DGeezTimesNew>G</FONT>
+    <TD><FONT face=3DGeezTimesNew>F=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>4
+    <TD><FONT face=3DGeezTimesNew>=C3</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C3=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>H=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>H</FONT>
+    <TD><FONT face=3DGeezTimesNew>H=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>I</FONT>
+    <TD><FONT face=3DGeezTimesNew>J</FONT>
+    <TD><FONT face=3DGeezTimesNew>H=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>5
+    <TD><FONT face=3DGeezTimesNew>=C4</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C4=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>K=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>K</FONT>
+    <TD><FONT face=3DGeezTimesNew>K=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>L</FONT>
+    <TD><FONT face=3DGeezTimesNew>M</FONT>
+    <TD><FONT face=3DGeezTimesNew>K=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>6
+    <TD><FONT face=3DGeezTimesNew>=C5</FONT>
+    <TD><FONT face=3DGeezTimesNew>N</FONT>
+    <TD><FONT face=3DGeezTimesNew>O</FONT>
+    <TD><FONT face=3DGeezTimesNew>P</FONT>
+    <TD><FONT face=3DGeezTimesNew>Q</FONT>
+    <TD><FONT face=3DGeezTimesNew>R</FONT>
+    <TD><FONT face=3DGeezTimesNew>S</FONT>
+    <TD><FONT face=3DGeezTimesNew>P=BF</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>7
+    <TD><FONT face=3DGeezTimesNew>=C6</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C6=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C6=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>T</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C6=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>U</FONT>
+    <TD><FONT face=3DGeezTimesNew>V</FONT>
+    <TD><FONT face=3DGeezTimesNew>T=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>8
+    <TD><FONT face=3DGeezTimesNew>=C7</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C7=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C7=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>W</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C7=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>X</FONT>
+    <TD><FONT face=3DGeezTimesNew>Y</FONT>
+    <TD><FONT face=3DGeezTimesNew>W=F0</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>9
+    <TD><FONT face=3DGeezTimesNew>=C8</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C8#</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C8=DA</FONT>
+    <TD><FONT face=3DGeezTimesNew>Z</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C8=DD</FONT>
+    <TD><FONT face=3DGeezTimesNew>[</FONT>
+    <TD><FONT face=3DGeezTimesNew>\</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C8&gt;</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C8=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C8=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C8=F0</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C8=F7 </FONT>
+  <TR>
+    <TD>10
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>11
+    <TD><FONT face=3DGeezTimesNew>=C9</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C9#</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C9=DA</FONT>
+    <TD><FONT face=3DGeezTimesNew>]</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C9=DD</FONT>
+    <TD><FONT face=3DGeezTimesNew>^</FONT>
+    <TD><FONT face=3DGeezTimesNew>_</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C9&gt;</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C9=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C9=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C9=F0</FONT>
+    <TD><FONT face=3DGeezTimesNew>=C9=F7 </FONT>
+  <TR>
+    <TD>12
+    <TD><FONT face=3DGeezTimesNew>=CA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CA=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CA=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>`</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CA=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>a</FONT>
+    <TD><FONT face=3DGeezTimesNew>b</FONT>
+    <TD><FONT face=3DGeezTimesNew>`=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>13
+    <TD><FONT face=3DGeezTimesNew>=CB</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CB=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CB=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>c</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CB=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>d</FONT>
+    <TD><FONT face=3DGeezTimesNew>e</FONT>
+    <TD><FONT face=3DGeezTimesNew>c=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>14
+    <TD><FONT face=3DGeezTimesNew>=CC</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CC#</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CC=DA</FONT>
+    <TD><FONT face=3DGeezTimesNew>f</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CC=DD</FONT>
+    <TD><FONT face=3DGeezTimesNew>g</FONT>
+    <TD><FONT face=3DGeezTimesNew>h</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CC=F0</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>15
+    <TD><FONT face=3DGeezTimesNew>=CD</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CD#</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CD=DA</FONT>
+    <TD><FONT face=3DGeezTimesNew>i</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CD=DD</FONT>
+    <TD><FONT face=3DGeezTimesNew>j</FONT>
+    <TD><FONT face=3DGeezTimesNew>k</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CD=F0</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>16
+    <TD><FONT face=3DGeezTimesNew>=CE</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CE=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CE=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>l</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CE=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>m</FONT>
+    <TD><FONT face=3DGeezTimesNew>n</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CE=F8</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CE=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CE=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>o</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CE=FC </FONT>
+  <TR>
+    <TD>17
+    <TD><FONT face=3DGeezTimesNew>=CF</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CF=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CF=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>p</FONT>
+    <TD><FONT face=3DGeezTimesNew>=CF=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>q</FONT>
+    <TD><FONT face=3DGeezTimesNew>r</FONT>
+    <TD><FONT face=3DGeezTimesNew>p=F0</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>18
+    <TD><FONT face=3DGeezTimesNew>=D0</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D0#</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D0=DA</FONT>
+    <TD><FONT face=3DGeezTimesNew>s</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D0=DD</FONT>
+    <TD><FONT face=3DGeezTimesNew>t</FONT>
+    <TD><FONT face=3DGeezTimesNew>u</FONT>
+    <TD><FONT face=3DGeezTimesNew>s=F0</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>19
+    <TD><FONT face=3DGeezTimesNew>=D1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D1=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D1=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>v</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D1=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>w</FONT>
+    <TD><FONT face=3DGeezTimesNew>x</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>20
+    <TD><FONT face=3DGeezTimesNew>=D2</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D2=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D2=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>y</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D2=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>z</FONT>
+    <TD><FONT face=3DGeezTimesNew>{</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D2=F8</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D2=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D2=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>y=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D2=FC </FONT>
+  <TR>
+    <TD>21
+    <TD><FONT face=3DGeezTimesNew>=D3</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D3=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D3=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>|</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D3=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>}</FONT>
+    <TD><FONT face=3DGeezTimesNew>~</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D3=F8</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D3=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D3=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>|=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D3=FC </FONT>
+  <TR>
+    <TD>22
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>23
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>24
+    <TD><FONT face=3DGeezTimesNew>=D4</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D4=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=F5=DA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=F5</FONT>
+    <TD><FONT face=3DGeezTimesNew>=F5=DD</FONT>
+    <TD><FONT face=3DGeezTimesNew>=80</FONT>
+    <TD><FONT face=3DGeezTimesNew>=81</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>25
+    <TD><FONT face=3DGeezTimesNew>=D5</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D5=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=82=DA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=82</FONT>
+    <TD><FONT face=3DGeezTimesNew>=82=DD</FONT>
+    <TD><FONT face=3DGeezTimesNew>=83</FONT>
+    <TD><FONT face=3DGeezTimesNew>=84</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>26
+    <TD><FONT face=3DGeezTimesNew>=D6</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D6=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D6=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>=85</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D6=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>=86</FONT>
+    <TD><FONT face=3DGeezTimesNew>=87</FONT>
+    <TD><FONT face=3DGeezTimesNew>=85=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>27
+    <TD><FONT face=3DGeezTimesNew>=D7</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D7#</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D7=DA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=88</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D7=DD</FONT>
+    <TD><FONT face=3DGeezTimesNew>=89</FONT>
+    <TD><FONT face=3DGeezTimesNew>=8A</FONT>
+    <TD><FONT face=3DGeezTimesNew>=88=F0</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>28
+    <TD><FONT face=3DGeezTimesNew>=D8</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D8#</FONT>
+    <TD><FONT face=3DGeezTimesNew>=8B</FONT>
+    <TD><FONT face=3DGeezTimesNew>=8C</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D8&gt;</FONT>
+    <TD><FONT face=3DGeezTimesNew>=8D</FONT>
+    <TD><FONT face=3DGeezTimesNew>=8E</FONT>
+    <TD><FONT face=3DGeezTimesNew>=D8=F0</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>29
+    <TD><FONT face=3DGeezTimesNew>=D9</FONT>
+    <TD><FONT face=3DGeezTimesNew>=8F=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=8F=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>=8F</FONT>
+    <TD><FONT face=3DGeezTimesNew>=8F=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>=90</FONT>
+    <TD><FONT face=3DGeezTimesNew>=91</FONT>
+    <TD><FONT face=3DGeezTimesNew>=8F=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>30
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>31
+    <TD><FONT face=3DGeezTimesNew>=DB</FONT>
+    <TD><FONT face=3DGeezTimesNew>=92=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=92=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>=92</FONT>
+    <TD><FONT face=3DGeezTimesNew>=92=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>=93</FONT>
+    <TD><FONT face=3DGeezTimesNew>=94</FONT>
+    <TD><FONT face=3DGeezTimesNew>=92=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>32
+    <TD><FONT face=3DGeezTimesNew>=DC</FONT>
+    <TD><FONT face=3DGeezTimesNew>=DC=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=DC=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>=95</FONT>
+    <TD><FONT face=3DGeezTimesNew>=DC=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>=96</FONT>
+    <TD><FONT face=3DGeezTimesNew>=97</FONT>
+    <TD><FONT face=3DGeezTimesNew>=DC=F8</FONT>
+    <TD><FONT face=3DGeezTimesNew>=DC=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=DC=FA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=98</FONT>
+    <TD><FONT face=3DGeezTimesNew>=DC=FC </FONT>
+  <TR>
+    <TD>33
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>34
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>35
+    <TD><FONT face=3DGeezTimesNew>=DE</FONT>
+    <TD><FONT face=3DGeezTimesNew>=DE=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=DE=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>=99</FONT>
+    <TD><FONT face=3DGeezTimesNew>=DE=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>=9A</FONT>
+    <TD><FONT face=3DGeezTimesNew>=9B</FONT>
+    <TD><FONT face=3DGeezTimesNew>=99=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>36
+    <TD><FONT face=3DGeezTimesNew>=DF</FONT>
+    <TD><FONT face=3DGeezTimesNew>=9C</FONT>
+    <TD><FONT face=3DGeezTimesNew>=9D</FONT>
+    <TD><FONT face=3DGeezTimesNew>=9E</FONT>
+    <TD><FONT face=3DGeezTimesNew>=9F</FONT>
+    <TD><FONT face=3DGeezTimesNew>=BC</FONT>
+    <TD><FONT face=3DGeezTimesNew>=BD</FONT>
+    <TD><FONT face=3DGeezTimesNew>=BE</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>37
+    <TD><FONT face=3DGeezTimesNew>=E0</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E0=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E0=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E8</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E0=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E9</FONT>
+    <TD><FONT face=3DGeezTimesNew>=EA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E8=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>38
+    <TD><FONT face=3DGeezTimesNew>=E1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E1=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E1=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>=EB</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E1=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>=EC</FONT>
+    <TD><FONT face=3DGeezTimesNew>=ED</FONT>
+    <TD><FONT face=3DGeezTimesNew>=EB=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>39
+    <TD><FONT face=3DGeezTimesNew>=E2</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E2=F1</FONT>
+    <TD><FONT face=3DGeezTimesNew>=EE=F2</FONT>
+    <TD><FONT face=3DGeezTimesNew>=EE</FONT>
+    <TD><FONT face=3DGeezTimesNew>=EE=F4</FONT>
+    <TD><FONT face=3DGeezTimesNew>=EF</FONT>
+    <TD><FONT face=3DGeezTimesNew>=FD</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>40
+    <TD><FONT face=3DGeezTimesNew>=E3</FONT>
+    <TD><FONT face=3DGeezTimesNew>=FE</FONT>
+    <TD><FONT face=3DGeezTimesNew>=FF</FONT>
+    <TD><FONT face=3DGeezTimesNew>&amp;</FONT>
+    <TD><FONT face=3DGeezTimesNew>:</FONT>
+    <TD><FONT face=3DGeezTimesNew>;</FONT>
+    <TD><FONT face=3DGeezTimesNew>&lt;</FONT>
+    <TD><FONT face=3DGeezTimesNew>&amp;=F0</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+  <TR>
+    <TD>41
+    <TD><FONT face=3DGeezTimesNew>=E4</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E4#</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E4=DA</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E5</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E4=DD</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E6</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E7</FONT>
+    <TD><FONT face=3DGeezTimesNew>=E6=FB</FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT face=3DGeezTimesNew></FONT>
+    <TD><FONT =
+face=3DGeezTimesNew></FONT></TR></TBODY></TABLE></BODY></HTML>
