@@ -1,3 +1,0 @@
-OpusApp	                                  RTF
-WordPadClass                          RTF
-FrontPageExplorerWindow40  HTML
